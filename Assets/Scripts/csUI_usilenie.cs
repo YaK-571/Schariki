@@ -31,12 +31,40 @@ public class csUI_usilenie : MonoBehaviour
     [SerializeField] csGraniza_nischnjaja _graniza_niz;
 
     //[SerializeField] csGraniza_nischnjaja _zamerzanie_graniza;
-    
+
 
     private void Start()
     {
+        
+        
+        //ситуация в том, что Game Instance создаётся при открытии игры в меню. далее он не удаляется
+        //но при разработке мы открываем сразу уровень без меню, поэтому гейм инстанс спавнится там
+        //мы обращаемся к нему тут для загрузки данных, но т.к. он спавнится после загрузки уровня
+        //то тут он не успевает создасться до того, как мы к нему обратились
+        //поэтому надо вызвать короутину, которая будет проверять каждый кадр не создался ли game instance
+
+        //OnEnable вместо start использовать не получилось, т.к. оказалось,
+        //что он вызывается не после всех start, а после start  внутри этого конкретного обьекта
+        //получается тут может пройти OnEnable, а в другом обьекте ещё не быть выполненым
+        if (Progress.GameInstance != null)
+        {
+            vuvod_tschislo_usilenij();
+        }
+        else
+        {
+            StartCoroutine(WaitForProgressInstance());
+        }
+    }
+
+    //короутина проверяет не создался ли game instance каждый кадр, а потом вызывает загрузку данных с него
+    private IEnumerator WaitForProgressInstance()
+    {
+        while (Progress.GameInstance == null)
+            yield return null;
+
         vuvod_tschislo_usilenij();
     }
+
     public void Pokaz_usileniy()
     {
         if (actyve)
@@ -55,22 +83,23 @@ public class csUI_usilenie : MonoBehaviour
 
     private void vuvod_tschislo_usilenij()
     {
-        var date = Progress.GameInstance.date;
-        //считывание оставшихся усилений
-        _tschislo_1 = date.usilenie1_minigun;
-        _tschislo_2 = date.usilenie2_arta;
-        _tschislo_3 = date.usilenie3_zamarozka;
-        _tschislo_4 = date.usilenie4_schit;
+       
+          var date = Progress.GameInstance.date;
+         _tschislo_1 = date.usilenie1_minigun;
+          _tschislo_2 = date.usilenie2_arta;
+          _tschislo_3 = date.usilenie3_zamarozka;
+          _tschislo_4 = date.usilenie4_schit;
 
 
-        //отображение числа доступных усилений на кнопках
-        _text1.text = _tschislo_1.ToString();
-        _text2.text = _tschislo_2.ToString();
-        _text3.text = _tschislo_3.ToString();
-        _text4.text = _tschislo_4.ToString();
+          //отображение числа доступных усилений на кнопках
+          _text1.text = _tschislo_1.ToString();
+          _text2.text = _tschislo_2.ToString();
+          _text3.text = _tschislo_3.ToString();
+          _text4.text = _tschislo_4.ToString();
+        
     }
 
-  
+
     //Использование усилений
     public void Minigan()
     {
@@ -111,6 +140,6 @@ public class csUI_usilenie : MonoBehaviour
             vuvod_tschislo_usilenij();
         }
     }
-   
+
 }
 

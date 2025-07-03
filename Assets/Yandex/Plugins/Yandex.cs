@@ -50,7 +50,9 @@ public class Yandex : MonoBehaviour
     //подгрузка имени игрока в игру из яндекса
       public void SetNik(string text)
     {
-        _text_nik.text = text;
+         _text_nik.text = text;
+        
+       
     }
     //подгрузка иконки игрока из яндекса в игру
     //из джаваскрипта происходит подгрузка
@@ -70,7 +72,9 @@ public class Yandex : MonoBehaviour
         }
         else
         {
-            _image.texture = ((DownloadHandlerTexture)request.downloadHandler).texture;
+                           _image.texture = ((DownloadHandlerTexture)request.downloadHandler).texture;
+            
+            
            
         }
     }
