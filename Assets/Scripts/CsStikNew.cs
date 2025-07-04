@@ -14,7 +14,7 @@ using UnityEngine.UI;
 //в моём случае public void OnDrag(PointerEventData eventData)
 public class CsStikNew : MonoBehaviour, IDragHandler, IPointerUpHandler, IPointerDownHandler
 {
-    [SerializeField] GameObject target;
+    [SerializeField] csMove target;
 
     [SerializeField] Image stik1;
     [SerializeField] Image stik2_graniza;
@@ -29,6 +29,7 @@ public class CsStikNew : MonoBehaviour, IDragHandler, IPointerUpHandler, IPointe
     void Start()
     {
         StartPosition = stik1.rectTransform.localPosition;
+        StikPosition = StartPosition;
         // Радиус круга — половина ширины белой зоны (предполагается круглая зона)
         radius_ogranichenie = stik2_graniza.rectTransform.rect.width / 2f;
 
@@ -37,7 +38,10 @@ public class CsStikNew : MonoBehaviour, IDragHandler, IPointerUpHandler, IPointe
     // Update is called once per frame
     void Update()
     {
-
+        if(knopka_naschata)
+        {
+            target.Set_Napravlenie_stik((StikPosition - StartPosition)/ radius_ogranichenie);
+        }
     }
 
     //вызывается когда мы водим пальцем по экрану
@@ -69,12 +73,19 @@ public class CsStikNew : MonoBehaviour, IDragHandler, IPointerUpHandler, IPointe
     //вызывается при нажатии на экран.
     public void OnPointerDown(PointerEventData eventData)
     {
-
+        knopka_naschata = true;
     }
 
     //вызывается при отпускании кнопки. Работает только при реализации OnPointerDown
     public void OnPointerUp(PointerEventData eventData)
     {
         stik1.rectTransform.localPosition = StartPosition; //возвращаем стик в центр
+        knopka_naschata = false;
+
+        StikPosition = StartPosition;
+        //без этого возникает следующий баг
+        //если нажать на стик но никуда не потянуть
+        //то прицел полетит в ту сторону с той скоростью
+        //какая была последний раз при опускании стика
     }
 }

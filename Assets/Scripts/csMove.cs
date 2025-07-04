@@ -8,6 +8,8 @@ public class csMove : MonoBehaviour
     [SerializeField] float _speed;
     [SerializeField] Rigidbody2D _telo;
     Vector2 napravlenie = Vector2.zero;
+    bool WASD = false;
+
     [SerializeField] csBomba _bomba;
     [SerializeField] csVsruv _vsruv;
     [SerializeField] csMischen _mischen;
@@ -21,7 +23,7 @@ public class csMove : MonoBehaviour
 
 
 
-    int coef_coin=1;
+    int coef_coin = 1;
     // Start is called before the first frame update
     void Start()
     {
@@ -44,7 +46,7 @@ public class csMove : MonoBehaviour
         }
         else
         {
-            napravlenie.y = 0;
+            // napravlenie.y = 0;
 
         }
         if (Input.GetKey(KeyCode.D))
@@ -57,12 +59,13 @@ public class csMove : MonoBehaviour
         }
         else
         {
-            napravlenie.x = 0;
+            // napravlenie.x = 0;
         }
-        napravlenie.Normalize();
+        //napravlenie.Normalize(); 
+        //нормализация нужна, чтобы если я нажму на две кнопки сразу, то скорость по диагонале не получилась больше задуманого
         _telo.velocity = napravlenie * _speed;
-
-
+        napravlenie.x = 0;
+        napravlenie.y = 0;
 
 
         //отрисовка луча
@@ -70,54 +73,51 @@ public class csMove : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
         {
-
-            //телепорт вспышки в нужное место
-            //_vspuschka.teleport(transform.position);
-            GameObject vspuschka_spawn = Instantiate(_vspuschka_prefab);
-            vspuschka_spawn.transform.position = transform.position;
-
-            //выстрел лучём, проходящим через множество обьектов
-            RaycastHit2D[] hit = Physics2D.RaycastAll(gameObject.transform.position, Vector2.zero);
-            //проверка попалили мы в шар или бомбу
-            for (int i = 0; i < hit.Length; i++)
-            {
-                
-                
-                //При попадании в центр мишени коэфф увеличивается
-                if (hit[i].collider.gameObject.GetComponent<csMischen_zentr>())
-                {
-                    coef_coin = coef_coin * 2;
-                }
-                //При попадании в мишень увеличивай коэфф баллов
-               else if (hit[i].collider.gameObject.GetComponent<csMischen>())
-                {
-                    _mischen = hit[i].collider.gameObject.GetComponent<csMischen>();
-                        coef_coin = coef_coin + 1;
-                }
-               
-                if (hit[i].collider.gameObject.GetComponent<csBomba>())
-                {
-                    _bomba = hit[i].collider.gameObject.GetComponent<csBomba>();
-                    
-                        _gameManager.HP(-1);
-                    
-                }
-                if (hit[i].collider.gameObject.GetComponent<csVsruv>())
-                {
-                    _vsruv = hit[i].collider.gameObject.GetComponent<csVsruv>();
-                    _gameManager.Coin(_vsruv.get_ballu() * coef_coin);
-                    _vsruv.Vsruv();
-                }
-            }
-
-
-
+            vustrel();
         }
 
+    }
+
+    public void vustrel()
+    {
+        //телепорт вспышки в нужное место
+        //_vspuschka.teleport(transform.position);
+        GameObject vspuschka_spawn = Instantiate(_vspuschka_prefab);
+        vspuschka_spawn.transform.position = transform.position;
+
+        //выстрел лучём, проходящим через множество обьектов
+        RaycastHit2D[] hit = Physics2D.RaycastAll(gameObject.transform.position, Vector2.zero);
+        //проверка попалили мы в шар или бомбу
+        for (int i = 0; i < hit.Length; i++)
+        {
 
 
+            //При попадании в центр мишени коэфф увеличивается
+            if (hit[i].collider.gameObject.GetComponent<csMischen_zentr>())
+            {
+                coef_coin = coef_coin * 2;
+            }
+            //При попадании в мишень увеличивай коэфф баллов
+            else if (hit[i].collider.gameObject.GetComponent<csMischen>())
+            {
+                _mischen = hit[i].collider.gameObject.GetComponent<csMischen>();
+                coef_coin = coef_coin + 1;
+            }
 
+            if (hit[i].collider.gameObject.GetComponent<csBomba>())
+            {
+                _bomba = hit[i].collider.gameObject.GetComponent<csBomba>();
 
+                _gameManager.HP(-1);
+
+            }
+            if (hit[i].collider.gameObject.GetComponent<csVsruv>())
+            {
+                _vsruv = hit[i].collider.gameObject.GetComponent<csVsruv>();
+                _gameManager.Coin(_vsruv.get_ballu() * coef_coin);
+                _vsruv.Vsruv();
+            }
+        }
     }
 
 
@@ -125,5 +125,5 @@ public class csMove : MonoBehaviour
     {
         napravlenie = a;
     }
-    
+
 }
