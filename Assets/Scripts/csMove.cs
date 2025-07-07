@@ -35,57 +35,18 @@ public class csMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //движение WASD
-        if (Input.GetKey(KeyCode.W))
-        {
-            napravlenie.y = 1;
-            WASD_X = true;
-        }
-        else if (Input.GetKey(KeyCode.S))
-        {
-            napravlenie.y = -1;
-            WASD_X = true;
-        }
-        else
-        {
-            WASD_X = false;
-        }
-        
-        if (Input.GetKey(KeyCode.D))
-        {
-            napravlenie.x = 1;
-            WASD_Y = true;
-        }
-        else if (Input.GetKey(KeyCode.A))
-        {
-            napravlenie.x = -1;
-            WASD_Y = true;
-        }
-        else 
-        { 
-            WASD_Y = false;
-        }
-        
-        if((WASD_Y|| WASD_X)&&napravlenie.magnitude > 0.01f)
-        { //нормализуй, если нажата кнопка. При значении 0 нормализовать нельзя
-            napravlenie.Normalize();
-        }
-        
-        //нормализация нужна, чтобы если я нажму на две кнопки сразу, то скорость по диагонале не получилась больше задуманого
+        WASD();
+
         _telo.velocity = napravlenie * _speed; //time.DeltaTime НЕ НУЖНО! Т.к. движение через физику РиджидБади
         napravlenie.x = 0;
         napravlenie.y = 0;
 
-
-        //отрисовка луча
-        //Debug.DrawRay(transform.position, Vector2.zero, Color.red, 1f);
+        prizel_mouse();
 
         if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
         {
             vustrel();
         }
-
-        //prizel_mouse();
 
 
     }
@@ -132,14 +93,47 @@ public class csMove : MonoBehaviour
         }
     }
 
+    public void WASD()
+    {
+        //движение WASD
+        if (Input.GetKey(KeyCode.W))
+        {
+            napravlenie.y = 1;
+            WASD_X = true;
+        }
+        else if (Input.GetKey(KeyCode.S))
+        {
+            napravlenie.y = -1;
+            WASD_X = true;
+        }
+        else
+        {
+            WASD_X = false;
+        }
 
+        if (Input.GetKey(KeyCode.D))
+        {
+            napravlenie.x = 1;
+            WASD_Y = true;
+        }
+        else if (Input.GetKey(KeyCode.A))
+        {
+            napravlenie.x = -1;
+            WASD_Y = true;
+        }
+        else
+        {
+            WASD_Y = false;
+        }
+        if ((WASD_Y || WASD_X) && napravlenie.magnitude > 0.01f)
+        { //нормализуй, если нажата кнопка. При значении 0 нормализовать нельзя
+          //нормализация нужна, чтобы если я нажму на две кнопки сразу, то скорость по диагонале не получилась больше задуманого
+            napravlenie.Normalize();
+        }
+    }
     public void Set_Napravlenie_stik(Vector2 a)
     {
-        //нормализуем, только если оно больше 1, чтобы сохранить тонкое управление направлением со стика
-        if (a.magnitude >1f)
-        {
-            a.Normalize();
-        }
+
         napravlenie = a;
     }
 
@@ -164,3 +158,5 @@ public class csMove : MonoBehaviour
     }
 
 }
+
+

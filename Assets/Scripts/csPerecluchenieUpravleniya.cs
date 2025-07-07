@@ -5,35 +5,29 @@ using UnityEngine;
 public class csPerecluchenieUpravleniya : MonoBehaviour
 {
     [SerializeField] csMove csMove;
+    [SerializeField] csTachpad csTachpad;
     [SerializeField] csGyroskop csGyroskop;
-    bool stik = false;
+    [SerializeField] GameObject UIStik;
 
-    // Start is called before the first frame update
-    void Start()
+ public void VKL_Tachpad()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public void Perecluchenie()
-    {
-        if (stik)
-        {
-            csMove.enabled = false;
-            csGyroskop.enabled = true;
-            stik =false;
-        }
-        else 
-        {
-            csMove.enabled = true;
-            csGyroskop.enabled = false;
-            stik =true; 
-        }
+        csTachpad.enabled = true;
+        csGyroskop.enabled = false;
+        UIStik.SetActive(false);
 
     }
+    public void VKL_Gyroskop()
+    {
+        csTachpad.enabled = false;
+        csGyroskop.enabled = true;
+        UIStik.SetActive(false);
+    }
+    public void VKL_Stik()
+    {
+        csTachpad.enabled = false;
+        csGyroskop.enabled = false;
+        UIStik.SetActive(true);
+    }
+
+    
 }

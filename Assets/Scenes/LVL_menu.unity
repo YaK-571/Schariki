@@ -1099,7 +1099,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6fa6fc6e5164e2d44bfebb2846491703, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 06e992fa56c4cb549b1d6663e84ac990, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3630,6 +3630,10 @@ PrefabInstance:
     - target: {fileID: 4792724749463867306, guid: d6b648f21e9415b4786ba071631758e0, type: 3}
       propertyPath: m_Name
       value: Canvas_lvl1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4792724749463867306, guid: d6b648f21e9415b4786ba071631758e0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6589611972667090059, guid: d6b648f21e9415b4786ba071631758e0, type: 3}
       propertyPath: _LVL
