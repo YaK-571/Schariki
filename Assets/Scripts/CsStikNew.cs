@@ -74,6 +74,7 @@ public class CsStikNew : MonoBehaviour, IDragHandler, IPointerUpHandler, IPointe
     public void OnPointerDown(PointerEventData eventData)
     {
         knopka_naschata = true;
+
     }
 
     //вызывается при отпускании кнопки. Работает только при реализации OnPointerDown

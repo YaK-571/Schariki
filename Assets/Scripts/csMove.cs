@@ -8,7 +8,8 @@ public class csMove : MonoBehaviour
     [SerializeField] float _speed;
     [SerializeField] Rigidbody2D _telo;
     Vector2 napravlenie = Vector2.zero;
-    bool WASD = false;
+    bool WASD_X = false;
+    bool WASD_Y = false;
 
     [SerializeField] csBomba _bomba;
     [SerializeField] csVsruv _vsruv;
@@ -19,7 +20,8 @@ public class csMove : MonoBehaviour
     [SerializeField] csVspuschka _vspuschka;
     [SerializeField] GameObject _vspuschka_prefab;
 
-
+    private Vector3 lastMousePosition; //позиция мыши в прошлом кадре
+    private Vector3 mousePos; //в этом кадре
 
 
 
@@ -33,37 +35,44 @@ public class csMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //движение
+        //движение WASD
         if (Input.GetKey(KeyCode.W))
         {
             napravlenie.y = 1;
-
+            WASD_X = true;
         }
         else if (Input.GetKey(KeyCode.S))
         {
             napravlenie.y = -1;
-
+            WASD_X = true;
         }
         else
         {
-            // napravlenie.y = 0;
-
+            WASD_X = false;
         }
+        
         if (Input.GetKey(KeyCode.D))
         {
             napravlenie.x = 1;
+            WASD_Y = true;
         }
         else if (Input.GetKey(KeyCode.A))
         {
             napravlenie.x = -1;
+            WASD_Y = true;
         }
-        else
-        {
-            // napravlenie.x = 0;
+        else 
+        { 
+            WASD_Y = false;
         }
-        //napravlenie.Normalize(); 
+        
+        if((WASD_Y|| WASD_X)&&napravlenie.magnitude > 0.01f)
+        { //нормализуй, если нажата кнопка. При значении 0 нормализовать нельзя
+            napravlenie.Normalize();
+        }
+        
         //нормализация нужна, чтобы если я нажму на две кнопки сразу, то скорость по диагонале не получилась больше задуманого
-        _telo.velocity = napravlenie * _speed;
+        _telo.velocity = napravlenie * _speed; //time.DeltaTime НЕ НУЖНО! Т.к. движение через физику РиджидБади
         napravlenie.x = 0;
         napravlenie.y = 0;
 
@@ -75,6 +84,9 @@ public class csMove : MonoBehaviour
         {
             vustrel();
         }
+
+        //prizel_mouse();
+
 
     }
 
@@ -123,7 +135,32 @@ public class csMove : MonoBehaviour
 
     public void Set_Napravlenie_stik(Vector2 a)
     {
+        //нормализуем, только если оно больше 1, чтобы сохранить тонкое управление направлением со стика
+        if (a.magnitude >1f)
+        {
+            a.Normalize();
+        }
         napravlenie = a;
+    }
+
+    //прицеливание мышью, только если она в экране и если не используются другие способы ввода
+    public void prizel_mouse()
+    {
+        mousePos = Input.mousePosition;
+        // Проверяем, что мышь внутри окна игры
+        bool isMouseInside = mousePos.x >= 0 && mousePos.x <= Screen.width &&
+                             mousePos.y >= 0 && mousePos.y <= Screen.height;
+
+        // Проверяем, двигается ли мышь (сравниваем с прошлой позицией)
+        bool isMouseMoved = (mousePos != lastMousePosition);
+
+        if (isMouseInside && isMouseMoved)
+        {
+            Vector2 mouseScreenPosition = Input.mousePosition;
+            Vector2 mouseWorldPosition = Camera.main.ScreenToWorldPoint(mouseScreenPosition);
+            gameObject.transform.position = mouseWorldPosition;
+        }
+        lastMousePosition = mousePos;//обновляем последнюю позицию мыши
     }
 
 }

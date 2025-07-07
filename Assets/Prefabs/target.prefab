@@ -98,6 +98,8 @@ GameObject:
   - component: {fileID: 8321541721888922695}
   - component: {fileID: 522097969657804949}
   - component: {fileID: 8874790470379118358}
+  - component: {fileID: 3515511371368747872}
+  - component: {fileID: 8104590366395761864}
   m_Layer: 0
   m_Name: target
   m_TagString: Untagged
@@ -275,3 +277,32 @@ MonoBehaviour:
   _vremja: 0
   schit: {fileID: 2811893282835247500}
   progress: {fileID: 4658466875361643707, guid: afec0fa7215137d42a2632a4093fe82c, type: 3}
+--- !u!114 &3515511371368747872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6107486906516034869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b09da106a1c1ed46a33b4b79d6f5892, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sensitivity: 0.5
+  maxX: 2
+  maxY: 2
+--- !u!114 &8104590366395761864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6107486906516034869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6e6bae6ce2c03342af47e3561d7b5e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  csMove: {fileID: 6300299426183982347}
+  csGyroskop: {fileID: 3515511371368747872}
