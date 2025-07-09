@@ -39,7 +39,7 @@ public class csMenu : MonoBehaviour
     {
         //снятие паузы
         Time.timeScale = 1f;
-        _self_UI.SetActive(false);
+        gameObject.SetActive(false);
     }
 
     public void Glavnie_menu()
@@ -47,5 +47,12 @@ public class csMenu : MonoBehaviour
         //снятие паузы
         Time.timeScale = 1f;
         SceneManager.LoadScene(0);
+    }
+
+    public void aptetschka()
+    {
+        
+        _gameManager.HP(3);
+        Play();
     }
 }

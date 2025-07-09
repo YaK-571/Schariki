@@ -33,8 +33,8 @@ public class GameManager : MonoBehaviour
             {
                 _Canvas_GameOver.SetActive(true);
             }
-            //удали сердечко
-            _ui_hp.skrut_hp();
+            //обнови число сердечек
+            _ui_hp.Update_HP(_hp);
         }
     }
 
@@ -49,6 +49,9 @@ public class GameManager : MonoBehaviour
         StartCoroutine(TimerFinish());
 
         SpawnGameInstanse();
+        
+        _ui_hp.Update_HP(_hp);
+
     }
 
     private IEnumerator TimerFinish()

@@ -194,9 +194,14 @@ public class Progress : MonoBehaviour
 
         SaveCoin(0);
     }
+    public void aptetschka()
+    {
+        date.aptetschka--;
+        SaveCoin(0);
+    }
 
-    //разблокировка уровня
-    public bool Razblokirovka_urovnja(int nomer_cartu, int nomer_missii, int zena_razblokirovki)
+        //разблокировка уровня
+        public bool Razblokirovka_urovnja(int nomer_cartu, int nomer_missii, int zena_razblokirovki)
     {
         //если денег хватает, то разблокируй уровень
         if ((date.Coin - zena_razblokirovki) >= 0)

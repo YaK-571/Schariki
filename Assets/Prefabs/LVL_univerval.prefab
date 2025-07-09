@@ -923,10 +923,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 6236394521716743971}
     m_Modifications:
     - target: {fileID: 2355461501132790506, guid: b33d5f7459e041f408ad5e9620707999, type: 3}
-      propertyPath: m_Pivot.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2355461501132790506, guid: b33d5f7459e041f408ad5e9620707999, type: 3}
       propertyPath: m_SizeDelta.x
       value: 600
       objectReference: {fileID: 0}
@@ -993,10 +989,6 @@ PrefabInstance:
     - target: {fileID: 7249898510808962331, guid: b33d5f7459e041f408ad5e9620707999, type: 3}
       propertyPath: m_Name
       value: Canvas_GameOver
-      objectReference: {fileID: 0}
-    - target: {fileID: 7249898510808962331, guid: b33d5f7459e041f408ad5e9620707999, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7306983279941302509, guid: b33d5f7459e041f408ad5e9620707999, type: 3}
       propertyPath: m_fontSize

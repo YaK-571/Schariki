@@ -270,7 +270,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a30a2e29f6ae17e4489059cfe77752a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hp: 3
+  _hp: 1
   _Canvas_GameOver: {fileID: 0}
   _Canvas_Finish: {fileID: 0}
   _ui_hp: {fileID: 0}
