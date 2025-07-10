@@ -52,7 +52,7 @@ MonoBehaviour:
     usilenie2_arta: 5
     usilenie3_zamarozka: 5
     usilenie4_schit: 5
-    aptetschka: 0
+    aptetschka: 5
     progress_lvl: 050000000100000001000000
     progress_lvl2: 1
     progress_lvl3: 1

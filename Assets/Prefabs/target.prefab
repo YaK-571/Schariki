@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 7868784982896701591}
   - component: {fileID: 1354582371649887084}
   - component: {fileID: 6300299426183982347}
+  - component: {fileID: 3946430880986309043}
   - component: {fileID: 8321541721888922695}
   - component: {fileID: 522097969657804949}
   - component: {fileID: 8874790470379118358}
@@ -118,7 +119,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.01, y: -1.7997, z: 0}
-  m_LocalScale: {x: 0.26638, y: 0.26638, z: 0.26638}
+  m_LocalScale: {x: 0.8879333, y: 0.8879333, z: 0.8879333}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1579442761202116928}
@@ -190,11 +191,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 7
   _telo: {fileID: 8321541721888922695}
+--- !u!114 &3946430880986309043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6107486906516034869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cc060b5c8e81784ba33d4de37e684d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   _bomba: {fileID: 0}
   _vsruv: {fileID: 0}
   _mischen: {fileID: 0}
   _gameManager: {fileID: 8874790470379118358}
-  _vspuschka: {fileID: 0}
   _vspuschka_prefab: {fileID: 1791879558110378832, guid: 50b65b83d355356419ea2b8588703336, type: 3}
 --- !u!50 &8321541721888922695
 Rigidbody2D:
@@ -270,12 +282,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a30a2e29f6ae17e4489059cfe77752a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hp: 1
+  _hp: 3
   _Canvas_GameOver: {fileID: 0}
   _Canvas_Finish: {fileID: 0}
   _ui_hp: {fileID: 0}
   _ui_coin: {fileID: 0}
-  _vremja: 0
+  _vremja: 60
   schit: {fileID: 2811893282835247500}
   progress: {fileID: 4658466875361643707, guid: afec0fa7215137d42a2632a4093fe82c, type: 3}
 --- !u!114 &3515511371368747872
@@ -305,7 +317,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67f999b29649d134da5353be116f2044, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 6300299426183982347}
+  target: {fileID: 3946430880986309043}
 --- !u!114 &8816564171676642368
 MonoBehaviour:
   m_ObjectHideFlags: 0

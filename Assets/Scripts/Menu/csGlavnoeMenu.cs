@@ -21,9 +21,16 @@ public class csGlavnoeMenu : MonoBehaviour
         if (activnost_knopki == true)
         {
             _LVL.SetActive(true);
+            Progress.GameInstance.set_nomer_lvl(nomer_lvl);
             skrut_menu();
         }
 
+    }
+    public void next_LVL()
+    {
+            _LVL.SetActive(true);
+            Progress.GameInstance.set_nomer_lvl(nomer_lvl);
+            skrut_menu();
     }
 
     private void Start()

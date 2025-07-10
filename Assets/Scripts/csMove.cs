@@ -11,28 +11,18 @@ public class csMove : MonoBehaviour
     bool WASD_X = false;
     bool WASD_Y = false;
 
-    [SerializeField] csBomba _bomba;
-    [SerializeField] csVsruv _vsruv;
-    [SerializeField] csMischen _mischen;
-
-    // [SerializeField] GameObject _canvas_game_over;
-    [SerializeField] GameManager _gameManager;
-    [SerializeField] csVspuschka _vspuschka;
-    [SerializeField] GameObject _vspuschka_prefab;
+  
 
     private Vector3 lastMousePosition; //позиция мыши в прошлом кадре
     private Vector3 mousePos; //в этом кадре
 
 
 
-    int coef_coin = 1;
-    // Start is called before the first frame update
     void Start()
     {
 
     }
 
-    // Update is called once per frame
     void Update()
     {
         WASD();
@@ -42,56 +32,9 @@ public class csMove : MonoBehaviour
         napravlenie.y = 0;
 
         prizel_mouse();
+      }
 
-        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
-        {
-            vustrel();
-        }
-
-
-    }
-
-    public void vustrel()
-    {
-        //телепорт вспышки в нужное место
-        //_vspuschka.teleport(transform.position);
-        GameObject vspuschka_spawn = Instantiate(_vspuschka_prefab);
-        vspuschka_spawn.transform.position = transform.position;
-
-        //выстрел лучём, проходящим через множество обьектов
-        RaycastHit2D[] hit = Physics2D.RaycastAll(gameObject.transform.position, Vector2.zero);
-        //проверка попалили мы в шар или бомбу
-        for (int i = 0; i < hit.Length; i++)
-        {
-
-
-            //При попадании в центр мишени коэфф увеличивается
-            if (hit[i].collider.gameObject.GetComponent<csMischen_zentr>())
-            {
-                coef_coin = coef_coin * 2;
-            }
-            //При попадании в мишень увеличивай коэфф баллов
-            else if (hit[i].collider.gameObject.GetComponent<csMischen>())
-            {
-                _mischen = hit[i].collider.gameObject.GetComponent<csMischen>();
-                coef_coin = coef_coin + 1;
-            }
-
-            if (hit[i].collider.gameObject.GetComponent<csBomba>())
-            {
-                _bomba = hit[i].collider.gameObject.GetComponent<csBomba>();
-
-                _gameManager.HP(-1);
-
-            }
-            if (hit[i].collider.gameObject.GetComponent<csVsruv>())
-            {
-                _vsruv = hit[i].collider.gameObject.GetComponent<csVsruv>();
-                _gameManager.Coin(_vsruv.get_ballu() * coef_coin);
-                _vsruv.Vsruv();
-            }
-        }
-    }
+    
 
     public void WASD()
     {

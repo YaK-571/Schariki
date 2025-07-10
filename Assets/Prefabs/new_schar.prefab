@@ -175,6 +175,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _schar: {fileID: 5223913479315521658}
+  _Square: {fileID: 6189199681766768109}
   _popadanie_v_schar: 1
   component_vsruv: {fileID: 823931404307744968}
   _ballu: 1
@@ -359,6 +360,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _schar: {fileID: 0}
+  _Square: {fileID: 0}
   _popadanie_v_schar: 0
   component_vsruv: {fileID: 6189199681766768109}
   _ballu: 0

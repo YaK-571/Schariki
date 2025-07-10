@@ -17,6 +17,7 @@ public class Date
     public int[] progress_lvl;
     public bool progress_lvl2;
     public bool progress_lvl3;
+   // public bool _PERVUI_ZAPUSK; //--------------ѕ≈–≈ѕ–ќ¬≈–»“№-------------------
 }
 public class Progress : MonoBehaviour
 {
@@ -25,6 +26,12 @@ public class Progress : MonoBehaviour
     private bool _save_yandex;
     public Date date;
     [SerializeField] TextMeshProUGUI _text_monetu;
+
+    [SerializeField] int nomer_lvl = 1;
+
+    //---------------------------Ќ≈ «јЅџ“№ ”Ѕ–ј“№ ѕќ—Ћ≈ Ѕ»Ћƒј----------------------
+    [SerializeField] bool _DEV_BUILD=true; //—Ќяяяяяяя“№ Ё“” √јЋќ„ ” ¬ »Ќ—ѕ≈ “ќ–≈!!!!!
+
 
     //делаем так, чтобы обьект не уничтожалс€ при смене уровней
     //используем его дл€ сохранени€ прогресса
@@ -53,38 +60,47 @@ public class Progress : MonoBehaviour
 
     void Start()
     {
-        
-        
-        //если это билд дл€ €ндекса, то сохран€ем всЄ на сервер
-        //если нет, то через плеер преф на устройстве
-
-        //также обьекта €ндекс может не быть, если мы начали игру не с главного меню
-        //дополнительна€ проверка на наличие этого обьекта здесь включена дл€ того,
-        //чтобы не было бес€чих ошибок во врем€ разработки, когда включаем разные уровни сразу без меню
-        if (_yandex)
+        if (_DEV_BUILD)
+        { 
+        if(PERVUI_ZAPUSK())
+            {
+                PlayerPrefs.DeleteKey("PERVUI_ZAPUSK");
+            }
+        }
+        else
         {
-            if (_yandex.activeSelf)
+
+            //если это билд дл€ €ндекса, то сохран€ем всЄ на сервер
+            //если нет, то через плеер преф на устройстве
+
+            //также обьекта €ндекс может не быть, если мы начали игру не с главного меню
+            //дополнительна€ проверка на наличие этого обьекта здесь включена дл€ того,
+            //чтобы не было бес€щих ошибок во врем€ разработки, когда включаем разные уровни сразу без меню
+            if (_yandex && _yandex.activeSelf)
             {
                 _save_yandex = true;
                 _csYandex.Load();
             }
             else
-            {
-                LoadSave();
+            {//если это первый запуск - сохрани дефолтные значени€, если нет - загрузи сохранение
+                if (PERVUI_ZAPUSK())
+                {
+                    PERVOE_SOHRANENIE();
+                }
+                else
+                {
+                    LoadSave();
+                }
             }
+           
         }
-        else
-        {
-            LoadSave();
-        }
-
 
     }
 
 
     public void LoadSave()
     {
-        //date.Coin = PlayerPrefs.GetInt("Coin"); //загрузка денег с пк
+        date.Coin = PlayerPrefs.GetInt("Coin"); //загрузка денег с пк
         date.usilenie1_minigun = PlayerPrefs.GetInt("usilenie1_minigun");
         date.usilenie2_arta = PlayerPrefs.GetInt("usilenie2_arta");
         date.usilenie3_zamarozka = PlayerPrefs.GetInt("usilenie3_zamarozka");
@@ -148,6 +164,7 @@ public class Progress : MonoBehaviour
                 PlayerPrefs.SetInt("progress_lvl3", 1);
 
             }
+            PlayerPrefs.Save();
         }
     }
 
@@ -157,18 +174,25 @@ public class Progress : MonoBehaviour
     //и уже он потом вызывает этот метод
     public void LoadCoin(string value)
     {
-
-        date = JsonUtility.FromJson<Date>(value);
-        /*  if (_text_save_load)
-          {
-              _text_save_load.text = date.Coin + "\n" +
-          date.usilenie1_minigun + "\n" +
-          date.usilenie2_arta + "\n" +
-          date.usilenie3_zamarozka + "\n" +
-          date.usilenie4_schit;
-              //заполнение всех полей
-          }*/
-
+        if (string.IsNullOrEmpty(value))
+        {
+            // если нет сохранЄнных данных
+            // ћожно дополнительно вызвать первое сохранение, чтобы создать запись на сервере
+            PERVOE_SOHRANENIE();
+        }
+        else
+        {
+            date = JsonUtility.FromJson<Date>(value);
+            /*  if (_text_save_load)
+              {
+                  _text_save_load.text = date.Coin + "\n" +
+              date.usilenie1_minigun + "\n" +
+              date.usilenie2_arta + "\n" +
+              date.usilenie3_zamarozka + "\n" +
+              date.usilenie4_schit;
+                  //заполнение всех полей
+              }*/
+        }
 
     }
 
@@ -191,6 +215,10 @@ public class Progress : MonoBehaviour
         {
             date.usilenie4_schit--;
         }
+        else if (nomer == 5)
+        {
+            date.aptetschka--;
+        }
 
         SaveCoin(0);
     }
@@ -200,8 +228,8 @@ public class Progress : MonoBehaviour
         SaveCoin(0);
     }
 
-        //разблокировка уровн€
-        public bool Razblokirovka_urovnja(int nomer_cartu, int nomer_missii, int zena_razblokirovki)
+    //разблокировка уровн€
+    public bool Razblokirovka_urovnja(int nomer_cartu, int nomer_missii, int zena_razblokirovki)
     {
         //если денег хватает, то разблокируй уровень
         if ((date.Coin - zena_razblokirovki) >= 0)
@@ -212,5 +240,32 @@ public class Progress : MonoBehaviour
             return true;
         }
         return false;
+    }
+
+
+    private bool PERVUI_ZAPUSK()
+    {
+        return !PlayerPrefs.HasKey("PERVUI_ZAPUSK");
+        //Ёто поле при первом запуске не существует вообще. ¬принципе
+        //и речь не про значение в нЄм, а про всЄ поле в принципе.
+        //поэтому в стартовом if при первом запуске его не получитс€ найти
+        //и мы сохраним данные, которые € вЄл в инспекторе
+    }
+
+    private void PERVOE_SOHRANENIE()
+    {
+        PlayerPrefs.SetInt("PERVUI_ZAPUSK", 0);
+        SaveCoin(0);
+    }
+
+   
+
+    public void set_nomer_lvl(int a)
+    {
+        nomer_lvl = a;
+    }
+    public int get_nomer_lvl()
+    {
+        return nomer_lvl;
     }
 }

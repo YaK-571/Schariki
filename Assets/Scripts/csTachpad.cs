@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class csTachpad : MonoBehaviour
 {
-    [SerializeField] csMove target;
+    [SerializeField] csVustrel target;
     // Start is called before the first frame update
     void Start()
     {

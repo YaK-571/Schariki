@@ -9,17 +9,20 @@ public class csUI_usilenie : MonoBehaviour
     [SerializeField] GameObject _usilenie2;
     [SerializeField] GameObject _usilenie3;
     [SerializeField] GameObject _usilenie4;
+    [SerializeField] GameObject _usilenie5;
 
     //для обновления числа усилений
     [SerializeField] TextMeshProUGUI _text1;
     [SerializeField] TextMeshProUGUI _text2;
     [SerializeField] TextMeshProUGUI _text3;
     [SerializeField] TextMeshProUGUI _text4;
+    [SerializeField] TextMeshProUGUI _text5;
 
     private int _tschislo_1;
     private int _tschislo_2;
     private int _tschislo_3;
     private int _tschislo_4;
+    private int _tschislo_5;
 
     bool actyve = false;
     [SerializeField] GameManager _gameManager;
@@ -35,8 +38,8 @@ public class csUI_usilenie : MonoBehaviour
 
     private void Start()
     {
-        
-        
+
+
         //ситуация в том, что Game Instance создаётся при открытии игры в меню. далее он не удаляется
         //но при разработке мы открываем сразу уровень без меню, поэтому гейм инстанс спавнится там
         //мы обращаемся к нему тут для загрузки данных, но т.к. он спавнится после загрузки уровня
@@ -79,24 +82,25 @@ public class csUI_usilenie : MonoBehaviour
         _usilenie2.SetActive(actyve);
         _usilenie3.SetActive(actyve);
         _usilenie4.SetActive(actyve);
+        _usilenie5.SetActive(actyve);
     }
 
     private void vuvod_tschislo_usilenij()
     {
-       
-          var date = Progress.GameInstance.date;
-         _tschislo_1 = date.usilenie1_minigun;
-          _tschislo_2 = date.usilenie2_arta;
-          _tschislo_3 = date.usilenie3_zamarozka;
-          _tschislo_4 = date.usilenie4_schit;
 
+        var date = Progress.GameInstance.date;
+        _tschislo_1 = date.usilenie1_minigun;
+        _tschislo_2 = date.usilenie2_arta;
+        _tschislo_3 = date.usilenie3_zamarozka;
+        _tschislo_4 = date.usilenie4_schit;
+        _tschislo_5 = date.aptetschka;
 
-          //отображение числа доступных усилений на кнопках
-          _text1.text = _tschislo_1.ToString();
-          _text2.text = _tschislo_2.ToString();
-          _text3.text = _tschislo_3.ToString();
-          _text4.text = _tschislo_4.ToString();
-        
+        //отображение числа доступных усилений на кнопках
+        _text1.text = _tschislo_1.ToString();
+        _text2.text = _tschislo_2.ToString();
+        _text3.text = _tschislo_3.ToString();
+        _text4.text = _tschislo_4.ToString();
+        _text5.text = _tschislo_5.ToString();
     }
 
 

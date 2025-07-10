@@ -6,18 +6,18 @@ using UnityEngine.UI;
 public class csUI_HP : MonoBehaviour
 {
     [SerializeField] Transform[] hp;
-     int i = 0;
+    int i = 0;
 
-    public void Start()
+    public void Awake() //эта хуита в Start вызывалась после Update_HP, пришлось перенести в Awake
     {
         hp = new Transform[10];
-        foreach (Transform Serdechko in gameObject.transform) //
+        foreach (Transform Serdechko in gameObject.transform)
         {
-            hp[i]= Serdechko;
+            hp[i] = Serdechko;
             i++;
         }
-        
     }
+
     public void Update_HP(int HP)
     {
         //foreach - тоже самое, что цикл. Сделай это для каждого дочернего обьекта в этом обьекте
@@ -26,12 +26,12 @@ public class csUI_HP : MonoBehaviour
             Serdechko.gameObject.SetActive(false);
         }
         int a = 0;
-        while (a < HP) 
+        while (a < HP)
         {
             hp[a].gameObject.SetActive(true);
             a++;
         }
-        
+
     }
-   
+
 }

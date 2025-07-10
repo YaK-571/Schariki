@@ -9,6 +9,7 @@ public class csVsruv : MonoBehaviour
 {
 
     [SerializeField] csSchar _schar;
+    [SerializeField] GameObject _Square;
     [SerializeField] public bool _popadanie_v_schar;
     [SerializeField] GameObject component_vsruv;
 
@@ -39,6 +40,7 @@ public class csVsruv : MonoBehaviour
             _svjaska.Uskorenie();
         }
 
+       // Destroy(_Square);//удаляем верёвочку тоже
         //удаление обьекта по которому мы попали
         Destroy(component_vsruv);
 
