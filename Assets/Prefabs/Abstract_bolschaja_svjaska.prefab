@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7438278152273392616}
+  - component: {fileID: 4613939416054515284}
   m_Layer: 0
   m_Name: Abstract_bolschaja_svjaska
   m_TagString: Untagged
@@ -43,6 +44,19 @@ Transform:
   - {fileID: 6761421624778431445}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4613939416054515284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 879133314141983963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6883e1b69071ac94bbd9ddcf3a8d682f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  roditel: {fileID: 0}
 --- !u!1001 &289711130126056116
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -51,6 +65,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7438278152273392616}
     m_Modifications:
+    - target: {fileID: 264502638715520573, guid: 6f93504c9501a27448aed387992bbd75, type: 3}
+      propertyPath: roditel
+      value: 
+      objectReference: {fileID: 4613939416054515284}
     - target: {fileID: 1322241898355991598, guid: 6f93504c9501a27448aed387992bbd75, type: 3}
       propertyPath: m_Name
       value: abstrast_gruz (3)
@@ -213,6 +231,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7438278152273392616}
     m_Modifications:
+    - target: {fileID: 264502638715520573, guid: 6f93504c9501a27448aed387992bbd75, type: 3}
+      propertyPath: roditel
+      value: 
+      objectReference: {fileID: 4613939416054515284}
     - target: {fileID: 1322241898355991598, guid: 6f93504c9501a27448aed387992bbd75, type: 3}
       propertyPath: m_Name
       value: abstrast_gruz (7)
@@ -375,6 +397,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7438278152273392616}
     m_Modifications:
+    - target: {fileID: 264502638715520573, guid: 6f93504c9501a27448aed387992bbd75, type: 3}
+      propertyPath: roditel
+      value: 
+      objectReference: {fileID: 4613939416054515284}
     - target: {fileID: 1322241898355991598, guid: 6f93504c9501a27448aed387992bbd75, type: 3}
       propertyPath: m_Name
       value: abstrast_gruz (11)
@@ -537,6 +563,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7438278152273392616}
     m_Modifications:
+    - target: {fileID: 264502638715520573, guid: 6f93504c9501a27448aed387992bbd75, type: 3}
+      propertyPath: roditel
+      value: 
+      objectReference: {fileID: 4613939416054515284}
     - target: {fileID: 1322241898355991598, guid: 6f93504c9501a27448aed387992bbd75, type: 3}
       propertyPath: m_Name
       value: abstrast_gruz (8)
@@ -699,6 +729,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7438278152273392616}
     m_Modifications:
+    - target: {fileID: 264502638715520573, guid: 6f93504c9501a27448aed387992bbd75, type: 3}
+      propertyPath: roditel
+      value: 
+      objectReference: {fileID: 4613939416054515284}
     - target: {fileID: 1322241898355991598, guid: 6f93504c9501a27448aed387992bbd75, type: 3}
       propertyPath: m_Name
       value: abstrast_gruz (4)
@@ -865,6 +899,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7438278152273392616}
     m_Modifications:
+    - target: {fileID: 264502638715520573, guid: 6f93504c9501a27448aed387992bbd75, type: 3}
+      propertyPath: roditel
+      value: 
+      objectReference: {fileID: 4613939416054515284}
     - target: {fileID: 1322241898355991598, guid: 6f93504c9501a27448aed387992bbd75, type: 3}
       propertyPath: m_Name
       value: abstrast_gruz (6)
@@ -1027,6 +1065,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7438278152273392616}
     m_Modifications:
+    - target: {fileID: 264502638715520573, guid: 6f93504c9501a27448aed387992bbd75, type: 3}
+      propertyPath: roditel
+      value: 
+      objectReference: {fileID: 4613939416054515284}
     - target: {fileID: 1322241898355991598, guid: 6f93504c9501a27448aed387992bbd75, type: 3}
       propertyPath: m_Name
       value: abstrast_gruz (9)
@@ -1189,6 +1231,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7438278152273392616}
     m_Modifications:
+    - target: {fileID: 264502638715520573, guid: 6f93504c9501a27448aed387992bbd75, type: 3}
+      propertyPath: roditel
+      value: 
+      objectReference: {fileID: 4613939416054515284}
     - target: {fileID: 1322241898355991598, guid: 6f93504c9501a27448aed387992bbd75, type: 3}
       propertyPath: m_Name
       value: abstrast_gruz (1)
@@ -1343,6 +1389,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7438278152273392616}
     m_Modifications:
+    - target: {fileID: 264502638715520573, guid: 6f93504c9501a27448aed387992bbd75, type: 3}
+      propertyPath: roditel
+      value: 
+      objectReference: {fileID: 4613939416054515284}
     - target: {fileID: 1322241898355991598, guid: 6f93504c9501a27448aed387992bbd75, type: 3}
       propertyPath: m_Name
       value: abstrast_gruz
@@ -1482,6 +1532,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7438278152273392616}
     m_Modifications:
+    - target: {fileID: 264502638715520573, guid: 6f93504c9501a27448aed387992bbd75, type: 3}
+      propertyPath: roditel
+      value: 
+      objectReference: {fileID: 4613939416054515284}
     - target: {fileID: 1322241898355991598, guid: 6f93504c9501a27448aed387992bbd75, type: 3}
       propertyPath: m_Name
       value: abstrast_gruz (10)
@@ -1644,6 +1698,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7438278152273392616}
     m_Modifications:
+    - target: {fileID: 264502638715520573, guid: 6f93504c9501a27448aed387992bbd75, type: 3}
+      propertyPath: roditel
+      value: 
+      objectReference: {fileID: 4613939416054515284}
     - target: {fileID: 1322241898355991598, guid: 6f93504c9501a27448aed387992bbd75, type: 3}
       propertyPath: m_Name
       value: abstrast_gruz (5)
@@ -1806,6 +1864,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7438278152273392616}
     m_Modifications:
+    - target: {fileID: 264502638715520573, guid: 6f93504c9501a27448aed387992bbd75, type: 3}
+      propertyPath: roditel
+      value: 
+      objectReference: {fileID: 4613939416054515284}
     - target: {fileID: 1322241898355991598, guid: 6f93504c9501a27448aed387992bbd75, type: 3}
       propertyPath: m_Name
       value: abstrast_gruz (2)

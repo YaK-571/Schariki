@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class csGraniza : MonoBehaviour
+public class csGraniza_Verh : MonoBehaviour
 {
 
     [SerializeField] GameManager _gameManager;

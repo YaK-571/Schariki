@@ -13,7 +13,6 @@ public class csVsruv : MonoBehaviour
     [SerializeField] public bool _popadanie_v_schar;
     [SerializeField] GameObject component_vsruv;
 
-
     [SerializeField] int _ballu;
     [SerializeField] HingeJoint2D _szepka;
     [SerializeField] csUskorenie_svjaski _svjaska;
@@ -40,9 +39,18 @@ public class csVsruv : MonoBehaviour
             _svjaska.Uskorenie();
         }
 
-       // Destroy(_Square);//удаляем верёвочку тоже
+        // Destroy(_Square);//удаляем верёвочку тоже
         //удаление обьекта по которому мы попали
-        Destroy(component_vsruv);
+        //Причём нужно запустить проверку есть ли у этого обьекта родительский и есть ли в нём ещё обьекты
+        //если нет, то родительский абстрактный обьект тоже нужно удалить
+        if (component_vsruv.GetComponent<CsOchistkaMusora>())
+        {
+            component_vsruv.GetComponent<CsOchistkaMusora>().Delete();
+        }
+        else
+        {
+            Destroy(component_vsruv);
+        }
 
     }
 

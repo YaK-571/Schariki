@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7654699052643088924}
   - component: {fileID: 5223913479315521658}
   - component: {fileID: 582687490728396027}
+  - component: {fileID: 1749019352006896927}
   m_Layer: 0
   m_Name: new_schar
   m_TagString: Untagged
@@ -76,6 +77,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1749019352006896927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 700305801990426380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6883e1b69071ac94bbd9ddcf3a8d682f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  roditel: {fileID: 0}
 --- !u!1 &823931404307744968
 GameObject:
   m_ObjectHideFlags: 0
@@ -88,6 +102,7 @@ GameObject:
   - component: {fileID: 7267787210882814637}
   - component: {fileID: 4886073977360198765}
   - component: {fileID: 1180066989887340919}
+  - component: {fileID: 578895046289851729}
   m_Layer: 0
   m_Name: Schar
   m_TagString: Untagged
@@ -216,6 +231,19 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 4.08, y: 5.38}
   m_Direction: 0
+--- !u!114 &578895046289851729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 823931404307744968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6883e1b69071ac94bbd9ddcf3a8d682f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  roditel: {fileID: 1749019352006896927}
 --- !u!1 &6189199681766768109
 GameObject:
   m_ObjectHideFlags: 0
@@ -228,6 +256,7 @@ GameObject:
   - component: {fileID: 7649715781427475204}
   - component: {fileID: 131252060886523086}
   - component: {fileID: 8239590489599167929}
+  - component: {fileID: 5061865268200748283}
   m_Layer: 0
   m_Name: Square
   m_TagString: Untagged
@@ -366,3 +395,16 @@ MonoBehaviour:
   _ballu: 0
   _szepka: {fileID: 0}
   _svjaska: {fileID: 0}
+--- !u!114 &5061865268200748283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6189199681766768109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6883e1b69071ac94bbd9ddcf3a8d682f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  roditel: {fileID: 1749019352006896927}

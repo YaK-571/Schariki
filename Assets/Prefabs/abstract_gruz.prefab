@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7877314249848041468}
   - component: {fileID: 8675625299586575098}
   - component: {fileID: 3048854220307850985}
+  - component: {fileID: 7980694743794633275}
   m_Layer: 0
   m_Name: gruz
   m_TagString: Untagged
@@ -100,6 +101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _schar: {fileID: 6021701701891222360}
+  _Square: {fileID: 0}
   _popadanie_v_schar: 0
   component_vsruv: {fileID: 1009344710410272590}
   _ballu: 0
@@ -146,6 +148,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _schar:
   - {fileID: 6021701701891222360}
+--- !u!114 &7980694743794633275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1009344710410272590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6883e1b69071ac94bbd9ddcf3a8d682f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  roditel: {fileID: 264502638715520573}
 --- !u!1001 &2012669687865633570
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -237,6 +252,17 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 7308222316972624505}
   m_SourcePrefab: {fileID: 100100000, guid: 596115189f05c744f9292afdf678eb5e, type: 3}
+--- !u!114 &264502638715520573 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1749019352006896927, guid: 596115189f05c744f9292afdf678eb5e, type: 3}
+  m_PrefabInstance: {fileID: 2012669687865633570}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1322241898355991598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6883e1b69071ac94bbd9ddcf3a8d682f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1322241898355991598 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 700305801990426380, guid: 596115189f05c744f9292afdf678eb5e, type: 3}
