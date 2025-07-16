@@ -5,25 +5,37 @@ using UnityEngine;
 public class CsOchistkaMusora : MonoBehaviour
 {
     [SerializeField] CsOchistkaMusora roditel;
-    
+    private bool verh;
+
     //Удаляем падающий груз/верёвочку
     //если у шара остался только абстрактный родительский обьект, то удаляем его
-    public void Delete()
+
+    //а если шарик взлетел наверх, то удаляем сразу всё целиком, все обьекты в связке через родителя
+    public void Delete(bool verh_ = false)
     {
-        if(roditel)
+
+        verh = verh_;
+
+        if (roditel)
         {
-            roditel.UdaleniePustogoRoditelja();
+            roditel.UdaleniePustogoRoditelja(verh);
         }
+
         Destroy(gameObject);
+
     }
 
-    public void UdaleniePustogoRoditelja()
+    public void UdaleniePustogoRoditelja(bool verh_)
     {
-        if(transform.childCount <= 1)
+        verh = verh_;
+        if (verh)
         {
-            Delete();
+            Delete(verh);
+        }
+        else if (transform.childCount <= 1)
+        {
+            Delete(verh);
         }
     }
-
 
 }

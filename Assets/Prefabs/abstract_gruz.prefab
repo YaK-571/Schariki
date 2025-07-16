@@ -177,10 +177,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: abstract_gruz
       objectReference: {fileID: 0}
-    - target: {fileID: 5223913479315521658, guid: 596115189f05c744f9292afdf678eb5e, type: 3}
-      propertyPath: speed_uskorenie
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 6947145144753297111, guid: 596115189f05c744f9292afdf678eb5e, type: 3}
       propertyPath: m_LocalScale.y
       value: 0.43937773

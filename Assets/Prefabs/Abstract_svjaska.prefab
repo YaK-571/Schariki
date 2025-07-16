@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5195774597585741430}
   - component: {fileID: 8428090979779012823}
+  - component: {fileID: 4567142076922285312}
   m_Layer: 0
   m_Name: Abstract_svjaska
   m_TagString: Untagged
@@ -48,6 +49,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roditel: {fileID: 0}
+--- !u!114 &4567142076922285312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 967638620313886546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2730d16b52d082a45a0c5192d24a05e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed_default_peredacha: 0
+  _scSchar:
+  - {fileID: 6340812416763376177}
+  - {fileID: 5785251731607900833}
+  - {fileID: 9060489470915102453}
 --- !u!1001 &277030782825183737
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -63,14 +81,6 @@ PrefabInstance:
     - target: {fileID: 1322241898355991598, guid: 6f93504c9501a27448aed387992bbd75, type: 3}
       propertyPath: m_Name
       value: abstrast_gruz (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6021701701891222360, guid: 6f93504c9501a27448aed387992bbd75, type: 3}
-      propertyPath: speed_default
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6021701701891222360, guid: 6f93504c9501a27448aed387992bbd75, type: 3}
-      propertyPath: speed_uskorenie
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6113646812640644091, guid: 6f93504c9501a27448aed387992bbd75, type: 3}
       propertyPath: m_LocalRotation.w
@@ -190,6 +200,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f93504c9501a27448aed387992bbd75, type: 3}
+--- !u!114 &5785251731607900833 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6021701701891222360, guid: 6f93504c9501a27448aed387992bbd75, type: 3}
+  m_PrefabInstance: {fileID: 277030782825183737}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14c45f7eb052e3c45b46273aff45177c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &8218139506743093447 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8202326306992558398, guid: 6f93504c9501a27448aed387992bbd75, type: 3}
@@ -212,13 +233,9 @@ PrefabInstance:
       value: abstrast_gruz
       objectReference: {fileID: 0}
     - target: {fileID: 6021701701891222360, guid: 6f93504c9501a27448aed387992bbd75, type: 3}
-      propertyPath: speed_default
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6021701701891222360, guid: 6f93504c9501a27448aed387992bbd75, type: 3}
-      propertyPath: speed_uskorenie
-      value: 1
-      objectReference: {fileID: 0}
+      propertyPath: _svjaska
+      value: 
+      objectReference: {fileID: 4567142076922285312}
     - target: {fileID: 6113646812640644091, guid: 6f93504c9501a27448aed387992bbd75, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.727
@@ -280,6 +297,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f93504c9501a27448aed387992bbd75, type: 3}
+--- !u!114 &6340812416763376177 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6021701701891222360, guid: 6f93504c9501a27448aed387992bbd75, type: 3}
+  m_PrefabInstance: {fileID: 319322947594901865}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14c45f7eb052e3c45b46273aff45177c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &8483359852937365591 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8202326306992558398, guid: 6f93504c9501a27448aed387992bbd75, type: 3}
@@ -305,14 +333,6 @@ PrefabInstance:
     - target: {fileID: 1322241898355991598, guid: 6f93504c9501a27448aed387992bbd75, type: 3}
       propertyPath: m_Name
       value: abstrast_gruz (2)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6021701701891222360, guid: 6f93504c9501a27448aed387992bbd75, type: 3}
-      propertyPath: speed_default
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6021701701891222360, guid: 6f93504c9501a27448aed387992bbd75, type: 3}
-      propertyPath: speed_uskorenie
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6113646812640644091, guid: 6f93504c9501a27448aed387992bbd75, type: 3}
       propertyPath: m_LocalRotation.w
@@ -445,3 +465,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8202326306992558398, guid: 6f93504c9501a27448aed387992bbd75, type: 3}
   m_PrefabInstance: {fileID: 3327090164279848365}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &9060489470915102453 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6021701701891222360, guid: 6f93504c9501a27448aed387992bbd75, type: 3}
+  m_PrefabInstance: {fileID: 3327090164279848365}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14c45f7eb052e3c45b46273aff45177c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

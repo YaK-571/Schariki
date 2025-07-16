@@ -155,7 +155,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &8267677546459141495
 RectTransform:
   m_ObjectHideFlags: 0
@@ -294,7 +294,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &249431041228244334
 RectTransform:
   m_ObjectHideFlags: 0
@@ -818,6 +818,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23c118d3e6cf171499fe24101a0ce6ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skorost: 0.5
   _levo_UI: {fileID: 8884339516233186536}
   _pravo_UI: {fileID: 4891763747193669853}
   _schar: {fileID: 700305801990426380, guid: 596115189f05c744f9292afdf678eb5e, type: 3}
@@ -1455,7 +1456,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6597337165571394575, guid: 4936d8c1d9f3d49499f5bd5c4d5b2b40, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 30
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 6597337165571394575, guid: 4936d8c1d9f3d49499f5bd5c4d5b2b40, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1493,6 +1494,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Delete_verh
       objectReference: {fileID: 0}
+    - target: {fileID: 7909929981723670514, guid: 4936d8c1d9f3d49499f5bd5c4d5b2b40, type: 3}
+      propertyPath: verh
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1517,7 +1522,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6597337165571394575, guid: 4936d8c1d9f3d49499f5bd5c4d5b2b40, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -30
+      value: -25
       objectReference: {fileID: 0}
     - target: {fileID: 6597337165571394575, guid: 4936d8c1d9f3d49499f5bd5c4d5b2b40, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1712,6 +1717,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5878011020716190829, guid: 01cb7a587bf25cc4abc6eafa30ef3e14, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 226516840071617078}
     - target: {fileID: 6678905448088156289, guid: 01cb7a587bf25cc4abc6eafa30ef3e14, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -1965,10 +1974,6 @@ PrefabInstance:
       propertyPath: _ui_hp
       value: 
       objectReference: {fileID: 6474892918164645026}
-    - target: {fileID: 8874790470379118358, guid: 0beb658b9485d8c41b58efea6318db9a, type: 3}
-      propertyPath: _vremja
-      value: 60
-      objectReference: {fileID: 0}
     - target: {fileID: 8874790470379118358, guid: 0beb658b9485d8c41b58efea6318db9a, type: 3}
       propertyPath: _ui_coin
       value: 

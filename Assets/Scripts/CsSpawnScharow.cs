@@ -6,6 +6,7 @@ using UnityEngine.UIElements;
 
 public class CsSpawnScharow : MonoBehaviour
 {
+    [SerializeField] float skorost;
     //для размера
     [SerializeField] RectTransform _levo_UI;
     [SerializeField] RectTransform _pravo_UI;
@@ -49,7 +50,7 @@ public class CsSpawnScharow : MonoBehaviour
             //рандомная точка в границах спавнера
             ScharPosition = new Vector3(Random.Range(0, size) - size / 2, transform.position.y, 0f);
             Instantiate(_schar, ScharPosition, Quaternion.identity); //где Quaternion.identity - дефолтный ротеншн
-            yield return new WaitForSeconds(1f);//перезапуск короутины через секунду
+            yield return new WaitForSeconds(skorost);//перезапуск короутины через секунду
         }
     }
 }

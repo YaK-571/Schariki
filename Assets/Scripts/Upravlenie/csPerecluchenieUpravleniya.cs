@@ -28,6 +28,11 @@ public class csPerecluchenieUpravleniya : MonoBehaviour
         csGyroskop.enabled = false;
         UIStik.SetActive(true);
     }
+    public void VKL_Gyroskop_i_Stik()
+    {
+        csTachpad.enabled = false;
+        csGyroskop.enabled = true;
+        UIStik.SetActive(true);
+    }
 
-    
 }

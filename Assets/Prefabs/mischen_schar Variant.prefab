@@ -173,14 +173,6 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: a0c9844f2c3bcd242be706d536309917, type: 3}
-    - target: {fileID: 6021701701891222360, guid: 6f93504c9501a27448aed387992bbd75, type: 3}
-      propertyPath: speed_default
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6021701701891222360, guid: 6f93504c9501a27448aed387992bbd75, type: 3}
-      propertyPath: speed_uskorenie
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 7308222316972624505, guid: 6f93504c9501a27448aed387992bbd75, type: 3}
       propertyPath: m_ConnectedAnchor.x
       value: 0.0000011920929

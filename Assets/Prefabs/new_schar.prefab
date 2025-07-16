@@ -49,7 +49,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed_default: 1
-  speed_uskorenie: 2
+  speed_default_min: 0.5
+  speed_default_max: 2.5
+  speed_uskorenie: 1.25
+  skorost_ustanovlena: 0
+  _svjaska: {fileID: 0}
 --- !u!50 &582687490728396027
 Rigidbody2D:
   serializedVersion: 4
