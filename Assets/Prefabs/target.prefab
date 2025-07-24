@@ -316,9 +316,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b09da106a1c1ed46a33b4b79d6f5892, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseSensitivity: 1
-  maxSensitivity: 3
-  tiltThreshold: 45
+  baseSensitivity: 0.5
+  maxSensitivity: 2
+  tiltThreshold: 30
   deadZone: 0
   _moveController: {fileID: 6300299426183982347}
 --- !u!114 &5196292477574747277

@@ -31,7 +31,7 @@ public class CsWASD : MonoBehaviour
         }
         _csMove.Set_Napravlenie_WASD(napravlenie);
 
-        //prizel_mouse();
+        prizel_mouse();
     }
 
     public void prizel_mouse()
