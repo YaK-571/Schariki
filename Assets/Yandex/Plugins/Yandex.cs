@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Runtime.InteropServices;
 using TMPro;
+using Unity.VisualScripting;
+
 //using UnityEditor.PackageManager.Requests;
 using UnityEngine;
 using UnityEngine.Networking;
@@ -8,7 +10,9 @@ using UnityEngine.UI;
 
 public class Yandex : MonoBehaviour
 {
-  
+
+
+
     public static Yandex YandexInstance;
     //Awake - эвент, который вызывается при запуске, но раньше, чем эвент Старт
     private void Awake()
@@ -22,9 +26,14 @@ public class Yandex : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    // public string ustroistvo;
+    public bool web_mobile;
     private void Start()
     {
         DontDestroyOnLoad(gameObject);
+        //    ustroistvo = get_ustroistvo_string();
+        web_mobile = get_ustroistvo_mobile();
     }
 
     [SerializeField] TextMeshProUGUI _text_nik;
@@ -33,7 +42,7 @@ public class Yandex : MonoBehaviour
     [DllImport("__Internal")]
     private static extern void PlayerData();
     //Экстерн - внешний. Запрос функции из другого джаваскипт файла
-    
+
     [DllImport("__Internal")]
     private static extern void OzenkaJS(); //предложение поставить оценку
 
@@ -42,17 +51,22 @@ public class Yandex : MonoBehaviour
     [DllImport("__Internal")]
     private static extern void LoadJS();//для загрузки данных
 
+    //[DllImport("__Internal")]
+    //private static extern string get_ustroistvo_string();//для загрузки данных
+    [DllImport("__Internal")]
+    private static extern bool get_ustroistvo_mobile();//для загрузки данных
+
     public void TestHelloWorld()
     {
         PlayerData();
     }
 
     //подгрузка имени игрока в игру из яндекса
-      public void SetNik(string text)
+    public void SetNik(string text)
     {
-         _text_nik.text = text;
-        
-       
+        _text_nik.text = text;
+
+
     }
     //подгрузка иконки игрока из яндекса в игру
     //из джаваскрипта происходит подгрузка
@@ -68,14 +82,11 @@ public class Yandex : MonoBehaviour
         if (request.result == UnityWebRequest.Result.ConnectionError || request.result == UnityWebRequest.Result.ProtocolError)
         {
             Debug.Log(request.error);
-           
+
         }
         else
         {
-                           _image.texture = ((DownloadHandlerTexture)request.downloadHandler).texture;
-            
-            
-           
+            _image.texture = ((DownloadHandlerTexture)request.downloadHandler).texture;
         }
     }
 
@@ -98,4 +109,6 @@ public class Yandex : MonoBehaviour
     {
         Progress.GameInstance.LoadCoin(value);
     }
+
+ 
 }

@@ -5,6 +5,8 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using Random = UnityEngine.Random;
 
+//БЫСТРОЕ КОММЕНТИРОВАНИЕ CTRL+K CTRL+/
+/*
 [System.Serializable] //ОБРАТИТЬ ВНИМАНИЕ, ЧТО ЭТО НЕ SerializeField
 public struct Scharu
 {
@@ -22,13 +24,24 @@ public struct Scharu
     { kolichestvo_niz = a; }
     public void set_verh(int a)
     { kolichestvo_verh = a; }
-}
+
+
+}*/
 
 public class CsSpawnScharow : MonoBehaviour
 {
-
+    [SerializeField] bool start_spawner;
+    //предназначен ли этот спавнер для автоматического долгого спавна шаров или для резкого выстрела дережабля
     [SerializeField] float skorost;
-    //для размера
+
+    [Header("Виды шаров")]
+    [SerializeField] public GameObject[] prefab;
+    [SerializeField] public int[] kolichestvo_start;
+    [SerializeField] public int[] kolichestvo_ostalos;
+    private int[] kolichestvo_niz;//нужно для рандома, чтобы знать сколько шаров суммарно было до этого шара
+    private int[] kolichestvo_verh;
+
+    [Header("Для авторазмера")]
     [SerializeField] RectTransform _levo_UI;
     [SerializeField] RectTransform _pravo_UI;
     Vector3 _levo_position_UI;
@@ -40,16 +53,33 @@ public class CsSpawnScharow : MonoBehaviour
     //для спавна шаров
 
     Vector3 ScharPosition = Vector3.zero;
-    [SerializeField] public Scharu[] _scharu;
     private int size_array_scharu = 0;
     private int typ_spawn = 0;
-    public int sum_scharov = 0;
+    private int sum_scharov_ostalos = 0;
     private int sum_scharov_max = 0;
-    //[SerializeField] GameObject _debug_odin_schar;
 
+    private void Awake()
+    {
+        size_array_scharu = prefab.Length; //получаем количество шаров разных видов
+
+        //заполняем массивы пустыми числами. Нужно сделать сразу, т.к. изменять размер массива нельзя
+        kolichestvo_ostalos = new int[size_array_scharu];
+        kolichestvo_niz = new int[size_array_scharu];
+        kolichestvo_verh = new int[size_array_scharu];
+
+    }
     void Start()
     {
-        size_array_scharu = _scharu.Length; //получаем количество шаров разных видов
+        if (start_spawner) Start_spawna(kolichestvo_start, skorost);
+    }
+
+    public void Start_spawna(int[] kolichestvo_start, float new_skorost)
+    {
+        //массивы в c# - это ссылки
+        //явно копируем передающийся массив, иначе он будет изменять исходный массив в дирижабле
+        kolichestvo_ostalos = (int[])kolichestvo_start.Clone();
+        skorost = new_skorost;
+
 
         //считаем сколько шаров будет заспавнено за уровень всего
         //нужно для рандомного выбора типа
@@ -57,24 +87,25 @@ public class CsSpawnScharow : MonoBehaviour
         //например обычных шаров было больше в 10 раз.
         //поэтому нужно при рандомной генерации отталикиваться не от количества типов шаров самих по себе
         //а от их общей сумме в каждом типе
+        sum_scharov_max = 0;
         int i = 0;
-
         while (i < size_array_scharu)
         {
-            _scharu[i].set_niz(sum_scharov);
-            sum_scharov = sum_scharov + _scharu[i].kolichestvo;
-            _scharu[i].set_verh(sum_scharov);
+            kolichestvo_niz[i] = sum_scharov_max;
+            sum_scharov_max = sum_scharov_max + kolichestvo_start[i];
+            kolichestvo_verh[i] = sum_scharov_max;
             i++;
         }
-        sum_scharov_max = sum_scharov;
+        sum_scharov_ostalos = sum_scharov_max;
         StartCoroutine(SpawnScharow());
     }
 
-
     IEnumerator SpawnScharow()
     {
-        while (true)
+        bool spawn_okonchen = true;
+        while (spawn_okonchen)
         {
+
             //-----------------ограничение спавна шариков размером экрана---------------
 
             //получаем координаты обьекта на канвасе
@@ -89,31 +120,20 @@ public class CsSpawnScharow : MonoBehaviour
             size_spawner = (pravo.x - levo.x) * 0.9f; //коэфф, чтобы он не спавнил шарики на самой границе вне досягаемости камеры
                                                       // Debug.Log(pravo.y + " "+ levo.y);
             gameObject.transform.localScale = new Vector3(size_spawner, transform.localScale.y, 0);
-            // gameObject.transform.position = pravo;
-
-
-            /*
-            //---------------ПРОСТОЙ СПАВН ШАРИКА----------------------
-            ScharPosition = RandomPosition();
-            Instantiate(_debug_odin_schar, ScharPosition, Quaternion.identity); //где Quaternion.identity - дефолтный ротеншн
-            */
-
 
             //---------------СПАВН ШАРИКОВ----------------------
 
             ScharPosition = RandomPosition();
             //если шары ещё есть, то заспавни
-            if (sum_scharov > 0)
+            if (sum_scharov_ostalos > 0)
             {
                 typ_spawn = Random_Typ_Schara();
-                Instantiate(_scharu[typ_spawn].prefab, ScharPosition, Quaternion.identity); //где Quaternion.identity - дефолтный ротеншн
-                sum_scharov--;
-                _scharu[typ_spawn].kolichestvo--;
+                Instantiate(prefab[typ_spawn], ScharPosition, Quaternion.identity); //где Quaternion.identity - дефолтный ротеншн
+                sum_scharov_ostalos--;
+                kolichestvo_ostalos[typ_spawn]--;
             }
-
-
-
-
+            else
+            { spawn_okonchen = false; }
             yield return new WaitForSeconds(skorost);//перезапуск короутины через секунду
         }
     }
@@ -131,11 +151,11 @@ public class CsSpawnScharow : MonoBehaviour
         int a = Random.Range(0, sum_scharov_max);
 
         int i = 0;
-        
+
         //определяем тип в которое вошло рандомое число
         while (i < size_array_scharu)
         {
-            if ((a >= _scharu[i].get_niz()) && (a < _scharu[i].get_verh()))
+            if ((a >= kolichestvo_niz[i]) && (a < kolichestvo_verh[i]))
             {
                 typ = i;
                 break;//если нужный тип найден - дальше не перебираем
@@ -144,25 +164,23 @@ public class CsSpawnScharow : MonoBehaviour
         }
 
         //но если количество оставшихся незаспавненных шаров == 0, то спавнем не этот тип, а следующий
-        if (_scharu[typ].kolichestvo == 0)
+        if (kolichestvo_ostalos[typ] == 0)
         { sdvig_typ = true; }
 
         if (sdvig_typ)
         {
-            
-            int nomer_oborota= 0;
+            int nomer_oborota = 0;
             while (nomer_oborota < size_array_scharu)
             {
                 nomer_oborota++;
                 typ++;
                 //если типы перебрали до конца - начни оборот сначала
-                if (typ >= size_array_scharu)  typ = 0;
-                if (_scharu[typ].kolichestvo > 0) break;
-
+                if (typ >= size_array_scharu) typ = 0;
+                if (kolichestvo_ostalos[typ] > 0) break;
             }
         }
 
-            return typ;
+        return typ;
     }
 
 }

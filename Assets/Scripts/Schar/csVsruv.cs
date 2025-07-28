@@ -13,7 +13,7 @@ public class csVsruv : MonoBehaviour
     [SerializeField] public bool _popadanie_v_schar;
     [SerializeField] GameObject component_vsruv;
 
-    [SerializeField] int _ballu;
+
     [SerializeField] HingeJoint2D _szepka;
     [SerializeField] csUskorenie_svjaski _svjaska;
     public void Vsruv()
@@ -54,8 +54,5 @@ public class csVsruv : MonoBehaviour
 
     }
 
-    public int get_ballu()
-    {
-        return _ballu;
-    }
+
 }

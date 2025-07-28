@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class csGyroskop : MonoBehaviour
@@ -119,18 +120,32 @@ public class csGyroskop : MonoBehaviour
     */
 
     [Header("Настройки")]
-    public float baseSensitivity = 1f;
-    public float maxSensitivity = 3f;
-    public float tiltThreshold = 45f; // Угол для максимальной чувствительности
+    public float baseSensitivity = 0.5f;
+    public float maxSensitivity = 2f;
+    public float tiltThreshold = 30f; // Угол для максимальной чувствительности
     public float deadZone = 0;     // Мертвая зона
     [SerializeField] csMove _moveController;
 
     private Quaternion _initialAttitude;
 
+#if UNITY_WEBGL
+    //для гироскопа в вебе
+    private DeviceOrientation orientation;
+    //поворот телефона (для ручного изменения гироскопа в вебе
+    private int inversija_web = 1;
+#endif
+
+
+    //[SerializeField] TextMeshProUGUI textMeshProUGUI1;
+    //[SerializeField] TextMeshProUGUI textMeshProUGUI2;
+
+
     void Start()
     {
-        Input.gyro.enabled = true;
-        _initialAttitude = Input.gyro.attitude;
+        Input.gyro.enabled = true; //включение гироскопа
+        StartCoroutine(CalibrateNextFrame());
+        //гироскоп при старте ещё не передаёт корректные данные
+        //поэтому калибруем в следующем кадре
     }
 
     void Update()
@@ -147,8 +162,19 @@ public class csGyroskop : MonoBehaviour
 
         // 3. Получаем скорость от гироскопа (инвертируем ось Y)
         Vector3 gyroRate = Input.gyro.rotationRateUnbiased;
-        Vector2 gyroInput = new Vector2(-gyroRate.y, gyroRate.x);
 
+        Vector2 gyroInput = new Vector2(0f, 0f);
+#if UNITY_WEBGL
+        orientation = Input.deviceOrientation;
+        if (orientation == DeviceOrientation.LandscapeLeft) inversija_web = -1;
+        else if (orientation == DeviceOrientation.LandscapeRight) inversija_web = 1;
+         gyroInput = new Vector2(gyroRate.x*inversija_web, gyroRate.y*inversija_web);
+        //textMeshProUGUI1.text = orientation.ToString();
+        //textMeshProUGUI2.text = inversija_web.ToString();
+
+#else
+        gyroInput = new Vector2(-gyroRate.y, gyroRate.x);
+#endif
         // 4. Фильтруем микро-движения и применяем чувствительность
         if (gyroInput.magnitude > deadZone)
         {
@@ -164,5 +190,12 @@ public class csGyroskop : MonoBehaviour
     public void Calibrate()
     {
         _initialAttitude = Input.gyro.attitude;
+    }
+
+    IEnumerator CalibrateNextFrame()
+    {
+        yield return new WaitForSeconds(0.2f); // ждём один кадр (зачёркнуто) ждём чуть-чуть
+        //при калибровке через один кадр - всё равно иногда сразу не срабатывает
+        Calibrate();       // вызываем калибровку
     }
 }

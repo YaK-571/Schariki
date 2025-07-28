@@ -36,7 +36,7 @@ mergeInto(LibraryManager.library, {
 
 
     SaveJS: function (date) {
-       
+
         var dateString = UTF8ToString(date);
         //преобразуем строку из ждава скрипта в тот формат, который понимает юнити или наоборот
         var myobj = JSON.parse(dateString);
@@ -44,19 +44,33 @@ mergeInto(LibraryManager.library, {
         //а его сохраняем
         //он содержит пары ключ-значение (деньги - количество денег)
         player.setData(myobj);
-       
+
     },
     LoadJS: function () {
         player.getData().then(_date => {
-            
+
             const myJSON = JSON.stringify(_date);
             myGameInstance.SendMessage('Yandex', 'LoadCoin', myJSON);
             //передача данных в C#, где
             //1 - это обьект на котором висит скрипт
             //2 - вызываемая функция
             //3 - то, что мы в неё передаём
-          
+
         });
 
     },
+    //get_ustroistvo_string: function () {
+    //    console.log("KIR Poluchit_ustroistvo");
+    //    console.log(navigator.userAgent);
+    //    return navigator.userAgent;
+    //    // return /iPhone|iPad|iPod|tablet|Android/i.test(navigator.userAgent);
+    //},
+    get_ustroistvo_mobile: function () {
+        console.log("KIR WEB MOBILE");
+        return /iPhone|iPad|iPod|tablet|Android/i.test(navigator.userAgent);
+    }
+
+
+
+
 });

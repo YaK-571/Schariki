@@ -107,6 +107,7 @@ GameObject:
   - component: {fileID: 4886073977360198765}
   - component: {fileID: 1180066989887340919}
   - component: {fileID: 578895046289851729}
+  - component: {fileID: 6351213185637220384}
   m_Layer: 0
   m_Name: Schar
   m_TagString: Untagged
@@ -197,7 +198,6 @@ MonoBehaviour:
   _Square: {fileID: 6189199681766768109}
   _popadanie_v_schar: 1
   component_vsruv: {fileID: 823931404307744968}
-  _ballu: 1
   _szepka: {fileID: 0}
   _svjaska: {fileID: 0}
 --- !u!70 &1180066989887340919
@@ -248,6 +248,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roditel: {fileID: 1749019352006896927}
+--- !u!114 &6351213185637220384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 823931404307744968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ca8c8df3fd04084eb30a5be1b74ff40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ballu: 1
 --- !u!1 &6189199681766768109
 GameObject:
   m_ObjectHideFlags: 0
@@ -396,7 +409,6 @@ MonoBehaviour:
   _Square: {fileID: 0}
   _popadanie_v_schar: 0
   component_vsruv: {fileID: 6189199681766768109}
-  _ballu: 0
   _szepka: {fileID: 0}
   _svjaska: {fileID: 0}
 --- !u!114 &5061865268200748283

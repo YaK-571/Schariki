@@ -17,7 +17,7 @@ public class Date
     public int[] progress_lvl;
     public bool progress_lvl2;
     public bool progress_lvl3;
-   // public bool _PERVUI_ZAPUSK; //--------------ѕ≈–≈ѕ–ќ¬≈–»“№-------------------
+    // public bool _PERVUI_ZAPUSK; //--------------ѕ≈–≈ѕ–ќ¬≈–»“№-------------------
 }
 public class Progress : MonoBehaviour
 {
@@ -30,7 +30,9 @@ public class Progress : MonoBehaviour
     [SerializeField] int nomer_lvl = 1;
 
     //---------------------------Ќ≈ «јЅџ“№ ”Ѕ–ј“№ ѕќ—Ћ≈ Ѕ»Ћƒј----------------------
-    [SerializeField] bool _DEV_BUILD=true; //—Ќяяяяяяя“№ Ё“” √јЋќ„ ” ¬ »Ќ—ѕ≈ “ќ–≈!!!!!
+    [SerializeField] bool _DEV_BUILD = true; //—Ќяяяяяяя“№ Ё“” √јЋќ„ ” ¬ »Ќ—ѕ≈ “ќ–≈!!!!!
+    bool web_telefon = false;
+
 
 
     //делаем так, чтобы обьект не уничтожалс€ при смене уровней
@@ -56,13 +58,21 @@ public class Progress : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+#if UNITY_WEBGL
+        if(_yandex)
+        { _yandex.SetActive(true); }
+#else
+ if(_yandex)
+        { _yandex.SetActive(false); }
+#endif
     }
 
     void Start()
     {
         if (_DEV_BUILD)
-        { 
-        if(PERVUI_ZAPUSK())
+        {
+            if (PERVUI_ZAPUSK())
             {
                 PlayerPrefs.DeleteKey("PERVUI_ZAPUSK");
             }
@@ -80,6 +90,7 @@ public class Progress : MonoBehaviour
             {
                 _save_yandex = true;
                 _csYandex.Load();
+              
             }
             else
             {//если это первый запуск - сохрани дефолтные значени€, если нет - загрузи сохранение
@@ -92,7 +103,7 @@ public class Progress : MonoBehaviour
                     LoadSave();
                 }
             }
-           
+
         }
 
     }
@@ -175,24 +186,12 @@ public class Progress : MonoBehaviour
     public void LoadCoin(string value)
     {
         if (string.IsNullOrEmpty(value))
-        {
-            // если нет сохранЄнных данных
+        { // если нет сохранЄнных данных
             // ћожно дополнительно вызвать первое сохранение, чтобы создать запись на сервере
             PERVOE_SOHRANENIE();
         }
         else
-        {
-            date = JsonUtility.FromJson<Date>(value);
-            /*  if (_text_save_load)
-              {
-                  _text_save_load.text = date.Coin + "\n" +
-              date.usilenie1_minigun + "\n" +
-              date.usilenie2_arta + "\n" +
-              date.usilenie3_zamarozka + "\n" +
-              date.usilenie4_schit;
-                  //заполнение всех полей
-              }*/
-        }
+        { date = JsonUtility.FromJson<Date>(value); }
 
     }
 
@@ -258,7 +257,7 @@ public class Progress : MonoBehaviour
         SaveCoin(0);
     }
 
-   
+
 
     public void set_nomer_lvl(int a)
     {
@@ -267,5 +266,19 @@ public class Progress : MonoBehaviour
     public int get_nomer_lvl()
     {
         return nomer_lvl;
+    }
+
+
+    public bool get_web_telefon()
+    {
+        return web_telefon;
+    }
+
+    string ustroistvo;
+
+    public void My_ustroistvo(string userAgent)
+    {
+        ustroistvo = userAgent;
+        Debug.Log("KIR USTROISTVO: " + ustroistvo);
     }
 }

@@ -3850,6 +3850,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Yandex
       objectReference: {fileID: 0}
+    - target: {fileID: 8072441738237999183, guid: 21d59336693ab5746975900f3502564f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3875,6 +3879,10 @@ PrefabInstance:
       propertyPath: _csYandex
       value: 
       objectReference: {fileID: 1082795116}
+    - target: {fileID: 6046172178704425026, guid: afec0fa7215137d42a2632a4093fe82c, type: 3}
+      propertyPath: date.Coin
+      value: 200
+      objectReference: {fileID: 0}
     - target: {fileID: 6046172178704425026, guid: afec0fa7215137d42a2632a4093fe82c, type: 3}
       propertyPath: nomer_lvl
       value: 0
@@ -3940,6 +3948,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 740031402635233137, guid: d6b648f21e9415b4786ba071631758e0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4792724749463867306, guid: d6b648f21e9415b4786ba071631758e0, type: 3}
       propertyPath: m_Name
       value: Canvas_lvl1

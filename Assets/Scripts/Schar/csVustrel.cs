@@ -1,12 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class csVustrel : MonoBehaviour
 {
+
     [SerializeField] csBomba _bomba;
     [SerializeField] csVsruv _vsruv;
     [SerializeField] csMischen _mischen;
+    [SerializeField] CsDirigible dirigible;
+    [SerializeField] CsBallu ballu;
 
     // [SerializeField] GameObject _canvas_game_over;
     [SerializeField] GameManager _gameManager;
@@ -14,17 +18,30 @@ public class csVustrel : MonoBehaviour
     [SerializeField] GameObject _vspuschka_prefab;
 
     int coef_coin = 1;
-  
+    private int uron = 1;
+
+    bool web_mobile = false;
+
     void Start()
     {
-        
+#if UNITY_WEBGL
+        if (Yandex.YandexInstance) { web_mobile = Yandex.YandexInstance.web_mobile; }
+#endif
     }
 
     void Update()
     {
         if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
         {
-            vustrel();
+           
+#if UNITY_WEBGL
+            if (web_mobile) { }
+            else { vustrel(); }
+#else
+    vustrel();
+#endif
+
+
         }
     }
     public void vustrel()
@@ -60,11 +77,21 @@ public class csVustrel : MonoBehaviour
                 _gameManager.HP(-1);
 
             }
+            if (hit[i].collider.gameObject.GetComponent<CsBallu>())
+            {
+                ballu = hit[i].collider.gameObject.GetComponent<CsBallu>();
+                _gameManager.Coin(ballu.get_ballu() * coef_coin);
+            }
+
             if (hit[i].collider.gameObject.GetComponent<csVsruv>())
             {
                 _vsruv = hit[i].collider.gameObject.GetComponent<csVsruv>();
-                _gameManager.Coin(_vsruv.get_ballu() * coef_coin);
                 _vsruv.Vsruv();
+            }
+            if (hit[i].collider.gameObject.GetComponent<CsDirigible>())
+            {
+                dirigible = hit[i].collider.gameObject.GetComponent<CsDirigible>();
+                _gameManager.Coin(dirigible.Damage(uron) * coef_coin);
             }
         }
     }

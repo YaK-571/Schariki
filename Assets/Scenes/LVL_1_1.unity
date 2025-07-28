@@ -364,10 +364,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 168765494782601568, guid: d515827ab5ccef34a925f78eb2c05d67, type: 3}
-      propertyPath: _hp
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 3740169329574019953, guid: d515827ab5ccef34a925f78eb2c05d67, type: 3}
       propertyPath: m_Name
       value: LVL_univerval
@@ -410,46 +406,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6236394521716743971, guid: d515827ab5ccef34a925f78eb2c05d67, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8032987729548693851, guid: d515827ab5ccef34a925f78eb2c05d67, type: 3}
-      propertyPath: _scharu.Array.data[0].kolichestvo
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 8032987729548693851, guid: d515827ab5ccef34a925f78eb2c05d67, type: 3}
-      propertyPath: _scharu.Array.data[1].kolichestvo
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8032987729548693851, guid: d515827ab5ccef34a925f78eb2c05d67, type: 3}
-      propertyPath: _scharu.Array.data[2].kolichestvo
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8032987729548693851, guid: d515827ab5ccef34a925f78eb2c05d67, type: 3}
-      propertyPath: _scharu.Array.data[3].kolichestvo
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8032987729548693851, guid: d515827ab5ccef34a925f78eb2c05d67, type: 3}
-      propertyPath: _scharu.Array.data[4].kolichestvo
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8032987729548693851, guid: d515827ab5ccef34a925f78eb2c05d67, type: 3}
-      propertyPath: _scharu.Array.data[5].kolichestvo
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8032987729548693851, guid: d515827ab5ccef34a925f78eb2c05d67, type: 3}
-      propertyPath: _scharu.Array.data[6].kolichestvo
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8032987729548693851, guid: d515827ab5ccef34a925f78eb2c05d67, type: 3}
-      propertyPath: _scharu.Array.data[7].kolichestvo
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8032987729548693851, guid: d515827ab5ccef34a925f78eb2c05d67, type: 3}
-      propertyPath: _scharu.Array.data[8].kolichestvo
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8032987729548693851, guid: d515827ab5ccef34a925f78eb2c05d67, type: 3}
-      propertyPath: _scharu.Array.data[9].kolichestvo
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
