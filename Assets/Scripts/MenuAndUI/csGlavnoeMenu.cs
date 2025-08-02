@@ -38,13 +38,13 @@ public class csGlavnoeMenu : MonoBehaviour
         if (_zamok)
         {
 
-            if (nomer_lvl == 2 && Progress.GameInstance.date.progress_lvl2)
+            if (nomer_lvl == 2 && Progress.GameInstance.date.razblokirovan_lvl2)
             {
                 _zamok.SetActive(false);
                 _zamok_text.SetActive(false);
                 activnost_knopki = true;
             }
-            else if (nomer_lvl == 3 && Progress.GameInstance.date.progress_lvl3)
+            else if (nomer_lvl == 3 && Progress.GameInstance.date.razblokirovan_lvl3)
             {
                 _zamok.SetActive(false);
                 _zamok_text.SetActive(false);

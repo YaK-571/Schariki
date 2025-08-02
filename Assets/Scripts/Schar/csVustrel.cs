@@ -67,7 +67,7 @@ public class csVustrel : MonoBehaviour
             else if (hit[i].collider.gameObject.GetComponent<csMischen>())
             {
                 _mischen = hit[i].collider.gameObject.GetComponent<csMischen>();
-                coef_coin = coef_coin + 1;
+                coef_coin ++;
             }
 
             if (hit[i].collider.gameObject.GetComponent<csBomba>())

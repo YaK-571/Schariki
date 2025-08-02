@@ -43,20 +43,60 @@ mergeInto(LibraryManager.library, {
         //потом эту строку преобразуем в обьект
         //а его сохраняем
         //он содержит пары ключ-значение (деньги - количество денег)
-        player.setData(myobj);
+        if (!player) {
+            console.warn("player не инициализирован для сохранения");
+            myGameInstance.SendMessage('Yandex', 'Set_igrok_avtorizirovan', false); 
+            myGameInstance.SendMessage('Yandex', 'Save_PlayerPrefs');
+            return;
+        }
+        if (typeof player.setData !== 'function') {
+            console.warn("setData недоступен");
+            myGameInstance.SendMessage('Yandex', 'Set_igrok_avtorizirovan', false); 
+            myGameInstance.SendMessage('Yandex', 'Save_PlayerPrefs');
+            return;
+        }
+
+        player.setData(myobj)
+            .then(() => {
+                console.log("Данные сохранены");
+            })
+            .catch(err => {
+                console.warn("Ошибка при сохранении данных:", err);
+            });
 
     },
     LoadJS: function () {
-        player.getData().then(_date => {
+        console.log("3 JS Загрузка запущена")
+        //проверка есть ли игрок
+        if (!player) {
+            console.warn("player не инициализирован для загрузки");
+            myGameInstance.SendMessage('Yandex', 'Set_igrok_avtorizirovan', false); 
+            myGameInstance.SendMessage('Yandex', 'Load_Yandex', null);
+            return;
+        }
+        if (typeof player.getData !== 'function') {
+            console.warn("getData недоступен");
+            myGameInstance.SendMessage('Yandex', 'Set_igrok_avtorizirovan', false); 
+            myGameInstance.SendMessage('Yandex', 'Load_Yandex', null);
+            return;
+        }
+        player.getData()
+            .then(_date => {
 
-            const myJSON = JSON.stringify(_date);
-            myGameInstance.SendMessage('Yandex', 'LoadCoin', myJSON);
-            //передача данных в C#, где
-            //1 - это обьект на котором висит скрипт
-            //2 - вызываемая функция
-            //3 - то, что мы в неё передаём
-
-        });
+                const myJSON = JSON.stringify(_date);
+                console.log("4 JS данные получены с сервера")
+                myGameInstance.SendMessage('Yandex', 'Load_Yandex', myJSON);
+                //передача данных в C#, где
+                //1 - это обьект на котором висит скрипт
+                //2 - вызываемая функция
+                //3 - то, что мы в неё передаём
+            }
+            )
+            .catch(error => {
+                console.warn("Ошибка при получении данных игрока:", error);
+                myGameInstance.SendMessage('Yandex', 'Set_igrok_avtorizirovan', false); 
+                myGameInstance.SendMessage('Yandex', 'Load_Yandex', null);
+            });
 
     },
     //get_ustroistvo_string: function () {
@@ -66,7 +106,6 @@ mergeInto(LibraryManager.library, {
     //    // return /iPhone|iPad|iPod|tablet|Android/i.test(navigator.userAgent);
     //},
     get_ustroistvo_mobile: function () {
-        console.log("KIR WEB MOBILE");
         return /iPhone|iPad|iPod|tablet|Android/i.test(navigator.userAgent);
     }
 

@@ -159,6 +159,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7300209659951920042, guid: 3309a464a578c8741b1e66f933fd61d7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8738415198640683555}
+    - targetCorrespondingSourceObject: {fileID: 7300209659951920042, guid: 3309a464a578c8741b1e66f933fd61d7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6685460922372361472}
   m_SourcePrefab: {fileID: 100100000, guid: 3309a464a578c8741b1e66f933fd61d7, type: 3}
 --- !u!1 &5043301043098556178 stripped
 GameObject:
@@ -251,3 +254,16 @@ PolygonCollider2D:
       - {x: 0.71, y: -1.505}
       - {x: 0.9, y: -1.395}
   m_UseDelaunayMesh: 0
+--- !u!114 &6685460922372361472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5043301043098556178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ca8c8df3fd04084eb30a5be1b74ff40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ballu: 20

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 //[System.Serializable] - нужен, чтобы этот класс отображался справа в инспекторе, как публичная переменная
 //класс для сохранения переменных на сервере яндекса
@@ -14,9 +15,9 @@ public class Date
     public int usilenie3_zamarozka;
     public int usilenie4_schit;
     public int aptetschka;
-    public int[] progress_lvl;
-    public bool progress_lvl2;
-    public bool progress_lvl3;
+    public int[] progress_lvl = new int[10];
+    public bool razblokirovan_lvl2;
+    public bool razblokirovan_lvl3;
     // public bool _PERVUI_ZAPUSK; //--------------ПЕРЕПРОВЕРИТЬ-------------------
 }
 public class Progress : MonoBehaviour
@@ -28,11 +29,9 @@ public class Progress : MonoBehaviour
     [SerializeField] TextMeshProUGUI _text_monetu;
 
     [SerializeField] int nomer_lvl = 1;
-
-    //---------------------------НЕ ЗАБЫТЬ УБРАТЬ ПОСЛЕ БИЛДА----------------------
-    [SerializeField] bool _DEV_BUILD = true; //СНЯЯЯЯЯЯЯТЬ ЭТУ ГАЛОЧКУ В ИНСПЕКТОРЕ!!!!!
     bool web_telefon = false;
 
+    [SerializeField] bool sohranenyja_v_editore = false;
 
 
     //делаем так, чтобы обьект не уничтожался при смене уровней
@@ -60,56 +59,155 @@ public class Progress : MonoBehaviour
         }
 
 #if UNITY_WEBGL
-        if(_yandex)
+        if (_yandex)
         { _yandex.SetActive(true); }
 #else
- if(_yandex)
+        if(_yandex)
+        { _yandex.SetActive(false); }
+#endif
+#if UNITY_EDITOR
+        if (_yandex)
         { _yandex.SetActive(false); }
 #endif
     }
 
     void Start()
     {
-        if (_DEV_BUILD)
+#if UNITY_EDITOR
+        if (sohranenyja_v_editore)
         {
-            if (PERVUI_ZAPUSK())
-            {
-                PlayerPrefs.DeleteKey("PERVUI_ZAPUSK");
-            }
+
         }
         else
         {
-
-            //если это билд для яндекса, то сохраняем всё на сервер
-            //если нет, то через плеер преф на устройстве
-
-            //также обьекта яндекс может не быть, если мы начали игру не с главного меню
-            //дополнительная проверка на наличие этого обьекта здесь включена для того,
-            //чтобы не было бесящих ошибок во время разработки, когда включаем разные уровни сразу без меню
-            if (_yandex && _yandex.activeSelf)
-            {
-                _save_yandex = true;
-                _csYandex.Load();
-              
-            }
-            else
-            {//если это первый запуск - сохрани дефолтные значения, если нет - загрузи сохранение
-                if (PERVUI_ZAPUSK())
-                {
-                    PERVOE_SOHRANENIE();
-                }
-                else
-                {
-                    LoadSave();
-                }
-            }
-
+            PlayerPrefs.DeleteKey("PERVUI_ZAPUSK");
         }
 
+#endif
+        Debug.Log(JsonUtility.ToJson(date));
+
+
+        //если это билд для яндекса, то сохраняем всё на сервер
+        //если нет, то через плеер преф на устройстве
+
+        //также обьекта яндекс может не быть, если мы начали игру не с главного меню
+        //дополнительная проверка на наличие этого обьекта здесь включена для того,
+        //чтобы не было бесящих ошибок во время разработки, когда включаем разные уровни сразу без меню
+        if (_yandex && _yandex.activeSelf)
+        {
+            Debug.Log("1 ПРОГРЕСС загрузка из яндекса запущена");
+            _save_yandex = true;
+            _csYandex.Load_Start();
+        }
+        else
+        {
+            //если это первый запуск - сохрани дефолтные значения, если нет - загрузи сохранение
+            if (PERVUI_ZAPUSK())
+            {
+                PERVOE_SOHRANENIE();
+            }
+            else
+            {
+                Load_PlayerPrefs();
+                _save_yandex = false;
+            }
+        }
     }
 
 
-    public void LoadSave()
+
+
+    bool igrok_avtorizirovan = true;
+    public void Set_igrok_avtorizirovan(bool value)
+    {
+        igrok_avtorizirovan = value;
+    }
+
+    public void SaveCoin(int zarabotok)
+    {
+        Debug.Log("9 ПРОГРЕСС сохранение");
+        date.Coin = zarabotok + date.Coin;
+        if (_save_yandex && igrok_avtorizirovan)
+        {
+            Save_Yandex();
+        }
+        else
+        {
+            Save_PlayerPrefs();
+        }
+    }
+
+    public void Save_Yandex()
+    {
+        Debug.Log("9-1 ПРОГРЕСС сохранение в яндексе КОНЕЦ");
+        //данные в яндекс передаются только как строчка
+        //преобразуем класс с данными в строку
+        string dateJS = JsonUtility.ToJson(date);
+        //и вызываем код в джава скрипт
+        _csYandex.Save(dateJS);
+    }
+
+        public void Save_PlayerPrefs()
+    {
+        Debug.Log("9-2 ПРОГРЕСС сохранение в компьютере КОНЕЦ");
+        PlayerPrefs.SetInt("Coin", date.Coin); //сохранение денег на пк
+        PlayerPrefs.SetInt("usilenie1_minigun", date.usilenie1_minigun);
+        PlayerPrefs.SetInt("usilenie2_arta", date.usilenie2_arta);
+        PlayerPrefs.SetInt("usilenie3_zamarozka", date.usilenie3_zamarozka);
+        PlayerPrefs.SetInt("usilenie4_schit", date.usilenie4_schit);
+        PlayerPrefs.SetInt("aptetschka", date.aptetschka);
+        PlayerPrefs.SetInt("progress_lvl_0", date.progress_lvl[0]);
+        PlayerPrefs.SetInt("progress_lvl_1", date.progress_lvl[1]);
+        PlayerPrefs.SetInt("progress_lvl_2", date.progress_lvl[2]);
+
+        if (date.razblokirovan_lvl2 == false)
+        {
+            PlayerPrefs.SetInt("razblokirovan_lvl2", 0);
+        }
+        else
+        {
+            PlayerPrefs.SetInt("razblokirovan_lvl2", 1);
+        }
+        if (date.razblokirovan_lvl3 == false)
+        {
+            PlayerPrefs.SetInt("razblokirovan_lvl3", 0);
+        }
+        else
+        {
+            PlayerPrefs.SetInt("razblokirovan_lvl3", 1);
+
+        }
+        PlayerPrefs.Save();
+    }
+
+    //для загрузки на старте вызываем функцию в яндексе
+    //она вызывает функцию в js
+    //он вызывает функцию в яндекс c#
+    //и уже он потом вызывает этот метод
+    public void Load_Yandex(string value)
+    {
+        Debug.Log("6 ПРОГРЕСС данные из яндекса получены прогрессом");
+        Debug.Log(value);
+
+        if (value.Length<5) //яндекс возвращает не null, а {}, поэтому сделаем проверку на длину строки
+        {
+            Debug.Log("7-1 ПРОГРЕСС старых сохранений нет. Создание первого сохранения");
+            // если нет сохранённых данных
+            // Можно дополнительно вызвать первое сохранение, чтобы создать запись на сервере
+            PERVOE_SOHRANENIE();
+        }
+        else
+        {
+            date = JsonUtility.FromJson<Date>(value); Debug.Log("7-2 ПРОГРЕСС сохранения были. Загрузка сохранения. КОНЕЦ");
+            Debug.Log("После загрузки");
+            Debug.Log(JsonUtility.ToJson(date));
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);//перезапуск уровня для простой перезагрузки значений
+        }
+        
+
+    }
+
+    public void Load_PlayerPrefs()
     {
         date.Coin = PlayerPrefs.GetInt("Coin"); //загрузка денег с пк
         date.usilenie1_minigun = PlayerPrefs.GetInt("usilenie1_minigun");
@@ -117,84 +215,47 @@ public class Progress : MonoBehaviour
         date.usilenie3_zamarozka = PlayerPrefs.GetInt("usilenie3_zamarozka");
         date.usilenie4_schit = PlayerPrefs.GetInt("usilenie4_schit");
         date.aptetschka = PlayerPrefs.GetInt("aptetschka");
-        //  date.progress_lvl[0] = PlayerPrefs.GetInt("progress_lvl_0");
-        //  date.progress_lvl[1] = PlayerPrefs.GetInt("progress_lvl_1");
-        //  date.progress_lvl[2] = PlayerPrefs.GetInt("progress_lvl_2");
-        /*
-          if (PlayerPrefs.GetInt("progress_lvl2") == 0)
-          {
-              date.progress_lvl2 = false;
-          }
-          if (PlayerPrefs.GetInt("progress_lvl3") == 0)
-          {
-              date.progress_lvl3 = false;
-          }
-        */
-
-        _save_yandex = false;
-    }
-
-    public void SaveCoin(int zarabotok)
-    {
-
-        date.Coin = zarabotok + date.Coin;
-        if (_save_yandex)
+        date.progress_lvl[0] = PlayerPrefs.GetInt("progress_lvl_0");
+        date.progress_lvl[1] = PlayerPrefs.GetInt("progress_lvl_1");
+        date.progress_lvl[2] = PlayerPrefs.GetInt("progress_lvl_2");
+        if (PlayerPrefs.GetInt("razblokirovan_lvl2") == 0)
         {
-            //данные в яндекс передаются только как строчка
-            //преобразуем класс с данными в строку
-            string dateJS = JsonUtility.ToJson(date);
-            //и вызываем код в джава скрипт
-            _csYandex.Save(dateJS);
+            date.razblokirovan_lvl2 = false;
         }
-        else
+        else date.razblokirovan_lvl2 = true;
+
+        if (PlayerPrefs.GetInt("razblokirovan_lvl3") == 0)
         {
-            PlayerPrefs.SetInt("Coin", date.Coin); //сохранение денег на пк
-            PlayerPrefs.SetInt("usilenie1_minigun", date.usilenie1_minigun);
-            PlayerPrefs.SetInt("usilenie2_arta", date.usilenie2_arta);
-            PlayerPrefs.SetInt("usilenie3_zamarozka", date.usilenie3_zamarozka);
-            PlayerPrefs.SetInt("usilenie4_schit", date.usilenie4_schit);
-            PlayerPrefs.SetInt("aptetschka", date.aptetschka);
-            PlayerPrefs.SetInt("progress_lvl_0", date.progress_lvl[0]);
-            PlayerPrefs.SetInt("progress_lvl_1", date.progress_lvl[1]);
-            PlayerPrefs.SetInt("progress_lvl_2", date.progress_lvl[2]);
-
-            if (date.progress_lvl2 == false)
-            {
-                PlayerPrefs.SetInt("progress_lvl2", 0);
-            }
-            else
-            {
-                PlayerPrefs.SetInt("progress_lvl2", 1);
-            }
-            if (date.progress_lvl3 == false)
-            {
-                PlayerPrefs.SetInt("progress_lvl3", 0);
-            }
-            else
-            {
-                PlayerPrefs.SetInt("progress_lvl3", 1);
-
-            }
-            PlayerPrefs.Save();
+            date.razblokirovan_lvl3 = false;
         }
+        else date.razblokirovan_lvl3 = true;
     }
 
-    //для загрузки на старте вызываем функцию в яндексе
-    //она вызывает функцию в js
-    //он вызывает функцию в яндекс c#
-    //и уже он потом вызывает этот метод
-    public void LoadCoin(string value)
+
+    private bool PERVUI_ZAPUSK()
     {
-        if (string.IsNullOrEmpty(value))
-        { // если нет сохранённых данных
-            // Можно дополнительно вызвать первое сохранение, чтобы создать запись на сервере
-            PERVOE_SOHRANENIE();
-        }
-        else
-        { date = JsonUtility.FromJson<Date>(value); }
-
+        return !PlayerPrefs.HasKey("PERVUI_ZAPUSK");
+        //Это поле при первом запуске не существует вообще. Впринципе
+        //и речь не про значение в нём, а про всё поле в принципе.
+        //поэтому в стартовом if при первом запуске его не получится найти
+        //и мы сохраним данные, которые я вёл в инспекторе
     }
 
+    private void PERVOE_SOHRANENIE()
+    {
+        Debug.Log("8 ПРОГРЕСС создание метки для первого сохранения");
+        PlayerPrefs.SetInt("PERVUI_ZAPUSK", 0);
+        Save_PlayerPrefs();
+        SaveCoin(0);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);//перезапуск уровня для простой перезагрузки значений
+    }
+
+
+
+
+
+
+    //--------------------------УСИЛЕНИЯ--------------------------------------
     //использование усиления
     public void Usilenie(int nomer)
     {
@@ -242,22 +303,7 @@ public class Progress : MonoBehaviour
     }
 
 
-    private bool PERVUI_ZAPUSK()
-    {
-        return !PlayerPrefs.HasKey("PERVUI_ZAPUSK");
-        //Это поле при первом запуске не существует вообще. Впринципе
-        //и речь не про значение в нём, а про всё поле в принципе.
-        //поэтому в стартовом if при первом запуске его не получится найти
-        //и мы сохраним данные, которые я вёл в инспекторе
-    }
-
-    private void PERVOE_SOHRANENIE()
-    {
-        PlayerPrefs.SetInt("PERVUI_ZAPUSK", 0);
-        SaveCoin(0);
-    }
-
-
+   
 
     public void set_nomer_lvl(int a)
     {
@@ -274,11 +320,4 @@ public class Progress : MonoBehaviour
         return web_telefon;
     }
 
-    string ustroistvo;
-
-    public void My_ustroistvo(string userAgent)
-    {
-        ustroistvo = userAgent;
-        Debug.Log("KIR USTROISTVO: " + ustroistvo);
-    }
 }

@@ -7,12 +7,10 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
+using static UnityEngine.Rendering.DebugUI;
 
 public class Yandex : MonoBehaviour
 {
-
-
-
     public static Yandex YandexInstance;
     //Awake - эвент, который вызываетс€ при запуске, но раньше, чем эвент —тарт
     private void Awake()
@@ -27,7 +25,6 @@ public class Yandex : MonoBehaviour
         }
     }
 
-    // public string ustroistvo;
     public bool web_mobile;
     private void Start()
     {
@@ -100,15 +97,27 @@ public class Yandex : MonoBehaviour
     {
         SaveJS(date);
     }
-    public void Load()
+    public void Load_Start()
     {
+        Debug.Log("2 яЌƒ≈ — вызов джавыскрипта");
         LoadJS();
     }
 
-    public void LoadCoin(string value)
+    public void Load_Yandex(string value)
     {
-        Progress.GameInstance.LoadCoin(value);
+        Debug.Log("5 яЌƒ≈ — данные из джавы получены €ндексом");
+        Progress.GameInstance.Load_Yandex(value);
     }
 
- 
+    bool igrok_avtorizirovan = true;
+    public void Set_igrok_avtorizirovan(bool value)
+    {
+        Debug.Log("5 яЌƒ≈ — данные из джавы получены €ндексом");
+        igrok_avtorizirovan=value;
+        Progress.GameInstance.Set_igrok_avtorizirovan(igrok_avtorizirovan);
+    }
+    public void Save_PlayerPrefs()
+    {
+        Progress.GameInstance.Save_PlayerPrefs();
+    }
 }

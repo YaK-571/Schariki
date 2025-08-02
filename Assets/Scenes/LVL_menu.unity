@@ -3852,7 +3852,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8072441738237999183, guid: 21d59336693ab5746975900f3502564f, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3881,7 +3881,7 @@ PrefabInstance:
       objectReference: {fileID: 1082795116}
     - target: {fileID: 6046172178704425026, guid: afec0fa7215137d42a2632a4093fe82c, type: 3}
       propertyPath: date.Coin
-      value: 200
+      value: 333
       objectReference: {fileID: 0}
     - target: {fileID: 6046172178704425026, guid: afec0fa7215137d42a2632a4093fe82c, type: 3}
       propertyPath: nomer_lvl
@@ -3895,6 +3895,38 @@ PrefabInstance:
       propertyPath: _text_monetu
       value: 
       objectReference: {fileID: 1848502170}
+    - target: {fileID: 6046172178704425026, guid: afec0fa7215137d42a2632a4093fe82c, type: 3}
+      propertyPath: date.progress_lvl2
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6046172178704425026, guid: afec0fa7215137d42a2632a4093fe82c, type: 3}
+      propertyPath: date.progress_lvl3
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6046172178704425026, guid: afec0fa7215137d42a2632a4093fe82c, type: 3}
+      propertyPath: sohranenyja_v_editore
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6046172178704425026, guid: afec0fa7215137d42a2632a4093fe82c, type: 3}
+      propertyPath: date.razblokirovan_lvl2
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6046172178704425026, guid: afec0fa7215137d42a2632a4093fe82c, type: 3}
+      propertyPath: date.razblokirovan_lvl3
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6046172178704425026, guid: afec0fa7215137d42a2632a4093fe82c, type: 3}
+      propertyPath: date.progress_lvl.Array.data[0]
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6046172178704425026, guid: afec0fa7215137d42a2632a4093fe82c, type: 3}
+      propertyPath: date.progress_lvl.Array.data[1]
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6046172178704425026, guid: afec0fa7215137d42a2632a4093fe82c, type: 3}
+      propertyPath: date.progress_lvl.Array.data[2]
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7105742307670417054, guid: afec0fa7215137d42a2632a4093fe82c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
