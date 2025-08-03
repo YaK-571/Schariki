@@ -46,14 +46,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _yandex: {fileID: 0}
   _csYandex: {fileID: 0}
+  _text_monetu: {fileID: 0}
+  nomer_lvl: 0
+  sohranenyja_v_editore: 1
   date:
-    Coin: 50
+    Coin: 333
     usilenie1_minigun: 5
     usilenie2_arta: 5
     usilenie3_zamarozka: 5
     usilenie4_schit: 5
     aptetschka: 5
-    progress_lvl: 050000000100000001000000
-    progress_lvl2: 1
-    progress_lvl3: 1
-  _text_monetu: {fileID: 0}
+    progress_lvl: 0300000003000000030000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+    razblokirovan_lvl2: 0
+    razblokirovan_lvl3: 1
+  date_default_dlja_sbrosa:
+    Coin: 200
+    usilenie1_minigun: 3
+    usilenie2_arta: 3
+    usilenie3_zamarozka: 3
+    usilenie4_schit: 3
+    aptetschka: 3
+    progress_lvl: 0100000001000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+    razblokirovan_lvl2: 0
+    razblokirovan_lvl3: 0

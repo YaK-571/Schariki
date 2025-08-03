@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -15,17 +16,45 @@ public class Date
     public int usilenie3_zamarozka;
     public int usilenie4_schit;
     public int aptetschka;
-    public int[] progress_lvl = new int[10];
+    public int[] progress_lvl = new int[20];
     public bool razblokirovan_lvl2;
     public bool razblokirovan_lvl3;
     // public bool _PERVUI_ZAPUSK; //--------------ПЕРЕПРОВЕРИТЬ-------------------
+
+    //просто присвоить его нельзя, т.к. классы - ссылочный тип.
+    //поэтому для копирования делаем отдельный метод
+    public Date Clone()
+    {
+        Date copy = new Date();
+        copy.Coin = this.Coin;
+        copy.usilenie1_minigun = this.usilenie1_minigun;
+        copy.usilenie2_arta = this.usilenie2_arta;
+        copy.usilenie3_zamarozka = this.usilenie3_zamarozka;
+        copy.usilenie4_schit = this.usilenie4_schit;
+        copy.aptetschka = this.aptetschka;
+        copy.razblokirovan_lvl2 = this.razblokirovan_lvl2;
+        copy.razblokirovan_lvl3 = this.razblokirovan_lvl3;
+
+        // Копируем массив отдельно, чтобы не делить ссылку
+        if (this.progress_lvl != null)
+        {
+            copy.progress_lvl = new int[this.progress_lvl.Length];
+            Array.Copy(this.progress_lvl, copy.progress_lvl, this.progress_lvl.Length);
+        }
+        else
+        {
+            copy.progress_lvl = null;
+        }
+
+        return copy;
+    }
 }
 public class Progress : MonoBehaviour
 {
     [SerializeField] GameObject _yandex;
     [SerializeField] Yandex _csYandex;
     private bool _save_yandex;
-    public Date date;
+
     [SerializeField] TextMeshProUGUI _text_monetu;
 
     [SerializeField] int nomer_lvl = 1;
@@ -45,6 +74,10 @@ public class Progress : MonoBehaviour
     //такое называется синглтон
     public static Progress GameInstance;
     //Awake - эвент, который вызывается при запуске, но раньше, чем эвент Старт
+
+    [SerializeField] public Date date;
+    [SerializeField] Date date_default_dlja_sbrosa;
+
     private void Awake()
     {
         if (GameInstance == null)
@@ -93,11 +126,12 @@ public class Progress : MonoBehaviour
         //также обьекта яндекс может не быть, если мы начали игру не с главного меню
         //дополнительная проверка на наличие этого обьекта здесь включена для того,
         //чтобы не было бесящих ошибок во время разработки, когда включаем разные уровни сразу без меню
-        if (_yandex && _yandex.activeSelf)
+        if (_yandex&& _yandex.activeSelf)
         {
-            Debug.Log("1 ПРОГРЕСС загрузка из яндекса запущена");
-            _save_yandex = true;
-            _csYandex.Load_Start();
+                Debug.Log("1 ПРОГРЕСС загрузка из яндекса запущена");
+                _save_yandex = true;
+                _csYandex.Load_Start();
+            
         }
         else
         {
@@ -112,6 +146,7 @@ public class Progress : MonoBehaviour
                 _save_yandex = false;
             }
         }
+        // Sbros_progressa();
     }
 
 
@@ -127,7 +162,7 @@ public class Progress : MonoBehaviour
     {
         Debug.Log("9 ПРОГРЕСС сохранение");
         date.Coin = zarabotok + date.Coin;
-        if (_save_yandex && igrok_avtorizirovan)
+        if (_save_yandex)
         {
             Save_Yandex();
         }
@@ -139,15 +174,21 @@ public class Progress : MonoBehaviour
 
     public void Save_Yandex()
     {
-        Debug.Log("9-1 ПРОГРЕСС сохранение в яндексе КОНЕЦ");
-        //данные в яндекс передаются только как строчка
-        //преобразуем класс с данными в строку
-        string dateJS = JsonUtility.ToJson(date);
-        //и вызываем код в джава скрипт
-        _csYandex.Save(dateJS);
+        if (_yandex)
+        {
+            if (_yandex.activeSelf)
+            {
+                Debug.Log("9-1 ПРОГРЕСС сохранение в яндексе КОНЕЦ");
+                //данные в яндекс передаются только как строчка
+                //преобразуем класс с данными в строку
+                string dateJS = JsonUtility.ToJson(date);
+                //и вызываем код в джава скрипт
+                _csYandex.Save(dateJS);
+            }
+        }
     }
 
-        public void Save_PlayerPrefs()
+    public void Save_PlayerPrefs()
     {
         Debug.Log("9-2 ПРОГРЕСС сохранение в компьютере КОНЕЦ");
         PlayerPrefs.SetInt("Coin", date.Coin); //сохранение денег на пк
@@ -189,7 +230,7 @@ public class Progress : MonoBehaviour
         Debug.Log("6 ПРОГРЕСС данные из яндекса получены прогрессом");
         Debug.Log(value);
 
-        if (value.Length<5) //яндекс возвращает не null, а {}, поэтому сделаем проверку на длину строки
+        if (value.Length < 5) //яндекс возвращает не null, а {}, поэтому сделаем проверку на длину строки
         {
             Debug.Log("7-1 ПРОГРЕСС старых сохранений нет. Создание первого сохранения");
             // если нет сохранённых данных
@@ -203,7 +244,7 @@ public class Progress : MonoBehaviour
             Debug.Log(JsonUtility.ToJson(date));
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);//перезапуск уровня для простой перезагрузки значений
         }
-        
+
 
     }
 
@@ -246,7 +287,9 @@ public class Progress : MonoBehaviour
         Debug.Log("8 ПРОГРЕСС создание метки для первого сохранения");
         PlayerPrefs.SetInt("PERVUI_ZAPUSK", 0);
         Save_PlayerPrefs();
-        SaveCoin(0);
+        Debug.Log("СБРОС ПРОГРЕССА ПЛЕЕР ПРЕФС");
+        Save_Yandex();
+        Debug.Log("СБРОС ПРОГРЕССА НА ЯНДЕКСЕ");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);//перезапуск уровня для простой перезагрузки значений
     }
 
@@ -303,7 +346,7 @@ public class Progress : MonoBehaviour
     }
 
 
-   
+
 
     public void set_nomer_lvl(int a)
     {
@@ -318,6 +361,13 @@ public class Progress : MonoBehaviour
     public bool get_web_telefon()
     {
         return web_telefon;
+    }
+
+    public void Sbros_progressa()
+    {
+        Debug.Log("СБРОС ПРОГРЕССА ЗАПУЩЕН");
+        date = date_default_dlja_sbrosa.Clone();
+        PERVOE_SOHRANENIE();
     }
 
 }
