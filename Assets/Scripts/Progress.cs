@@ -60,6 +60,12 @@ public class Progress : MonoBehaviour
     [SerializeField] int nomer_lvl = 1;
     bool web_telefon = false;
 
+    public int inversija_x = 1;
+    public int inversija_y = 1;
+
+    public float chuvstvitelnost_gyro_base = 0.5f;
+    public float chuvstvitelnost_gyro_max = 2.0f;
+
     [SerializeField] bool sohranenyja_v_editore = false;
 
 
@@ -117,7 +123,7 @@ public class Progress : MonoBehaviour
         }
 
 #endif
-        Debug.Log(JsonUtility.ToJson(date));
+      //  Debug.Log(JsonUtility.ToJson(date));
 
 
         //если это билд для яндекса, то сохраняем всё на сервер
