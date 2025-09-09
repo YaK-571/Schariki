@@ -48,6 +48,10 @@ MonoBehaviour:
   _csYandex: {fileID: 0}
   _text_monetu: {fileID: 0}
   nomer_lvl: 0
+  inversija_x: 1
+  inversija_y: 1
+  chuvstvitelnost_gyro_base: 0.5
+  chuvstvitelnost_gyro_max: 2
   sohranenyja_v_editore: 1
   date:
     Coin: 333
@@ -60,12 +64,12 @@ MonoBehaviour:
     razblokirovan_lvl2: 0
     razblokirovan_lvl3: 1
   date_default_dlja_sbrosa:
-    Coin: 200
+    Coin: 111
     usilenie1_minigun: 3
     usilenie2_arta: 3
     usilenie3_zamarozka: 3
     usilenie4_schit: 3
     aptetschka: 3
     progress_lvl: 0100000001000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-    razblokirovan_lvl2: 0
-    razblokirovan_lvl3: 0
+    razblokirovan_lvl2: 1
+    razblokirovan_lvl3: 1
