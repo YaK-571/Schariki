@@ -1,3 +1,12 @@
-﻿ID;RU;US;JP
-Привет;Привет;Hi;こんにちは
-В бой;В бой;Go;ゲーム開始
+﻿ID;RU;EN;JP;CN;KR;DE;FR;IT;ES;PL;TR;SE
+Страна;Россия;Англия/США;Япония;Китай;Корея;Германия;Франция;Италия;Испания;Польша;Турция;Швеция
+Привет;Привет;Hi;こんにちは;你好;안녕!;ßßüü Guten Tag ßäö;Manger ces beaux petits pains;jouer òçààùòè;jugar;Grać;Oynamak ğüşçöşiçç;Spela åäö¨¨
+В бой;В бой;Go;ゲーム開始;开始;게임 시작;Blitzkrieg;jouer;IT;ES;PL;TR;SE
+МЕНЮ;---------------;---------------;---------------;---------------;---------------;---------------;---------------;---------------;---------------;---------------;---------------;---------------
+Выбери локацию;Выбери локацию;Choose location;ロケーションを選択;选择地点;위치 선택;Standort wählen;Choisir l'emplacement;Seleziona la posizione;Elegir ubicación;Wybierz lokalizację;Konum seç;Välj plats
+Разработчики;Разработчики;Developers;開発者;开发者;개발자;Entwickler;Développeurs;Sviluppatori;Desarrolladores;Deweloperzy;Geliştiriciler;Utvecklare
+Лес;Лес;Forest;森;森林;숲;Wald;Forêt;Foresta;Bosque;Las;Orman;Skog
+Париж;Париж;Paris;パリ;巴黎;파리;Paris;Paris;Parigi;París;Paryż;Paris;Paris
+Шёлковый путь;Шёлковый путь;Silk Road;シルクロード;丝绸之路;실크로드;Seidenstraße;Route de la Soie;Via della Seta;Ruta de la Seda;Jedwabny Szlak;İpek Yolu;Sidenvägen
+Разблокировать 2 локацию;Чтобы разблокировать эту локацию, завершите все миссии в лесу;To unlock this location, complete all missions in the forest;このロケーションをアンロックするには、森のすべてのミッションを完了してください;要解锁此地点，请完成森林中的所有任务;이 지역을 잠금 해제하려면 숲의 모든 미션을 완료하세요;Um diesen Standort freizuschalten, schließen Sie alle Missionen im Wald ab;Pour débloquer cet emplacement, terminez toutes les missions dans la forêt;Per sbloccare questa posizione, completa tutte le missioni nella foresta;Para desbloquear esta ubicación, completa todas las misiones en el bosque;Aby odblokować tę lokalizację, ukończ wszystkie misje w lesie;Bu konumun kilidini açmak için ormandaki tüm görevleri tamamlayın;För att låsa upp den här platsen, slutför alla uppdrag i skogen
+Разблокировать 3 локацию;Вы можете разблокировать эту локацию на день, посмотрев рекламу;You can unlock this location for a day by watching an ad;このロケーションを1日アンロックするには広告を見てください;你可以通过观看广告解锁此地点一天;광고를 보면 이 지역을 하루 동안 잠금 해제할 수 있습니다;Sie können diesen Standort für einen Tag freischalten, indem Sie eine Anzeige ansehen;Vous pouvez débloquer cet emplacement pour une journée en regardant une publicité;Puoi sbloccare questa posizione per un giorno guardando una pubblicità;Puedes desbloquear esta ubicación por un día viendo un anuncio;Możesz odblokować tę lokalizację na dzień, oglądając reklamę;Bu konumu bir günlüğüne reklam izleyerek açabilirsiniz;Du kan låsa upp denna plats i en dag genom att titta på en annons

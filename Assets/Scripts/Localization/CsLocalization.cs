@@ -2,12 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class CsLocalization : MonoBehaviour
 {
     
 
     [SerializeField] TextAsset csvFile;
+    [SerializeField] string language;
+
+    [SerializeField] TMP_FontAsset _fontAssetRu;
+    [SerializeField] TMP_FontAsset _fontAssetCn;
+    [SerializeField] TMP_FontAsset _fontAssetKr;
+    [SerializeField] TMP_FontAsset _fontAssetJp;
 
     private Dictionary<string, Dictionary<string, string>> table
         = new Dictionary<string, Dictionary<string, string>>();
@@ -64,16 +71,44 @@ public class CsLocalization : MonoBehaviour
         }
     }
 
-    public string GetText(string rowKey, string colKey)
+    public void SetLanguage(string a)
     {
-        if (table.ContainsKey(rowKey) && table[rowKey].ContainsKey(colKey))
-            return table[rowKey][colKey];
-        return $"[NO DATA {rowKey}:{colKey}]";
+        language = a;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+    public string GetLanguage()
+    {
+    return language;
+    }
+    public TMP_FontAsset GetAtlas()
+    {
+        if (language == "") language = "RU";
+
+        if (language == "RU")
+            return _fontAssetRu;
+        else if(language == "CN")
+            return _fontAssetCn;
+        else if (language == "KR")
+            return _fontAssetKr;
+        else if(language == "JP")
+            return _fontAssetJp;
+        else return _fontAssetRu;
+
+
+    }
+
+    public string GetText(string rowKey)
+    {
+        if (language == "") language = "RU";
+
+        if (table.ContainsKey(rowKey) && table[rowKey].ContainsKey(language))
+            return table[rowKey][language];
+        return rowKey;
     }
 
     public void SetText(TextMeshProUGUI textMesh, string rowKey, string colKey)
     {
-        textMesh.text = GetText(rowKey, colKey);
+        textMesh.text = GetText(rowKey);
     }
 
 }
