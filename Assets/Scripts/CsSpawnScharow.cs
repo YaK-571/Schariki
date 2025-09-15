@@ -133,7 +133,10 @@ public class CsSpawnScharow : MonoBehaviour
                 kolichestvo_ostalos[typ_spawn]--;
             }
             else
-            { spawn_okonchen = false; }
+            { spawn_okonchen = false;
+            if(start_spawner)
+                { Start_spawna(kolichestvo_start, skorost); }//перезапуск, если шары кончились
+            }
             yield return new WaitForSeconds(skorost);//перезапуск короутины через секунду
         }
     }

@@ -10,9 +10,10 @@ public class csScena : MonoBehaviour
     [SerializeField] int nomer_missii;
     [SerializeField] int _stoimost;
     [SerializeField] GameObject _image_zamok;
-    [SerializeField] GameObject _button_razblokirovka;
+    [SerializeField] GameObject _UI_nedostupno;
+  /*  [SerializeField] GameObject _button_razblokirovka;
     [SerializeField] GameObject _razblokirovka_canvas;
-    [SerializeField] csRazblokirovka_urovnja _csRazblokirovka_urovnja;
+    [SerializeField] csRazblokirovka_urovnja _csRazblokirovka_urovnja;*/
 
     bool actyvnost_knopki;
     public void start_lvl()
@@ -20,24 +21,34 @@ public class csScena : MonoBehaviour
         //запусти уровень, если кнопка разблокирована
         if (actyvnost_knopki == true)
         {
+            Progress.GameInstance.set_nomer_lvl(nomer_cartu);
+            Progress.GameInstance.set_nomer_missii(nomer_missii);
             SceneManager.LoadScene(name_lvl);
         }
+        else if(_UI_nedostupno)
+        {
+            _UI_nedostupno.SetActive(true);
+        }
+
         //если эта мисси€ следующа€ дл€ разблокировки, то предложи еЄ разблокировать
-        else if(Progress.GameInstance.date.progress_lvl[nomer_cartu - 1] == nomer_missii - 1)
+     /*   else if(Progress.GameInstance.date.progress_lvl[nomer_cartu - 1] == nomer_missii - 1)
         {
             _razblokirovka_canvas.SetActive(true);
             _csRazblokirovka_urovnja.set_parametru_kartu(nomer_cartu, nomer_missii, _stoimost);
         }
+     */
+        
     }
 
     private void Start()
     {
         obnovlenie_knopok();
+        name_lvl = "LVL_" + nomer_cartu + " " + nomer_missii;
     }
 
     public void obnovlenie_knopok()
     {
-        _button_razblokirovka.SetActive(true);
+      /*  _button_razblokirovka.SetActive(true);*/
 
         //разблокировать все открытые кнопки
         if (Progress.GameInstance.date.progress_lvl[nomer_cartu - 1] >= nomer_missii)
@@ -49,11 +60,11 @@ public class csScena : MonoBehaviour
         {
             actyvnost_knopki = false;
         }
-
+        /*
         //отобрази кнопку дл€ покупки, если эта мисси€ следующа€ дл€ разблокировки
         if (Progress.GameInstance.date.progress_lvl[nomer_cartu - 1] != nomer_missii - 1)
         {
             _button_razblokirovka.SetActive(false);
-        }
+        }*/
     }
 }

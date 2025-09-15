@@ -9,7 +9,7 @@ public class CsLVL_nomer : MonoBehaviour
     [SerializeField] csGlavnoeMenu lvl3;
     private void Start()
     {
-        
+        /*
         Progress gameInstance=null;
         int nomer_lvl = 0;
         if (Progress.GameInstance)
@@ -32,6 +32,6 @@ public class CsLVL_nomer : MonoBehaviour
         else
         {
 
-        }
+        }*/
     }
 }

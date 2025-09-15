@@ -11,7 +11,7 @@ public class csRazblokirovka_urovnja : MonoBehaviour
     [SerializeField] csVuvodMonet _csVuvodMonet;
 
   //  [SerializeField] GameObject _canvas_obnovljaemuj;
-    [SerializeField] csScena[] _csScena;
+    [SerializeField] csScena[] _csScena; //тут должны быть все кнопки для разлочки
     public void set_parametru_kartu(int a, int b, int c)
     {
         _nomer_cartu = a; 
@@ -23,17 +23,18 @@ public class csRazblokirovka_urovnja : MonoBehaviour
 
     public void pokupka_lvl()
     {
-        bool resultat_pokupki = Progress.GameInstance.Razblokirovka_urovnja(_nomer_cartu, _nomer_lvl, _stoimost);
-        
-        if(resultat_pokupki)
-        {
-            _csVuvodMonet.obnovlenie_monet();
+        /*
+         bool resultat_pokupki = Progress.GameInstance.Razblokirovka_urovnja(_nomer_cartu, _nomer_lvl, _stoimost);
 
-            for (int i = 0; i < _csScena.Length; i++)
-            {
-                _csScena[i].obnovlenie_knopok();
-            }
-            gameObject.SetActive(false);
-        }
+         if (resultat_pokupki)
+         {
+             _csVuvodMonet.obnovlenie_monet();
+
+             for (int i = 0; i < _csScena.Length; i++)
+             {
+                 _csScena[i].obnovlenie_knopok();
+             }
+             gameObject.SetActive(false);
+         }*/
     }
 }

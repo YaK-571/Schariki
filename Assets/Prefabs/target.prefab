@@ -257,7 +257,7 @@ MonoBehaviour:
   _Canvas_Finish: {fileID: 0}
   _ui_hp: {fileID: 0}
   _ui_coin: {fileID: 0}
-  _vremja: 300
+  _vremja: 5
   schit: {fileID: 2811893282835247500}
   progress: {fileID: 4658466875361643707, guid: afec0fa7215137d42a2632a4093fe82c, type: 3}
 --- !u!114 &3946430880986309043
@@ -276,6 +276,7 @@ MonoBehaviour:
   _vsruv: {fileID: 0}
   _mischen: {fileID: 0}
   dirigible: {fileID: 0}
+  ballu: {fileID: 0}
   _gameManager: {fileID: 8874790470379118358}
   _vspuschka_prefab: {fileID: 1791879558110378832, guid: 50b65b83d355356419ea2b8588703336, type: 3}
 --- !u!114 &6300299426183982347
@@ -322,6 +323,8 @@ MonoBehaviour:
   tiltThreshold: 30
   deadZone: 0
   _moveController: {fileID: 6300299426183982347}
+  inversija_x: 1
+  inversija_y: 1
 --- !u!114 &5196292477574747277
 MonoBehaviour:
   m_ObjectHideFlags: 0

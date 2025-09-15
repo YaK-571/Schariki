@@ -53,15 +53,16 @@ public class csMenu : MonoBehaviour
         Time.timeScale = 1f;
         SceneManager.LoadScene(0);
     }
- 
+
+
+    /*
     public void Next_lvl()
     {
         //снятие паузы
-        
         Time.timeScale = 1f;
         SceneManager.LoadScene(0);
     }
-
+    */
     public void aptetschka()
     {
         if (tschislo_aptetschka >= 1)

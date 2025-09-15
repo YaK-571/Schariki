@@ -58,6 +58,7 @@ public class Progress : MonoBehaviour
     [SerializeField] TextMeshProUGUI _text_monetu;
 
     [SerializeField] int nomer_lvl = 1;
+    [SerializeField] int nomer_missii = 1;
     bool web_telefon = false;
 
     public int inversija_x = 1;
@@ -123,7 +124,7 @@ public class Progress : MonoBehaviour
         }
 
 #endif
-      //  Debug.Log(JsonUtility.ToJson(date));
+        //  Debug.Log(JsonUtility.ToJson(date));
 
 
         //если это билд для яндекса, то сохраняем всё на сервер
@@ -132,12 +133,12 @@ public class Progress : MonoBehaviour
         //также обьекта яндекс может не быть, если мы начали игру не с главного меню
         //дополнительная проверка на наличие этого обьекта здесь включена для того,
         //чтобы не было бесящих ошибок во время разработки, когда включаем разные уровни сразу без меню
-        if (_yandex&& _yandex.activeSelf)
+        if (_yandex && _yandex.activeSelf)
         {
-                Debug.Log("1 ПРОГРЕСС загрузка из яндекса запущена");
-                _save_yandex = true;
-                _csYandex.Load_Start();
-            
+            Debug.Log("1 ПРОГРЕСС загрузка из яндекса запущена");
+            _save_yandex = true;
+            _csYandex.Load_Start();
+
         }
         else
         {
@@ -338,6 +339,27 @@ public class Progress : MonoBehaviour
     }
 
     //разблокировка уровня
+    public void Razblokirovka_urovnja()
+    {
+
+
+        if (nomer_missii == date.progress_lvl[nomer_lvl - 1])
+        {
+            nomer_missii++;
+            date.progress_lvl[nomer_lvl - 1]= nomer_missii;
+        }
+        SaveCoin(0);
+        
+        return;
+
+    }
+    public void Next_LVL()
+    {
+        SceneManager.LoadScene("LVL_" + nomer_lvl + " " + nomer_missii);
+    }
+
+    /*
+    //разблокировка уровня
     public bool Razblokirovka_urovnja(int nomer_cartu, int nomer_missii, int zena_razblokirovki)
     {
         //если денег хватает, то разблокируй уровень
@@ -349,7 +371,7 @@ public class Progress : MonoBehaviour
             return true;
         }
         return false;
-    }
+    }*/
 
 
 
@@ -363,6 +385,14 @@ public class Progress : MonoBehaviour
         return nomer_lvl;
     }
 
+    public void set_nomer_missii(int a)
+    {
+        nomer_missii = a;
+    }
+    public int get_nomer_missii()
+    {
+        return nomer_missii;
+    }
 
     public bool get_web_telefon()
     {

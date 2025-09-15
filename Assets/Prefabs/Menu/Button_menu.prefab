@@ -152,7 +152,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8575852012332444440
 RectTransform:
   m_ObjectHideFlags: 0
@@ -703,6 +703,6 @@ MonoBehaviour:
   name_lvl: LVL_1_1
   nomer_cartu: 1
   nomer_missii: 1
+  _stoimost: 0
   _image_zamok: {fileID: 2143794460936098938}
-  _button_razblokirovka: {fileID: 2129894458397691412}
-  _razblokirovka: {fileID: 0}
+  _UI_nedostupno: {fileID: 0}
