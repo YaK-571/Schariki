@@ -257,6 +257,7 @@ MonoBehaviour:
   _Canvas_Finish: {fileID: 0}
   _ui_hp: {fileID: 0}
   _ui_coin: {fileID: 0}
+  _timer: 0
   _vremja: 5
   schit: {fileID: 2811893282835247500}
   progress: {fileID: 4658466875361643707, guid: afec0fa7215137d42a2632a4093fe82c, type: 3}

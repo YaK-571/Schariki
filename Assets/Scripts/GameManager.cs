@@ -12,9 +12,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject _Canvas_Finish;
     [SerializeField] csUI_HP _ui_hp;
     [SerializeField] TextMeshProUGUI _ui_coin;
-    
-    
 
+
+    [SerializeField] bool _timer;
     [SerializeField] float _vremja;
     
 
@@ -46,6 +46,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        if(_timer)
         StartCoroutine(TimerFinish());
 
         SpawnGameInstanse();

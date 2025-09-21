@@ -78,6 +78,7 @@ public class CsSpawnScharow : MonoBehaviour
         //массивы в c# - это ссылки
         //явно копируем передающийся массив, иначе он будет изменять исходный массив в дирижабле
         kolichestvo_ostalos = (int[])kolichestvo_start.Clone();
+        
         skorost = new_skorost;
 
 

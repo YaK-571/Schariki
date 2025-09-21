@@ -8,10 +8,10 @@ public class csMenu : MonoBehaviour
     [SerializeField] GameManager _gameManager;
     [SerializeField] GameObject _self_UI;
     [SerializeField] bool _save; //нужно ли сохранять игру при запуске этого виджета. Для гейм овера и финиша
-
+    [SerializeField] GameObject _button_pausa;
     int tschislo_aptetschka = 0;
 
-    void Start()
+    void OnEnable()
     {
         //пауза
         Time.timeScale = 0f;
@@ -19,10 +19,15 @@ public class csMenu : MonoBehaviour
         //сохранение для финиша и гейм овера
         if (_save)
         {
-            _gameManager.Save();
-            var date = Progress.GameInstance.date;
-            tschislo_aptetschka = date.aptetschka;
+            Save();
         }
+    }
+
+    public void Save()
+    {
+        _gameManager.Save();
+        var date = Progress.GameInstance.date;
+        tschislo_aptetschka = date.aptetschka;
     }
 
     // Update is called once per frame
@@ -41,6 +46,8 @@ public class csMenu : MonoBehaviour
 
     public void Play()
     {
+        if (_button_pausa) { _button_pausa.SetActive(true); }
+        
         //снятие паузы
         Time.timeScale = 1f;
         gameObject.SetActive(false);

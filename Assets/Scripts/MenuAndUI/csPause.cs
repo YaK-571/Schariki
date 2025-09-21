@@ -10,5 +10,6 @@ public class csPause : MonoBehaviour
     {
         Time.timeScale = 0f;
         _UI_pause.SetActive(true);
+        gameObject.SetActive(false);
     }
 }

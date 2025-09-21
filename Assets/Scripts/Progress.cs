@@ -16,6 +16,7 @@ public class Date
     public int usilenie3_zamarozka;
     public int usilenie4_schit;
     public int aptetschka;
+    public int[] Coin_record = new int[20];
     public int[] progress_lvl = new int[20];
     public bool razblokirovan_lvl2;
     public bool razblokirovan_lvl3;
@@ -46,6 +47,17 @@ public class Date
             copy.progress_lvl = null;
         }
 
+        // Копируем массив отдельно, чтобы не делить ссылку
+        if (this.Coin_record != null)
+        {
+            copy.Coin_record = new int[this.Coin_record.Length];
+            Array.Copy(this.Coin_record, copy.Coin_record, this.Coin_record.Length);
+        }
+        else
+        {
+            copy.Coin_record = null;
+        }
+
         return copy;
     }
 }
@@ -55,7 +67,7 @@ public class Progress : MonoBehaviour
     [SerializeField] Yandex _csYandex;
     private bool _save_yandex;
 
-    [SerializeField] TextMeshProUGUI _text_monetu;
+ //   [SerializeField] TextMeshProUGUI _text_monetu;
 
     [SerializeField] int nomer_lvl = 1;
     [SerializeField] int nomer_missii = 1;
@@ -169,6 +181,13 @@ public class Progress : MonoBehaviour
     {
         Debug.Log("9 ПРОГРЕСС сохранение");
         date.Coin = zarabotok + date.Coin;
+
+        if (nomer_lvl > 0)
+        {
+            if (date.Coin_record[nomer_lvl - 1] < zarabotok)
+            { date.Coin_record[nomer_lvl - 1] = zarabotok; }
+        }
+
         if (_save_yandex)
         {
             Save_Yandex();
@@ -177,6 +196,12 @@ public class Progress : MonoBehaviour
         {
             Save_PlayerPrefs();
         }
+    }
+
+    public int get_coin_record()
+    {
+        if (nomer_lvl > 0) return date.Coin_record[nomer_lvl - 1];
+        else return 0;
     }
 
     public void Save_Yandex()
@@ -207,6 +232,11 @@ public class Progress : MonoBehaviour
         PlayerPrefs.SetInt("progress_lvl_0", date.progress_lvl[0]);
         PlayerPrefs.SetInt("progress_lvl_1", date.progress_lvl[1]);
         PlayerPrefs.SetInt("progress_lvl_2", date.progress_lvl[2]);
+
+        PlayerPrefs.SetInt("Coin_record_0", date.Coin_record[0]);
+        PlayerPrefs.SetInt("Coin_record_1", date.Coin_record[1]);
+        PlayerPrefs.SetInt("Coin_record_2", date.Coin_record[2]);
+        
 
         if (date.razblokirovan_lvl2 == false)
         {
@@ -266,6 +296,12 @@ public class Progress : MonoBehaviour
         date.progress_lvl[0] = PlayerPrefs.GetInt("progress_lvl_0");
         date.progress_lvl[1] = PlayerPrefs.GetInt("progress_lvl_1");
         date.progress_lvl[2] = PlayerPrefs.GetInt("progress_lvl_2");
+
+        date.Coin_record[0] = PlayerPrefs.GetInt("Coin_record_0");
+        date.Coin_record[1] = PlayerPrefs.GetInt("Coin_record_1");
+        date.Coin_record[2] = PlayerPrefs.GetInt("Coin_record_2");
+
+        
         if (PlayerPrefs.GetInt("razblokirovan_lvl2") == 0)
         {
             date.razblokirovan_lvl2 = false;

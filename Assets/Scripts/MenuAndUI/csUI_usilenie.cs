@@ -9,7 +9,7 @@ public class csUI_usilenie : MonoBehaviour
     [SerializeField] GameObject _usilenie2;
     [SerializeField] GameObject _usilenie3;
     [SerializeField] GameObject _usilenie4;
-    [SerializeField] GameObject _usilenie5;
+  //  [SerializeField] GameObject _usilenie5;
 
     //для обновления числа усилений
     [SerializeField] TextMeshProUGUI _text1;
@@ -22,7 +22,7 @@ public class csUI_usilenie : MonoBehaviour
     private int _tschislo_2;
     private int _tschislo_3;
     private int _tschislo_4;
-    private int _tschislo_5;
+ //   private int _tschislo_5;
 
     bool actyve = false;
     [SerializeField] GameManager _gameManager;
@@ -82,7 +82,7 @@ public class csUI_usilenie : MonoBehaviour
         _usilenie2.SetActive(actyve);
         _usilenie3.SetActive(actyve);
         _usilenie4.SetActive(actyve);
-        _usilenie5.SetActive(actyve);
+     //   _usilenie5.SetActive(actyve);
     }
 
     private void vuvod_tschislo_usilenij()
@@ -93,14 +93,14 @@ public class csUI_usilenie : MonoBehaviour
         _tschislo_2 = date.usilenie2_arta;
         _tschislo_3 = date.usilenie3_zamarozka;
         _tschislo_4 = date.usilenie4_schit;
-        _tschislo_5 = date.aptetschka;
+      //  _tschislo_5 = date.aptetschka;
 
         //отображение числа доступных усилений на кнопках
         _text1.text = _tschislo_1.ToString();
         _text2.text = _tschislo_2.ToString();
         _text3.text = _tschislo_3.ToString();
         _text4.text = _tschislo_4.ToString();
-        _text5.text = _tschislo_5.ToString();
+      //  _text5.text = _tschislo_5.ToString();
     }
 
 

@@ -123,6 +123,18 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2582911813216520709}
         m_TargetAssemblyTypeName: csMenu, Assembly-CSharp
+        m_MethodName: Save
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2582911813216520709}
+        m_TargetAssemblyTypeName: csMenu, Assembly-CSharp
         m_MethodName: Glavnie_menu
         m_Mode: 1
         m_Arguments:
@@ -388,6 +400,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 2582911813216520709}
+        m_TargetAssemblyTypeName: csMenu, Assembly-CSharp
+        m_MethodName: Save
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 2582911813216520709}
         m_TargetAssemblyTypeName: csMenu, Assembly-CSharp
         m_MethodName: Restart
@@ -656,6 +680,7 @@ MonoBehaviour:
   _gameManager: {fileID: 0}
   _self_UI: {fileID: 5565527052301265147}
   _save: 0
+  _button_pausa: {fileID: 0}
 --- !u!1 &6160011118179628575
 GameObject:
   m_ObjectHideFlags: 0
@@ -1067,11 +1092,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 786924828482313437, guid: 29738a7279a924c4598cab2d9ab3e17c, type: 3}
       propertyPath: m_Pivot.x
-      value: -1
+      value: -0.2
       objectReference: {fileID: 0}
     - target: {fileID: 786924828482313437, guid: 29738a7279a924c4598cab2d9ab3e17c, type: 3}
       propertyPath: m_Pivot.y
-      value: 1
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 786924828482313437, guid: 29738a7279a924c4598cab2d9ab3e17c, type: 3}
       propertyPath: m_AnchorMax.x
