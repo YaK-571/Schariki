@@ -8,6 +8,7 @@ public class csNastrojki : MonoBehaviour
     [SerializeField] GameObject _Canvas_Nastrojki;
     [SerializeField] Slider _slider;
 
+
     //Progress GameInstance;
     // Start is called before the first frame update
     void Start()
@@ -37,18 +38,29 @@ public class csNastrojki : MonoBehaviour
     public void inversija_x_vkl()
     {
         Progress.GameInstance.inversija_x=-1;
+        Vkl_Vukl();
     }
     public void inversija_x_vukl()
     {
         Progress.GameInstance.inversija_x = 1;
+        Vkl_Vukl();
     }
     public void inversija_y_vkl()
     {
         Progress.GameInstance.inversija_y = -1;
+        Vkl_Vukl();
+
     }
     public void inversija_y_vukl()
     {
         Progress.GameInstance.inversija_y = 1;
+        Vkl_Vukl();
+    }
+
+    public void Vkl_Vukl()
+    {
+        gameObject.SetActive(false);
+        _Canvas_Nastrojki.SetActive(true);
     }
 
     //Чувствительность гироскопа

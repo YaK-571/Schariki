@@ -61,7 +61,7 @@ public class csVustrel : MonoBehaviour
             //При попадании в центр мишени коэфф увеличивается
             if (hit[i].collider.gameObject.GetComponent<csMischen_zentr>())
             {
-                coef_coin = coef_coin * 2;
+                coef_coin = coef_coin +2;
             }
             //При попадании в мишень увеличивай коэфф баллов
             else if (hit[i].collider.gameObject.GetComponent<csMischen>())
