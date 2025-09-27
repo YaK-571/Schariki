@@ -77,7 +77,7 @@ public class GameManager : MonoBehaviour
 
     public void Save()
     {
-        Progress.GameInstance.SaveCoin(_coin);
+        Progress.GameInstance.Save(_coin);
     }
 
    

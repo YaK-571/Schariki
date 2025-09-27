@@ -26,7 +26,7 @@ public class csSbros_Progressa_primer : MonoBehaviour
     }
     public void set_vvod_igroka()
     {
-        Debug.Log(123);
+     //   Debug.Log(123);
         int.TryParse(_vvod_input.text, out vvod_igroka) ;
         //безопасный способ преобразовать текст в int
         //если _vvod_input.text удаётся преобразовать в int, то значение сохраняется тут же в vvod_igroka

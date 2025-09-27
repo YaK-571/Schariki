@@ -106,15 +106,17 @@ public class Yandex : MonoBehaviour
     public void Load_Yandex(string value)
     {
         Debug.Log("5 ЯНДЕКС данные из джавы получены яндексом");
-        Progress.GameInstance.Load_Yandex(value);
+        Debug.Log("РАССКОММЕНТИРУЙ КОД В Yandex.cs");
+        //  Progress.GameInstance.Load_Yandex(value);
     }
 
     bool igrok_avtorizirovan = true;
     public void Set_igrok_avtorizirovan(bool value)
     {
         Debug.Log("5 ЯНДЕКС данные из джавы получены яндексом");
-        igrok_avtorizirovan=value;
-        Progress.GameInstance.Set_igrok_avtorizirovan(igrok_avtorizirovan);
+        Debug.Log("РАССКОММЕНТИРУЙ КОД В Yandex.cs");
+        igrok_avtorizirovan =value;
+        //Progress.GameInstance.Set_igrok_avtorizirovan(igrok_avtorizirovan);
     }
     public void Save_PlayerPrefs()
     {

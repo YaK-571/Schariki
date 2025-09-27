@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using YG;
 
 public class csVuvodMonet : MonoBehaviour
 {
@@ -18,8 +19,8 @@ public class csVuvodMonet : MonoBehaviour
     {
         if (nomer_lvl == 0)
         {
-            _text_coin.text = MyGameInstance.date.Coin.ToString(); }
-        if (nomer_lvl >0) _text_coin.text = MyGameInstance.date.Coin_record[nomer_lvl-1].ToString();
+            _text_coin.text = Progress.GameInstance.date.Coin.ToString(); }
+        if (nomer_lvl >0) _text_coin.text = Progress.GameInstance.date.Coin_record[nomer_lvl-1].ToString();
         
     }
 

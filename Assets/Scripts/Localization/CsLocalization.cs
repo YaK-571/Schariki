@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using YG;
 
 public class CsLocalization : MonoBehaviour
 {
@@ -41,6 +42,10 @@ public class CsLocalization : MonoBehaviour
 
     void LoadCSV(string fileName)
     {
+
+        Debug.Log("Тестовый язык запрошен " + YG2.envir.language);
+
+
         csvFile = Resources.Load<TextAsset>(fileName);
         string[] lines = csvFile.text.Split('\n');
 
@@ -74,6 +79,10 @@ public class CsLocalization : MonoBehaviour
     public void SetLanguage(string a)
     {
         language = a;
+        Progress.GameInstance.SetLanguage(language);
+
+       // YG2.saves.language = a;
+       // Progress.GameInstance.SaveCoin(0);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     public string GetLanguage()
@@ -82,7 +91,7 @@ public class CsLocalization : MonoBehaviour
     }
     public TMP_FontAsset GetAtlas()
     {
-        if (language == "") language = "RU";
+        if (language == null) language = "RU";
 
         if (language == "RU")
             return _fontAssetRu;
@@ -100,6 +109,7 @@ public class CsLocalization : MonoBehaviour
     public string GetText(string rowKey)
     {
         if (language == "") language = "RU";
+        Debug.Log(language);
 
         if (table.ContainsKey(rowKey) && table[rowKey].ContainsKey(language))
             return table[rowKey][language];
