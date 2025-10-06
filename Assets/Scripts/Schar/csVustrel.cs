@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class csVustrel : MonoBehaviour
 {
+    [SerializeField] bool _glavnoe_menu;
 
     [SerializeField] csBomba _bomba;
     [SerializeField] csVsruv _vsruv;
@@ -74,12 +75,16 @@ public class csVustrel : MonoBehaviour
             {
                 _bomba = hit[i].collider.gameObject.GetComponent<csBomba>();
 
-                _gameManager.HP(-1);
+                if (_glavnoe_menu) { } else
+                {
+                    _gameManager.HP(-1);
+                }
 
             }
             if (hit[i].collider.gameObject.GetComponent<CsBallu>())
             {
                 ballu = hit[i].collider.gameObject.GetComponent<CsBallu>();
+                if (_glavnoe_menu) { } else
                 _gameManager.Coin(ballu.get_ballu() * coef_coin);
             }
 

@@ -897,7 +897,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2498694010978919573}
+      - m_Target: {fileID: 3041460265007944957}
         m_TargetAssemblyTypeName: CsNastrojkiSetActive, Assembly-CSharp
         m_MethodName: vubor
         m_Mode: 1
@@ -1366,7 +1366,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2498694010978919573}
+      - m_Target: {fileID: 9061925212899924339}
         m_TargetAssemblyTypeName: CsNastrojkiSetActive, Assembly-CSharp
         m_MethodName: vubor
         m_Mode: 1
@@ -1648,7 +1648,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2498694010978919573}
+      - m_Target: {fileID: 1271793611540319032}
         m_TargetAssemblyTypeName: CsNastrojkiSetActive, Assembly-CSharp
         m_MethodName: vubor
         m_Mode: 1
@@ -2216,7 +2216,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2498694010978919573}
+      - m_Target: {fileID: 6949474498048842187}
         m_TargetAssemblyTypeName: CsNastrojkiSetActive, Assembly-CSharp
         m_MethodName: vubor
         m_Mode: 1
@@ -2364,7 +2364,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2498694010978919573}
+      - m_Target: {fileID: 5595879318622150376}
         m_TargetAssemblyTypeName: CsNastrojkiSetActive, Assembly-CSharp
         m_MethodName: vubor
         m_Mode: 1

@@ -42,10 +42,6 @@ public class CsLocalization : MonoBehaviour
 
     void LoadCSV(string fileName)
     {
-
-        Debug.Log("Тестовый язык запрошен " + YG2.envir.language);
-
-
         csvFile = Resources.Load<TextAsset>(fileName);
         string[] lines = csvFile.text.Split('\n');
 
@@ -109,7 +105,7 @@ public class CsLocalization : MonoBehaviour
     public string GetText(string rowKey)
     {
         if (language == "") language = "RU";
-        Debug.Log(language);
+        //Debug.Log(language);
 
         if (table.ContainsKey(rowKey) && table[rowKey].ContainsKey(language))
             return table[rowKey][language];

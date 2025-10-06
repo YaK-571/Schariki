@@ -16,6 +16,8 @@ public class csTachpad : MonoBehaviour
     {
         if (Input.touchCount > 0)
         {
+
+            
             Touch touch = Input.GetTouch(0); //где 0 - первое нажатие на экран, если их несколько одновременно
 
             if (touch.phase == TouchPhase.Began)  // касание началось, Began - аналог клика
@@ -23,6 +25,7 @@ public class csTachpad : MonoBehaviour
                 Vector2 touchPosition = touch.position; // позиция в пикселях на экране
                 Vector2 worldPoint2D = Camera.main.ScreenToWorldPoint(touchPosition); //трансформация в мировые координаты
 
+                Debug.Log(gameObject.transform.position);
                 gameObject.transform.position = worldPoint2D; //перемещение прицела
                 target.vustrel(); //выстрел
             }

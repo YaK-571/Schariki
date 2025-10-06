@@ -16,8 +16,13 @@ public class csVsruv : MonoBehaviour
 
     [SerializeField] HingeJoint2D _szepka;
     [SerializeField] csUskorenie_svjaski _svjaska;
+    [SerializeField] AudioSource _zvuk_lopanie;
+
     public void Vsruv()
     {
+        if (_zvuk_lopanie) {
+            _zvuk_lopanie.Play(); }
+
 
         //если у нас был груз и мы отстрелили верёвочку, то отвязываем его и ускоряем шар
 

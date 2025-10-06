@@ -1658,6 +1658,54 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 7026333365038005180}
+        m_TargetAssemblyTypeName: csVustrel, Assembly-CSharp
+        m_MethodName: vustrel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6279258962651442226}
+        m_TargetAssemblyTypeName: csVustrel, Assembly-CSharp
+        m_MethodName: vustrel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 7853480429955978917}
+        m_TargetAssemblyTypeName: csVustrel, Assembly-CSharp
+        m_MethodName: vustrel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 8286360335041016521}
+        m_TargetAssemblyTypeName: csVustrel, Assembly-CSharp
+        m_MethodName: vustrel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5465648850794152037
 GameObject:
   m_ObjectHideFlags: 0
@@ -3538,6 +3586,50 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7381155239398519343, guid: 16d3281fb80f28e438b0498b9d284f92, type: 3}
   m_PrefabInstance: {fileID: 3332702193913224591}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6279258962651442226 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8747198002581090749, guid: 16d3281fb80f28e438b0498b9d284f92, type: 3}
+  m_PrefabInstance: {fileID: 3332702193913224591}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cc060b5c8e81784ba33d4de37e684d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7026333365038005180 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5747347436792997427, guid: 16d3281fb80f28e438b0498b9d284f92, type: 3}
+  m_PrefabInstance: {fileID: 3332702193913224591}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cc060b5c8e81784ba33d4de37e684d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7853480429955978917 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4809008960098978602, guid: 16d3281fb80f28e438b0498b9d284f92, type: 3}
+  m_PrefabInstance: {fileID: 3332702193913224591}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cc060b5c8e81784ba33d4de37e684d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8286360335041016521 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6683115548166680390, guid: 16d3281fb80f28e438b0498b9d284f92, type: 3}
+  m_PrefabInstance: {fileID: 3332702193913224591}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cc060b5c8e81784ba33d4de37e684d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3422978072566635338
 PrefabInstance:
   m_ObjectHideFlags: 0
