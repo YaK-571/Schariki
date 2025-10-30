@@ -10,7 +10,8 @@ public class Cs_Nastrojki_defolt : MonoBehaviour
     [SerializeField] Slider _slider_gyro_base;
     [SerializeField] csNastrojki _nastrojki_gyro_max;
     [SerializeField] csNastrojki _nastrojki_gyro_base;
-    [SerializeField] csNastrojki _nastrojki_inversija;
+    [SerializeField] csNastrojki _nastrojki_inversija_x;
+    [SerializeField] csNastrojki _nastrojki_inversija_y;
 
     private float chuvstvitelnost_gyro_base = 0.5f;
     private float chuvstvitelnost_gyro_max=2.0f;
@@ -22,12 +23,12 @@ public class Cs_Nastrojki_defolt : MonoBehaviour
         GameInstance = Progress.GameInstance;
         if (_slider_gyro_max)
         {
-            _slider_gyro_max.value = GameInstance.chuvstvitelnost_gyro_max;
+            _slider_gyro_max.value = GameInstance.date.chuvstvitelnost_gyro_max;
       //      _nastrojki_gyro_max.chuvstvitelnost_gyro_max();
         }
         if (_slider_gyro_base)
         {
-            _slider_gyro_base.value = GameInstance.chuvstvitelnost_gyro_base;
+            _slider_gyro_base.value = GameInstance.date.chuvstvitelnost_gyro_base;
        //     _nastrojki_gyro_base.chuvstvitelnost_gyro_base();
         }
     }
@@ -41,8 +42,12 @@ public class Cs_Nastrojki_defolt : MonoBehaviour
         _nastrojki_gyro_base.chuvstvitelnost_gyro_base();
         _nastrojki_gyro_max.chuvstvitelnost_gyro_max();
 
-        _nastrojki_inversija.inversija_x_vukl();
-        _nastrojki_inversija.inversija_y_vukl();
+        _nastrojki_inversija_x.inversija_x_vukl();
+        _nastrojki_inversija_y.inversija_y_vukl();
+
+        Progress.GameInstance.set_tip_upravlenija(1);
+        Progress.GameInstance.set_inversija_x(1);
+        Progress.GameInstance.set_inversija_y(1);
 
     }
 }

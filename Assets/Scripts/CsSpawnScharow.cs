@@ -118,7 +118,7 @@ public class CsSpawnScharow : MonoBehaviour
             //где z==0 это позици€ камеры
             //levo.z = 0.0f; //нужно, чтобы обьект не улетал на задний план
 
-            size_spawner = (pravo.x - levo.x) * 0.9f; //коэфф, чтобы он не спавнил шарики на самой границе вне дос€гаемости камеры
+            size_spawner = (pravo.x - levo.x) * 0.8f; //коэфф, чтобы он не спавнил шарики на самой границе вне дос€гаемости камеры
                                                       // Debug.Log(pravo.y + " "+ levo.y);
             gameObject.transform.localScale = new Vector3(size_spawner, transform.localScale.y, 0);
 

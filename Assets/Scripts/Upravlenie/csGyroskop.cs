@@ -86,11 +86,11 @@ public class csGyroskop : MonoBehaviour
     {
         yield return new WaitForSeconds(0.2f); // ждём один кадр (зачёркнуто) ждём чуть-чуть
         //при калибровке через один кадр - всё равно иногда сразу не срабатывает
-        inversija_x = Progress.GameInstance.inversija_x;
-        inversija_y = Progress.GameInstance.inversija_y;
+        inversija_x = Progress.GameInstance.date.inversija_x;
+        inversija_y = Progress.GameInstance.date.inversija_y;
 
-        baseSensitivity = Progress.GameInstance.chuvstvitelnost_gyro_base;
-        maxSensitivity = Progress.GameInstance.chuvstvitelnost_gyro_max;
+        baseSensitivity = Progress.GameInstance.date.chuvstvitelnost_gyro_base;
+        maxSensitivity = Progress.GameInstance.date.chuvstvitelnost_gyro_max;
         Calibrate();       // вызываем калибровку
     }
 

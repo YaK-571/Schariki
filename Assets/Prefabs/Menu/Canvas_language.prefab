@@ -535,6 +535,7 @@ GameObject:
   - component: {fileID: 4312475496682355063}
   - component: {fileID: 6605356239895512008}
   - component: {fileID: 1849289483049776383}
+  - component: {fileID: 2505180084171520637}
   m_Layer: 5
   m_Name: zagolovok1
   m_TagString: Untagged
@@ -658,6 +659,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &2505180084171520637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3848780120762244448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54029d5fb12f92348b4038a5a82cabec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id_fraza: "\u041B\u043E\u043A\u0430\u043B\u0438\u0437\u0430\u0446\u0438\u044F"
 --- !u!1 &5872921904636282694
 GameObject:
   m_ObjectHideFlags: 0

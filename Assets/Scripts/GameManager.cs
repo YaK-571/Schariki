@@ -33,7 +33,8 @@ public class GameManager : MonoBehaviour
             {
                 _Canvas_GameOver.SetActive(true);
             }
-            Handheld.Vibrate();//вибрация при получении урона
+          //  Handheld.Vibrate();//вибрация при получении урона
+
             //обнови число сердечек
             _ui_hp.Update_HP(_hp);
         }

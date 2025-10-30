@@ -113,6 +113,7 @@ public class csUI_usilenie : MonoBehaviour
             Progress.GameInstance.Usilenie(1);
             _minigan.SetActive(true);
             vuvod_tschislo_usilenij();
+            Pokaz_usileniy();
         }
 
     }
@@ -125,6 +126,7 @@ public class csUI_usilenie : MonoBehaviour
             _spawn_vspuschek.Spawn_vspuschki();
             _graniza_niz.artillerija_vzruv_scharov();
             vuvod_tschislo_usilenij();
+            Pokaz_usileniy();
         }
     }
     public void Zamerzanie()
@@ -134,6 +136,7 @@ public class csUI_usilenie : MonoBehaviour
             Progress.GameInstance.Usilenie(3);
             _graniza_niz.Zamerzanie();
             vuvod_tschislo_usilenij();
+            Pokaz_usileniy();
         }
     }
     public void Schit()
@@ -143,6 +146,7 @@ public class csUI_usilenie : MonoBehaviour
             Progress.GameInstance.Usilenie(4);
             _gameManager.activazija_schita();
             vuvod_tschislo_usilenij();
+            Pokaz_usileniy();
         }
     }
 

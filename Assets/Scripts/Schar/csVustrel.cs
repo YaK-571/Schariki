@@ -54,9 +54,17 @@ public class csVustrel : MonoBehaviour
 
         //выстрел лучём, проходящим через множество обьектов
         RaycastHit2D[] hit = Physics2D.RaycastAll(gameObject.transform.position, Vector2.zero);
+
         //проверка попалили мы в шар или бомбу
         for (int i = 0; i < hit.Length; i++)
         {
+            if (hit[i].collider.isTrigger) { }
+            else {continue; }
+            //ЕСЛИ это коллизия триггер, ТО цикл продолжится, ИНАЧЕ - пропустит оборот. continue - тоже самое, что Next в Клик Сенс
+            //Проблема: на шаре 2 коллизии:
+            //1 - триггер
+            //2 обычный коллайдер
+            //из-за этого очки начисляются два раза, до уничтожения шара
 
 
             //При попадании в центр мишени коэфф увеличивается

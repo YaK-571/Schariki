@@ -23,6 +23,19 @@ public class Date
     public bool razblokirovan_lvl2;
     public bool razblokirovan_lvl3;
     public string language;
+
+    //настройки
+    public int _prizel_contur;
+    public int _prizel_mushka;
+    public int tip_upravlenija=1;
+
+    public int inversija_x = 1;
+    public int inversija_y = 1;
+
+    public float chuvstvitelnost_gyro_base = 0.5f;
+    public float chuvstvitelnost_gyro_max = 2.0f;
+
+
     // public bool _PERVUI_ZAPUSK; //--------------ПЕРЕПРОВЕРИТЬ-------------------
 
     //просто присвоить его нельзя, т.к. классы - ссылочный тип.
@@ -40,6 +53,15 @@ public class Date
         copy.razblokirovan_lvl3 = this.razblokirovan_lvl3;
         copy.language = this.language;
 
+        copy._prizel_contur = this._prizel_contur;
+        copy._prizel_mushka = this._prizel_mushka;
+        copy.tip_upravlenija = this.tip_upravlenija;
+        copy.inversija_y = this.inversija_y;
+        copy.inversija_x = this.inversija_x;
+        copy.chuvstvitelnost_gyro_base = this.chuvstvitelnost_gyro_base;
+        copy.chuvstvitelnost_gyro_max = this.chuvstvitelnost_gyro_max;
+
+
         // Копируем массив отдельно, чтобы не делить ссылку
         if (this.progress_lvl != null)
         {
@@ -47,9 +69,7 @@ public class Date
             Array.Copy(this.progress_lvl, copy.progress_lvl, this.progress_lvl.Length);
         }
         else
-        {
-            copy.progress_lvl = null;
-        }
+        {copy.progress_lvl = null;}
 
         // Копируем массив отдельно, чтобы не делить ссылку
         if (this.Coin_record != null)
@@ -58,9 +78,8 @@ public class Date
             Array.Copy(this.Coin_record, copy.Coin_record, this.Coin_record.Length);
         }
         else
-        {
-            copy.Coin_record = null;
-        }
+        { copy.Coin_record = null; }
+
 
         return copy;
     }
@@ -81,6 +100,16 @@ namespace YG
         public bool razblokirovan_lvl2;
         public bool razblokirovan_lvl3;
         public string language;
+
+        public int _prizel_contur;
+        public int _prizel_mushka;
+        public int tip_upravlenija;
+        public int inversija_y;
+        public int inversija_x;
+        public float chuvstvitelnost_gyro_base;
+        public float chuvstvitelnost_gyro_max;
+
+
     }
 }
 
@@ -108,11 +137,8 @@ public class Progress : MonoBehaviour
     [SerializeField] int nomer_missii = 1;
     bool web_telefon = false;
 
-    public int inversija_x = 1;
-    public int inversija_y = 1;
 
-    public float chuvstvitelnost_gyro_base = 0.5f;
-    public float chuvstvitelnost_gyro_max = 2.0f;
+    
 
     [SerializeField] bool sohranenyja_v_editore = false;
 
@@ -210,7 +236,7 @@ public class Progress : MonoBehaviour
         //то есть он прогружает покупки которые были оплачены, но которые не прошли сразу по какой-то причине
         //например пользователь оплатил и закрыл игру, не вернувшись в неё
 #endif
-
+        if(CsLocalization.Local)
         CsLocalization.Local.SetLanguage(date.language);
         // Sbros_progressa();
     }
@@ -269,11 +295,21 @@ public class Progress : MonoBehaviour
         PlayerPrefs.SetInt("progress_lvl_0", date.progress_lvl[0]);
         PlayerPrefs.SetInt("progress_lvl_1", date.progress_lvl[1]);
         PlayerPrefs.SetInt("progress_lvl_2", date.progress_lvl[2]);
-
+        //рекорд
         PlayerPrefs.SetInt("Coin_record_0", date.Coin_record[0]);
         PlayerPrefs.SetInt("Coin_record_1", date.Coin_record[1]);
         PlayerPrefs.SetInt("Coin_record_2", date.Coin_record[2]);
         PlayerPrefs.SetString("language", date.language);
+        //прицел
+        PlayerPrefs.SetInt("_prizel_contur", date._prizel_contur);
+        PlayerPrefs.SetInt("_prizel_mushka", date._prizel_mushka);
+        //настройки
+        PlayerPrefs.SetInt("tip_upravlenija", date.tip_upravlenija);
+        PlayerPrefs.SetInt("inversija_y", date.inversija_y);
+        PlayerPrefs.SetInt("inversija_x", date.inversija_x);
+        PlayerPrefs.SetFloat("chuvstvitelnost_gyro_max", date.chuvstvitelnost_gyro_max);
+        PlayerPrefs.SetFloat("chuvstvitelnost_gyro_base", date.chuvstvitelnost_gyro_base);
+
 
         if (date.razblokirovan_lvl2 == false)
         {
@@ -293,6 +329,7 @@ public class Progress : MonoBehaviour
 
         }
         PlayerPrefs.Save();
+
     }
 
 
@@ -302,7 +339,6 @@ public class Progress : MonoBehaviour
         { PERVOE_SOHRANENIE(); }
         else
         {
-
             date.Coin = YG2.saves.Coin;
             date.usilenie1_minigun = YG2.GetState("usilenie1_minigun");
             date.usilenie2_arta = YG2.GetState("usilenie2_arta");
@@ -324,7 +360,17 @@ public class Progress : MonoBehaviour
             }
             date.razblokirovan_lvl2 = YG2.saves.razblokirovan_lvl2;
             date.razblokirovan_lvl3 = YG2.saves.razblokirovan_lvl3;
-        }
+
+            date._prizel_contur = YG2.saves._prizel_contur;
+            date._prizel_mushka = YG2.saves._prizel_mushka;
+
+            date.tip_upravlenija = YG2.saves.tip_upravlenija;
+            date.inversija_y = YG2.saves.inversija_y;
+            date.inversija_x = YG2.saves.inversija_x;
+            date.chuvstvitelnost_gyro_base = YG2.saves.chuvstvitelnost_gyro_base;
+            date.chuvstvitelnost_gyro_max = YG2.saves.chuvstvitelnost_gyro_max;
+
+}
     }
 
     public void Load_PlayerPrefs()
@@ -334,18 +380,28 @@ public class Progress : MonoBehaviour
         else
         {
             date.Coin = PlayerPrefs.GetInt("Coin"); //загрузка денег с пк
-            date.usilenie1_minigun = PlayerPrefs.GetInt("usilenie1_minigun");
-            date.usilenie2_arta = PlayerPrefs.GetInt("usilenie2_arta");
-            date.usilenie3_zamarozka = PlayerPrefs.GetInt("usilenie3_zamarozka");
-            date.usilenie4_schit = PlayerPrefs.GetInt("usilenie4_schit");
-            date.aptetschka = PlayerPrefs.GetInt("aptetschka");
-            date.progress_lvl[0] = PlayerPrefs.GetInt("progress_lvl_0");
-            date.progress_lvl[1] = PlayerPrefs.GetInt("progress_lvl_1");
-            date.progress_lvl[2] = PlayerPrefs.GetInt("progress_lvl_2");
+            date.usilenie1_minigun = PlayerPrefs.GetInt("usilenie1_minigun", date_default_dlja_sbrosa.usilenie1_minigun);
+            date.usilenie2_arta = PlayerPrefs.GetInt("usilenie2_arta", date_default_dlja_sbrosa.usilenie2_arta);
+            date.usilenie3_zamarozka = PlayerPrefs.GetInt("usilenie3_zamarozka", date_default_dlja_sbrosa.usilenie3_zamarozka);
+            date.usilenie4_schit = PlayerPrefs.GetInt("usilenie4_schit", date_default_dlja_sbrosa.usilenie4_schit);
+            date.aptetschka = PlayerPrefs.GetInt("aptetschka", date_default_dlja_sbrosa.aptetschka);
+            date.progress_lvl[0] = PlayerPrefs.GetInt("progress_lvl_0", date_default_dlja_sbrosa.progress_lvl[0]);
+            date.progress_lvl[1] = PlayerPrefs.GetInt("progress_lvl_1", date_default_dlja_sbrosa.progress_lvl[1]);
+            date.progress_lvl[2] = PlayerPrefs.GetInt("progress_lvl_2", date_default_dlja_sbrosa.progress_lvl[2]);
 
-            date.Coin_record[0] = PlayerPrefs.GetInt("Coin_record_0");
-            date.Coin_record[1] = PlayerPrefs.GetInt("Coin_record_1");
-            date.Coin_record[2] = PlayerPrefs.GetInt("Coin_record_2");
+            date.Coin_record[0] = PlayerPrefs.GetInt("Coin_record_0", date_default_dlja_sbrosa.Coin_record[0]);
+            date.Coin_record[1] = PlayerPrefs.GetInt("Coin_record_1", date_default_dlja_sbrosa.Coin_record[1]);
+            date.Coin_record[2] = PlayerPrefs.GetInt("Coin_record_2", date_default_dlja_sbrosa.Coin_record[2]);
+            date._prizel_contur = PlayerPrefs.GetInt("_prizel_contur", date_default_dlja_sbrosa._prizel_contur);
+            date._prizel_mushka = PlayerPrefs.GetInt("_prizel_mushka", date_default_dlja_sbrosa._prizel_mushka);
+
+            date.tip_upravlenija = PlayerPrefs.GetInt("tip_upravlenija", date_default_dlja_sbrosa.tip_upravlenija);
+            date.inversija_y = PlayerPrefs.GetInt("inversija_y", date_default_dlja_sbrosa.inversija_y);
+            date.inversija_x = PlayerPrefs.GetInt("inversija_x", date_default_dlja_sbrosa.inversija_x);
+            date.chuvstvitelnost_gyro_base = PlayerPrefs.GetFloat("chuvstvitelnost_gyro_base", date_default_dlja_sbrosa.chuvstvitelnost_gyro_base);
+            date.chuvstvitelnost_gyro_max = PlayerPrefs.GetFloat("chuvstvitelnost_gyro_max", date_default_dlja_sbrosa.chuvstvitelnost_gyro_max);
+           
+
 
             date.language = PlayerPrefs.GetString("language");
 
@@ -409,6 +465,16 @@ public class Progress : MonoBehaviour
             YG2.saves.razblokirovan_lvl2 = date.razblokirovan_lvl2;
             YG2.saves.razblokirovan_lvl3 = date.razblokirovan_lvl3;
             //   YG2.saves.language = date_default_dlja_sbrosa.language
+
+
+            YG2.saves._prizel_contur = date._prizel_contur;
+            YG2.saves._prizel_mushka = date._prizel_mushka;
+            YG2.saves.tip_upravlenija = date.tip_upravlenija;
+            YG2.saves.inversija_y = date.inversija_y;
+            YG2.saves.inversija_x = date.inversija_x;
+            YG2.saves.chuvstvitelnost_gyro_base = date.chuvstvitelnost_gyro_base;
+            YG2.saves.chuvstvitelnost_gyro_max = date.chuvstvitelnost_gyro_max;
+
 
             YG2.saves.language = YG2.envir.language;
 
@@ -570,7 +636,54 @@ public class Progress : MonoBehaviour
         Save();
     }
 
+    public void Set_prizel_contur(int a)
+    {
+        date._prizel_contur = a;
+        Save();
+    }
+    public void Set_prizel_mushka(int a)
+    {
+        date._prizel_mushka = a;
+        Save();
+    }
+    public int Get_prizel_contur()
+    {
+       return date._prizel_contur;
+    }
+    public int Get_prizel_mushka()
+    {
+       return date._prizel_mushka;
+    }
 
+    public int get_tip_upravlenija()
+    {
+        return date.tip_upravlenija;
+    }
+    public void set_tip_upravlenija(int a)
+    {
+        date.tip_upravlenija=a;
+        Save();
+    }
+    public void set_chuvstvitelnost_gyro_base(float a)
+    {
+        date.chuvstvitelnost_gyro_base = a;
+        Save();
+    }
+    public void set_chuvstvitelnost_gyro_max(float a)
+    {
+        date.chuvstvitelnost_gyro_max = a;
+        Save();
+    }
+    public void set_inversija_x(int a)
+    {
+        date.inversija_x = a;
+        Save();
+    }
+    public void set_inversija_y(int a)
+    {
+        date.inversija_y = a;
+        Save();
+    }
 
 }
 
