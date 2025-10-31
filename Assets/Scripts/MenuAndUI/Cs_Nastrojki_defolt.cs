@@ -12,6 +12,7 @@ public class Cs_Nastrojki_defolt : MonoBehaviour
     [SerializeField] csNastrojki _nastrojki_gyro_base;
     [SerializeField] csNastrojki _nastrojki_inversija_x;
     [SerializeField] csNastrojki _nastrojki_inversija_y;
+    [SerializeField] CsNastrojkiSposobUpravlenija _tip_upravlenija;
 
     private float chuvstvitelnost_gyro_base = 0.5f;
     private float chuvstvitelnost_gyro_max=2.0f;
@@ -49,5 +50,6 @@ public class Cs_Nastrojki_defolt : MonoBehaviour
         Progress.GameInstance.set_inversija_x(1);
         Progress.GameInstance.set_inversija_y(1);
 
+        _tip_upravlenija.Vubor_Upravlenija(1);
     }
 }

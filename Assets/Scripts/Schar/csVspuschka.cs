@@ -5,6 +5,7 @@ using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class csVspuschka : MonoBehaviour
 {
+    [SerializeField] float _time_dead;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,7 +31,7 @@ public class csVspuschka : MonoBehaviour
 
     private IEnumerator Test()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(_time_dead);
         //transform.position = new Vector3(0, -20);
         Destroy(gameObject);
     }
