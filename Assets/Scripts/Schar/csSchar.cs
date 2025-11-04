@@ -35,11 +35,15 @@ public class csSchar : MonoBehaviour
             _svjaska.odinakovaja_skorost(speed_default);
         }
     }
-    void Update()
+    private void FixedUpdate()
     {
-        // transform.position += new Vector3(0, speed * Time.deltaTime);
         schar.velocity = speed_default * napravlenie;
     }
+    /*void Update()
+    {
+        // transform.position += new Vector3(0, speed * Time.deltaTime);
+        
+    }*/
 
     public void skorost()
     {

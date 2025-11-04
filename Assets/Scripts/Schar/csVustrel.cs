@@ -8,7 +8,7 @@ public class csVustrel : MonoBehaviour
     [SerializeField] bool _glavnoe_menu;
 
     [SerializeField] csBomba _bomba;
-    [SerializeField] csVsruv _vsruv;
+    [SerializeField] CsVsruv_new _vsruv;
     [SerializeField] csMischen _mischen;
     [SerializeField] CsDirigible dirigible;
     [SerializeField] CsBallu ballu;
@@ -20,6 +20,8 @@ public class csVustrel : MonoBehaviour
     [SerializeField] GameObject _vfx_vzruw_prefab;
 
     [SerializeField] AudioSource _zvuk_vustrela;
+
+
 
     int coef_coin = 1;
     private int uron = 1;
@@ -35,6 +37,7 @@ public class csVustrel : MonoBehaviour
 
     void Update()
     {
+
         if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
         {
 
@@ -58,66 +61,65 @@ public class csVustrel : MonoBehaviour
 
         //выстрел лучём, проходящим через множество обьектов
         RaycastHit2D[] hit = Physics2D.RaycastAll(gameObject.transform.position, Vector2.zero);
-        
-        
-           // _zvuk_vustrela.Play();
-        
-        
-            //проверка попалили мы в шар или бомбу
-            for (int i = 0; i < hit.Length; i++)
-            {
-                if (hit[i].collider.isTrigger) { }
-                else { continue; }
-                //ЕСЛИ это коллизия триггер, ТО цикл продолжится, ИНАЧЕ - пропустит оборот. continue - тоже самое, что Next в Клик Сенс
-                //Проблема: на шаре 2 коллизии:
-                //1 - триггер
-                //2 обычный коллайдер
-                //из-за этого очки начисляются два раза, до уничтожения шара
 
 
-                //При попадании в центр мишени коэфф увеличивается
-                if (hit[i].collider.gameObject.GetComponent<csMischen_zentr>())
-                {
-                    coef_coin = coef_coin + 2;
-                }
-                //При попадании в мишень увеличивай коэфф баллов
-                else if (hit[i].collider.gameObject.GetComponent<csMischen>())
-                {
-                    _mischen = hit[i].collider.gameObject.GetComponent<csMischen>();
-                    coef_coin++;
-                }
+        // _zvuk_vustrela.Play();
 
-                if (hit[i].collider.gameObject.GetComponent<csBomba>())
-                {
-                    _bomba = hit[i].collider.gameObject.GetComponent<csBomba>();
-                    GameObject vfx_vzrus_spawn = Instantiate(_vfx_vzruw_prefab);
-                    vfx_vzrus_spawn.transform.position = transform.position;
-                    if (_glavnoe_menu) { }
-                    else
-                    {
-                        _gameManager.HP(-1);
-                    }
 
-                }
-                if (hit[i].collider.gameObject.GetComponent<CsBallu>())
-                {
-                    ballu = hit[i].collider.gameObject.GetComponent<CsBallu>();
-                    if (_glavnoe_menu) { }
-                    else
-                        _gameManager.Coin(ballu.get_ballu() * coef_coin);
-                }
+        //проверка попалили мы в шар или бомбу
+        for (int i = 0; i < hit.Length; i++)
+        {
+            if (hit[i].collider.isTrigger) { }
+            else { continue; }
+            //ЕСЛИ это коллизия триггер, ТО цикл продолжится, ИНАЧЕ - пропустит оборот. continue - тоже самое, что Next в Клик Сенс
+            //Проблема: на шаре 2 коллизии:
+            //1 - триггер
+            //2 обычный коллайдер
+            //из-за этого очки начисляются два раза, до уничтожения шара
 
-                if (hit[i].collider.gameObject.GetComponent<csVsruv>())
-                {
-                    _vsruv = hit[i].collider.gameObject.GetComponent<csVsruv>();
-                    _vsruv.Vsruv();
-                }
-                if (hit[i].collider.gameObject.GetComponent<CsDirigible>())
-                {
-                    dirigible = hit[i].collider.gameObject.GetComponent<CsDirigible>();
-                    _gameManager.Coin(dirigible.Damage(uron) * coef_coin);
-                }
             
+            //При попадании в мишень увеличивай коэфф баллов (на центре мишени такая же)
+            if (hit[i].collider.gameObject.GetComponent<csMischen>())
+            {
+                _mischen = hit[i].collider.gameObject.GetComponent<csMischen>();
+                coef_coin++;
+            }
+
+            if (hit[i].collider.gameObject.GetComponent<csBomba>())
+            {
+                _bomba = hit[i].collider.gameObject.GetComponent<csBomba>();
+                GameObject vfx_vzrus_spawn = Instantiate(_vfx_vzruw_prefab);
+                vfx_vzrus_spawn.transform.position = transform.position;
+                if (_glavnoe_menu) { }
+                else
+                {
+                    _gameManager.HP(-1);
+                }
+
+            }
+            if (hit[i].collider.gameObject.GetComponent<CsBallu>())
+            {
+                ballu = hit[i].collider.gameObject.GetComponent<CsBallu>();
+                if (_glavnoe_menu) { }
+                else
+                    _gameManager.Coin(ballu.get_ballu() * coef_coin);
+            }
+
+            if (hit[i].collider.gameObject.GetComponent<CsVsruv_new>())
+            {
+                // _vsruv = hit[i].collider.gameObject.GetComponent<csVsruv>();
+                // _vsruv.Vsruv();
+                _vsruv = hit[i].collider.gameObject.GetComponent<CsVsruv_new>();
+                _vsruv.Vsruv();
+
+            }
+
+            if (hit[i].collider.gameObject.GetComponent<CsDirigible>())
+            {
+                dirigible = hit[i].collider.gameObject.GetComponent<CsDirigible>();
+                _gameManager.Coin(dirigible.Damage(uron) * coef_coin);
+            }
+
         }
     }
 }

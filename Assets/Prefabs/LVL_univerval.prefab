@@ -4067,22 +4067,6 @@ PrefabInstance:
       propertyPath: kolichestvo_start.Array.data[0]
       value: 100
       objectReference: {fileID: 0}
-    - target: {fileID: 2373457450730249217, guid: 5f972098b5b43674298aab97963742b1, type: 3}
-      propertyPath: kolichestvo_start.Array.data[2]
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2373457450730249217, guid: 5f972098b5b43674298aab97963742b1, type: 3}
-      propertyPath: kolichestvo_start.Array.data[3]
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2373457450730249217, guid: 5f972098b5b43674298aab97963742b1, type: 3}
-      propertyPath: kolichestvo_start.Array.data[5]
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2373457450730249217, guid: 5f972098b5b43674298aab97963742b1, type: 3}
-      propertyPath: kolichestvo_start.Array.data[6]
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6340090553606413615, guid: 5f972098b5b43674298aab97963742b1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
