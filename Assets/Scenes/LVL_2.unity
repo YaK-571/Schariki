@@ -479,11 +479,23 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: b4e03b819912ca746b68c6610bd537b3, type: 3}
     - target: {fileID: 9143682640315751737, guid: d515827ab5ccef34a925f78eb2c05d67, type: 3}
       propertyPath: skorost
-      value: 0.7
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9143682640315751737, guid: d515827ab5ccef34a925f78eb2c05d67, type: 3}
+      propertyPath: prefab.Array.data[0]
+      value: 
+      objectReference: {fileID: 937446874842259505, guid: a7661d1c81b16b9408f6bed920c556dd, type: 3}
+    - target: {fileID: 9143682640315751737, guid: d515827ab5ccef34a925f78eb2c05d67, type: 3}
+      propertyPath: prefab.Array.data[1]
+      value: 
+      objectReference: {fileID: 4306993845110062314, guid: 07f121956fbb10d46b484c2d3558515e, type: 3}
+    - target: {fileID: 9143682640315751737, guid: d515827ab5ccef34a925f78eb2c05d67, type: 3}
+      propertyPath: prefab.Array.data[2]
+      value: 
+      objectReference: {fileID: 3890721202182439196, guid: 9af0f22c64dceed4ea8dca1c87a7e99b, type: 3}
+    - target: {fileID: 9143682640315751737, guid: d515827ab5ccef34a925f78eb2c05d67, type: 3}
       propertyPath: kolichestvo_start.Array.data[0]
-      value: 100
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 9143682640315751737, guid: d515827ab5ccef34a925f78eb2c05d67, type: 3}
       propertyPath: kolichestvo_start.Array.data[1]
@@ -491,7 +503,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9143682640315751737, guid: d515827ab5ccef34a925f78eb2c05d67, type: 3}
       propertyPath: kolichestvo_start.Array.data[2]
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9143682640315751737, guid: d515827ab5ccef34a925f78eb2c05d67, type: 3}
       propertyPath: kolichestvo_start.Array.data[3]
@@ -499,15 +511,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9143682640315751737, guid: d515827ab5ccef34a925f78eb2c05d67, type: 3}
       propertyPath: kolichestvo_start.Array.data[4]
-      value: 10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9143682640315751737, guid: d515827ab5ccef34a925f78eb2c05d67, type: 3}
       propertyPath: kolichestvo_start.Array.data[5]
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9143682640315751737, guid: d515827ab5ccef34a925f78eb2c05d67, type: 3}
       propertyPath: kolichestvo_start.Array.data[6]
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9143682640315751737, guid: d515827ab5ccef34a925f78eb2c05d67, type: 3}
       propertyPath: kolichestvo_start.Array.data[7]
