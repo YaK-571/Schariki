@@ -66,6 +66,11 @@ Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 339163267876466803, guid: 8424d020def35a042b439458180c932f, type: 3}
   m_PrefabInstance: {fileID: 2213495462867475513}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &7793375402034360206 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8255181432081740727, guid: 8424d020def35a042b439458180c932f, type: 3}
+  m_PrefabInstance: {fileID: 2213495462867475513}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8438612112184324396 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7758597582433660181, guid: 8424d020def35a042b439458180c932f, type: 3}
@@ -247,6 +252,10 @@ PrefabInstance:
       propertyPath: m_ConnectedAnchor.y
       value: 0.7500007
       objectReference: {fileID: 0}
+    - target: {fileID: 8985624466767435600, guid: e39f05796ba1d874dbcc0dd8a99ba586, type: 3}
+      propertyPath: _zruz1
+      value: 
+      objectReference: {fileID: 7793375402034360206}
     - target: {fileID: 9107254981336424856, guid: e39f05796ba1d874dbcc0dd8a99ba586, type: 3}
       propertyPath: m_ConnectedAnchor.x
       value: 0.056523427

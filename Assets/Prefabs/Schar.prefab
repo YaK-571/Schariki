@@ -53,6 +53,7 @@ GameObject:
   - component: {fileID: 6011830935909561982}
   - component: {fileID: 2937290634245128373}
   - component: {fileID: 5665760853715741426}
+  - component: {fileID: 6241072559660456742}
   m_Layer: 7
   m_Name: schar
   m_TagString: Untagged
@@ -426,7 +427,7 @@ FixedJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0, y: 3.156}
+  m_ConnectedAnchor: {x: 0, y: 3.1560001}
   m_DampingRatio: 0
   m_Frequency: 0
 --- !u!114 &6011830935909561982
@@ -460,6 +461,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _zvuk_lopanie: {fileID: 6691197835149709492}
+  _schar: 1
 --- !u!114 &5665760853715741426
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -473,6 +475,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _ballu: 1
+--- !u!114 &6241072559660456742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1441972085148224369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3619a3e8f61524b4f9f85673ef20a28c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prioritet_udalenija: 1
+  _roditel: {fileID: 785626894878313362}
+  _svjaska: {fileID: 0}
+  _deti1: {fileID: 0}
+  _deti2: {fileID: 0}
+  _deti3: {fileID: 0}
+  _zruz1: {fileID: 0}
 --- !u!1 &2752327453964771500
 GameObject:
   m_ObjectHideFlags: 0
@@ -488,6 +509,7 @@ GameObject:
   - component: {fileID: 7241358809232975044}
   - component: {fileID: 1777988135511582905}
   - component: {fileID: 3519830928015773845}
+  - component: {fileID: 9059227067914376085}
   m_Layer: 7
   m_Name: nitka (3)
   m_TagString: Untagged
@@ -717,6 +739,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _zvuk_lopanie: {fileID: 0}
+  _schar: 0
+--- !u!114 &9059227067914376085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2752327453964771500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3619a3e8f61524b4f9f85673ef20a28c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prioritet_udalenija: 0
+  _roditel: {fileID: 0}
+  _svjaska: {fileID: 0}
+  _deti1: {fileID: 0}
+  _deti2: {fileID: 0}
+  _deti3: {fileID: 0}
+  _zruz1: {fileID: 0}
 --- !u!1 &4790827235161944179
 GameObject:
   m_ObjectHideFlags: 0
@@ -732,6 +774,7 @@ GameObject:
   - component: {fileID: 1755941291045236337}
   - component: {fileID: 2680492389233061776}
   - component: {fileID: 866910872991950994}
+  - component: {fileID: 1312984975701117704}
   m_Layer: 7
   m_Name: nitka
   m_TagString: Untagged
@@ -961,6 +1004,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _zvuk_lopanie: {fileID: 0}
+  _schar: 0
+--- !u!114 &1312984975701117704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4790827235161944179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3619a3e8f61524b4f9f85673ef20a28c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prioritet_udalenija: 0
+  _roditel: {fileID: 0}
+  _svjaska: {fileID: 0}
+  _deti1: {fileID: 0}
+  _deti2: {fileID: 0}
+  _deti3: {fileID: 0}
+  _zruz1: {fileID: 0}
 --- !u!1 &5576367387445383484
 GameObject:
   m_ObjectHideFlags: 0
@@ -1104,6 +1167,7 @@ GameObject:
   - component: {fileID: 7746483830758356891}
   - component: {fileID: 7286537475401530490}
   - component: {fileID: 6143573688456769357}
+  - component: {fileID: 4533584749365734544}
   m_Layer: 7
   m_Name: schar_schopka
   m_TagString: Untagged
@@ -1221,7 +1285,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: -0.1}
-  m_ConnectedAnchor: {x: 0, y: 1.0733337}
+  m_ConnectedAnchor: {x: 0, y: 1.0733334}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -1313,3 +1377,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _zvuk_lopanie: {fileID: 0}
+  _schar: 0
+--- !u!114 &4533584749365734544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5611091112497294806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3619a3e8f61524b4f9f85673ef20a28c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prioritet_udalenija: 0
+  _roditel: {fileID: 0}
+  _svjaska: {fileID: 0}
+  _deti1: {fileID: 0}
+  _deti2: {fileID: 0}
+  _deti3: {fileID: 0}
+  _zruz1: {fileID: 0}

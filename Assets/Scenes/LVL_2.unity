@@ -495,7 +495,7 @@ PrefabInstance:
       objectReference: {fileID: 3890721202182439196, guid: 9af0f22c64dceed4ea8dca1c87a7e99b, type: 3}
     - target: {fileID: 9143682640315751737, guid: d515827ab5ccef34a925f78eb2c05d67, type: 3}
       propertyPath: kolichestvo_start.Array.data[0]
-      value: 50
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 9143682640315751737, guid: d515827ab5ccef34a925f78eb2c05d67, type: 3}
       propertyPath: kolichestvo_start.Array.data[1]
@@ -503,7 +503,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9143682640315751737, guid: d515827ab5ccef34a925f78eb2c05d67, type: 3}
       propertyPath: kolichestvo_start.Array.data[2]
-      value: 10
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 9143682640315751737, guid: d515827ab5ccef34a925f78eb2c05d67, type: 3}
       propertyPath: kolichestvo_start.Array.data[3]

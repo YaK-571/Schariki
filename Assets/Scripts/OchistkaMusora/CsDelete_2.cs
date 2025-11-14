@@ -13,15 +13,15 @@ public class CsDelete_2 : MonoBehaviour
     {
         if (collision.GetComponent<CsOtschistkaMusora_2>())
         {
-            if (verh)
+            //if (verh)
             //если это верхн€€ колизи€ - то они удал€ют компоненты в строго заданном пор€дке
             //чтобы не получилось так, что взорвЄтс€ шар, а груз упадЄт обратно
             //поэтому сначала груз, потом шар и т.п.
-            { collision.GetComponent<CsOtschistkaMusora_2>().otschistka_misora(prioritet_udalenija); }
-            else
+             collision.GetComponent<CsOtschistkaMusora_2>().otschistka_misora(prioritet_udalenija); 
+           /* else
             { //если это нижн€€ коллизи€ - удал€й сразу всЄ то, что туда падает
-                Destroy(collision.GetComponent<CsOtschistkaMusora_2>());
-            }
+               Destroy(collision.gameObject);
+            }*/
         }
     }
 }

@@ -369,6 +369,7 @@ MonoBehaviour:
   ballu: {fileID: 0}
   _gameManager: {fileID: 8874790470379118358}
   _vspuschka_prefab: {fileID: 1791879558110378832, guid: 50b65b83d355356419ea2b8588703336, type: 3}
+  _VFX_ballu: {fileID: 8938773432384772489, guid: 0420cfa2ce4670f4e819b67d31e29643, type: 3}
   _vfx_vzruw_prefab: {fileID: 6085800047789145069, guid: 92347a0c547dac7468d43a1daa512fa1, type: 3}
   _zvuk_vustrela: {fileID: 1198600289101613468}
 --- !u!114 &6300299426183982347
@@ -456,11 +457,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 2a5e5cb41bb1f6d44b940f084541e17a, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 0a36d129a8ab81040a6af45bf7b4e575, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

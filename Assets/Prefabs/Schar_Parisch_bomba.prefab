@@ -68,6 +68,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4083330766888015311, guid: 07f121956fbb10d46b484c2d3558515e, type: 3}
+      propertyPath: _zruz1
+      value: 
+      objectReference: {fileID: 1613674925326183668}
     - target: {fileID: 4279495244629161259, guid: 07f121956fbb10d46b484c2d3558515e, type: 3}
       propertyPath: m_ConnectedAnchor.x
       value: 0.6294095
@@ -82,7 +86,7 @@ PrefabInstance:
       objectReference: {fileID: 6935636043798900528}
     - target: {fileID: 4306993845110062314, guid: 07f121956fbb10d46b484c2d3558515e, type: 3}
       propertyPath: m_Name
-      value: Schar_Parisch_bomba Variant
+      value: Schar_Parisch_bomba
       objectReference: {fileID: 0}
     - target: {fileID: 6998573655363321354, guid: 07f121956fbb10d46b484c2d3558515e, type: 3}
       propertyPath: m_ConnectedAnchor.x
@@ -171,6 +175,11 @@ PrefabInstance:
 --- !u!4 &1105832072465740374 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7758597582433660181, guid: 8424d020def35a042b439458180c932f, type: 3}
+  m_PrefabInstance: {fileID: 7274622975819931459}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1613674925326183668 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8255181432081740727, guid: 8424d020def35a042b439458180c932f, type: 3}
   m_PrefabInstance: {fileID: 7274622975819931459}
   m_PrefabAsset: {fileID: 0}
 --- !u!50 &6935636043798900528 stripped

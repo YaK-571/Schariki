@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 937446874842259505, guid: a7661d1c81b16b9408f6bed920c556dd, type: 3}
       propertyPath: m_Name
-      value: Schar_Parisch_coin Variant
+      value: Schar_Parisch_coin
       objectReference: {fileID: 0}
     - target: {fileID: 982959693964634608, guid: a7661d1c81b16b9408f6bed920c556dd, type: 3}
       propertyPath: m_ConnectedAnchor.x
@@ -24,6 +24,10 @@ PrefabInstance:
       propertyPath: m_ConnectedRigidBody
       value: 
       objectReference: {fileID: 3921110853299613399}
+    - target: {fileID: 1039514924098341140, guid: a7661d1c81b16b9408f6bed920c556dd, type: 3}
+      propertyPath: _zruz1
+      value: 
+      objectReference: {fileID: 3958686765055327194}
     - target: {fileID: 1447513199084765629, guid: a7661d1c81b16b9408f6bed920c556dd, type: 3}
       propertyPath: m_audioClip
       value: 
@@ -184,5 +188,10 @@ Transform:
 --- !u!50 &3921110853299613399 stripped
 Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 5143106133952764772, guid: 6f5f9072d4051de4fb0a22c2d4353b17, type: 3}
+  m_PrefabInstance: {fileID: 8157547573884302771}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3958686765055327194 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5171674917435903593, guid: 6f5f9072d4051de4fb0a22c2d4353b17, type: 3}
   m_PrefabInstance: {fileID: 8157547573884302771}
   m_PrefabAsset: {fileID: 0}

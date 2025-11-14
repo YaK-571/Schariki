@@ -5,36 +5,39 @@ using UnityEngine;
 public class csGraniza_nischnjaja : MonoBehaviour
 {
     [SerializeField] bool spawn_vspuschek = false;
-    [SerializeField] List<csVsruv> _scharu_artobstrel = new List<csVsruv>();//список для удаления шаров
+    [SerializeField] List<CsVsruv_new> _scharu_artobstrel = new List<CsVsruv_new>();//список для удаления шаров
     [SerializeField] List<csSchar> _scharu_zamerzanie = new List<csSchar>();//список для замедления шаров
     int dlina_list1 = 0;
     int dlina_list2 = 0;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.GetComponent<csVsruv>())
+        if (collision.gameObject.GetComponent<CsVsruv_new>())
         {
-            if (collision.gameObject.GetComponent<csVsruv>()._popadanie_v_schar)
+            if (collision.gameObject.GetComponent<CsVsruv_new>()._schar)
             {
                 //если работает артобстрел, взорви подлетающий шарик сразу
                 if (spawn_vspuschek)
                 {
-                    collision.gameObject.GetComponent<csVsruv>().Vsruv();
+                    collision.gameObject.GetComponent<CsVsruv_new>().Vsruv();
                 }
                 else
                 {
                     //запомни пролетающие шарики
-                    _scharu_artobstrel.Add(collision.gameObject.GetComponent<csVsruv>());
-                   
+                    _scharu_artobstrel.Add(collision.gameObject.GetComponent<CsVsruv_new>());
+
                     //обратись к родителю и сразу запиши ссылку на шар и для замедления
-                    if(collision.transform.parent.GetComponent<csSchar>())
+                    //if(collision.transform.parent.GetComponent<csSchar>())
+                    if (collision.transform.GetComponent<csSchar>())
                     {
-                        _scharu_zamerzanie.Add(collision.transform.parent.GetComponent<csSchar>());
+                        // _scharu_zamerzanie.Add(collision.transform.parent.GetComponent<csSchar>());
+                        _scharu_zamerzanie.Add(collision.transform.GetComponent<csSchar>());
                     }
 
                 }
             }
+
         }
-        
+
 
     }
 

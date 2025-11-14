@@ -78,6 +78,11 @@ Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 1630716298774837125, guid: 2d0b3b8464123e9489a5ba4238ee03a7, type: 3}
   m_PrefabInstance: {fileID: 1389217779857751362}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2332200796215609810 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3682495825793217680, guid: 2d0b3b8464123e9489a5ba4238ee03a7, type: 3}
+  m_PrefabInstance: {fileID: 1389217779857751362}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4609349187443371626 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3220298721126241064, guid: 2d0b3b8464123e9489a5ba4238ee03a7, type: 3}
@@ -93,11 +98,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2284824660558956298, guid: c21990632072d264db4ae7a51cfa6080, type: 3}
       propertyPath: m_ConnectedAnchor.x
-      value: -0.08401056
+      value: -0.13188799
       objectReference: {fileID: 0}
     - target: {fileID: 2284824660558956298, guid: c21990632072d264db4ae7a51cfa6080, type: 3}
       propertyPath: m_ConnectedAnchor.y
-      value: 1.3909642
+      value: 1.4311361
       objectReference: {fileID: 0}
     - target: {fileID: 2284824660558956298, guid: c21990632072d264db4ae7a51cfa6080, type: 3}
       propertyPath: m_ConnectedRigidBody
@@ -147,13 +152,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4078558816055949949, guid: c21990632072d264db4ae7a51cfa6080, type: 3}
+      propertyPath: _zruz1
+      value: 
+      objectReference: {fileID: 2332200796215609810}
     - target: {fileID: 4200119425736690869, guid: c21990632072d264db4ae7a51cfa6080, type: 3}
       propertyPath: m_ConnectedAnchor.x
-      value: 0.08401056
+      value: 0.13188799
       objectReference: {fileID: 0}
     - target: {fileID: 4200119425736690869, guid: c21990632072d264db4ae7a51cfa6080, type: 3}
       propertyPath: m_ConnectedAnchor.y
-      value: 1.3909642
+      value: 1.4311377
       objectReference: {fileID: 0}
     - target: {fileID: 4200119425736690869, guid: c21990632072d264db4ae7a51cfa6080, type: 3}
       propertyPath: m_ConnectedRigidBody
@@ -169,7 +178,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5459343150183551338, guid: c21990632072d264db4ae7a51cfa6080, type: 3}
       propertyPath: m_ConnectedAnchor.y
-      value: 1.474959
+      value: 1.5833329
       objectReference: {fileID: 0}
     - target: {fileID: 5459343150183551338, guid: c21990632072d264db4ae7a51cfa6080, type: 3}
       propertyPath: m_ConnectedRigidBody

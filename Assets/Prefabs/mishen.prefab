@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 5353367986758135806}
   - component: {fileID: 2686720646411032363}
   - component: {fileID: 8545823406653121775}
+  - component: {fileID: 8049823322383567762}
   m_Layer: 7
   m_Name: mishen
   m_TagString: Untagged
@@ -292,3 +293,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _zvuk_lopanie: {fileID: 0}
+--- !u!114 &8049823322383567762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3682495825793217680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3619a3e8f61524b4f9f85673ef20a28c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prioritet_udalenija: 2
+  _roditel: {fileID: 0}

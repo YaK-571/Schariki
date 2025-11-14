@@ -6,7 +6,7 @@ public class CsVsruv_new : MonoBehaviour
 {
 
     [SerializeField] AudioSource _zvuk_lopanie;
-
+    [SerializeField] public bool _schar;
     // Start is called before the first frame update
     void Start()
     {

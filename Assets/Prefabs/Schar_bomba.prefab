@@ -73,6 +73,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b2e6bd7bd7c9343419aaa2ab7b0963f9, type: 3}
+--- !u!1 &2727181307436345557 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2590916736037386127, guid: b2e6bd7bd7c9343419aaa2ab7b0963f9, type: 3}
+  m_PrefabInstance: {fileID: 444781008085802842}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4387838995667383927 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4235795608764885293, guid: b2e6bd7bd7c9343419aaa2ab7b0963f9, type: 3}
@@ -145,11 +150,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1227431625660705461, guid: 9d85394a44f49b84187ca03808fa4653, type: 3}
       propertyPath: m_Name
-      value: Schar_bomb Variant
+      value: Schar_bomba
       objectReference: {fileID: 0}
+    - target: {fileID: 1326262987065557904, guid: 9d85394a44f49b84187ca03808fa4653, type: 3}
+      propertyPath: _zruz1
+      value: 
+      objectReference: {fileID: 2727181307436345557}
     - target: {fileID: 1838453461995621533, guid: 9d85394a44f49b84187ca03808fa4653, type: 3}
       propertyPath: m_ConnectedAnchor.y
-      value: 0.9166654
+      value: 0.75000125
       objectReference: {fileID: 0}
     - target: {fileID: 3517493797904459193, guid: 9d85394a44f49b84187ca03808fa4653, type: 3}
       propertyPath: m_ConnectedAnchor.x
@@ -157,15 +166,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3517493797904459193, guid: 9d85394a44f49b84187ca03808fa4653, type: 3}
       propertyPath: m_ConnectedAnchor.y
-      value: 1.171875
+      value: 1.2187499
       objectReference: {fileID: 0}
     - target: {fileID: 3517493797904459193, guid: 9d85394a44f49b84187ca03808fa4653, type: 3}
       propertyPath: m_ConnectedRigidBody
       value: 
       objectReference: {fileID: 6051813173992286993}
+    - target: {fileID: 4462510308791087485, guid: 9d85394a44f49b84187ca03808fa4653, type: 3}
+      propertyPath: _zruz1
+      value: 
+      objectReference: {fileID: 2727181307436345557}
     - target: {fileID: 7720528935815343196, guid: 9d85394a44f49b84187ca03808fa4653, type: 3}
       propertyPath: m_ConnectedAnchor.y
-      value: 1.1466662
+      value: 1.0733334
       objectReference: {fileID: 0}
     - target: {fileID: 8720477585968753996, guid: 9d85394a44f49b84187ca03808fa4653, type: 3}
       propertyPath: m_ConnectedAnchor.y

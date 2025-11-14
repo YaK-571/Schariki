@@ -17,6 +17,8 @@ public class csVustrel : MonoBehaviour
     [SerializeField] GameManager _gameManager;
     //[SerializeField] csVspuschka _vspuschka;
     [SerializeField] GameObject _vspuschka_prefab;
+    [SerializeField] GameObject _VFX_ballu;
+
     [SerializeField] GameObject _vfx_vzruw_prefab;
 
     [SerializeField] AudioSource _zvuk_vustrela;
@@ -65,7 +67,7 @@ public class csVustrel : MonoBehaviour
 
         // _zvuk_vustrela.Play();
 
-
+        GameObject _VFX_ballu_spawn = null;
         //проверка попалили мы в шар или бомбу
         for (int i = 0; i < hit.Length; i++)
         {
@@ -77,12 +79,25 @@ public class csVustrel : MonoBehaviour
             //2 обычный коллайдер
             //из-за этого очки начисляются два раза, до уничтожения шара
 
-            
+
             //При попадании в мишень увеличивай коэфф баллов (на центре мишени такая же)
             if (hit[i].collider.gameObject.GetComponent<csMischen>())
             {
                 _mischen = hit[i].collider.gameObject.GetComponent<csMischen>();
                 coef_coin++;
+
+                if (_VFX_ballu_spawn) { }
+                else
+                {
+                    _VFX_ballu_spawn = Instantiate(_VFX_ballu);
+                }
+                //если баллы уже вывелись, но игрок попал в центр мишени, и цифферки спавнятся второй раз
+                //но не спавнь их, а измени значение в тех, которые уже заспавнились
+                _VFX_ballu_spawn.GetComponent<Cs_VFX_ballu>().VFX_ballu("X" + coef_coin);
+                _VFX_ballu_spawn.transform.position = transform.position;
+
+
+
             }
 
             if (hit[i].collider.gameObject.GetComponent<csBomba>())
@@ -102,7 +117,15 @@ public class csVustrel : MonoBehaviour
                 ballu = hit[i].collider.gameObject.GetComponent<CsBallu>();
                 if (_glavnoe_menu) { }
                 else
+                {
                     _gameManager.Coin(ballu.get_ballu() * coef_coin);
+
+                    _VFX_ballu_spawn = Instantiate(_VFX_ballu);
+                    _VFX_ballu_spawn.GetComponent<Cs_VFX_ballu>().VFX_ballu("+" + ballu.get_ballu() * coef_coin);
+                    _VFX_ballu_spawn.transform.position = transform.position;
+
+                }
+
             }
 
             if (hit[i].collider.gameObject.GetComponent<CsVsruv_new>())

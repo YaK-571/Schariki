@@ -72,7 +72,7 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator vremja_schita()
     {
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(20f);
         schit_actyven = false;
         schit.SetActive(false);
     }

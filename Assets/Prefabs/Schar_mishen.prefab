@@ -62,11 +62,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1227431625660705461, guid: 9d85394a44f49b84187ca03808fa4653, type: 3}
       propertyPath: m_Name
-      value: Schar_mishen Variant
+      value: Schar_mishen
       objectReference: {fileID: 0}
+    - target: {fileID: 1326262987065557904, guid: 9d85394a44f49b84187ca03808fa4653, type: 3}
+      propertyPath: _zruz1
+      value: 
+      objectReference: {fileID: 6391785953018202437}
     - target: {fileID: 1838453461995621533, guid: 9d85394a44f49b84187ca03808fa4653, type: 3}
       propertyPath: m_ConnectedAnchor.y
-      value: 0.9166654
+      value: 0.75000125
       objectReference: {fileID: 0}
     - target: {fileID: 3517493797904459193, guid: 9d85394a44f49b84187ca03808fa4653, type: 3}
       propertyPath: m_ConnectedAnchor.x
@@ -74,15 +78,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3517493797904459193, guid: 9d85394a44f49b84187ca03808fa4653, type: 3}
       propertyPath: m_ConnectedAnchor.y
-      value: 1.5624999
+      value: 1.6249998
       objectReference: {fileID: 0}
     - target: {fileID: 3517493797904459193, guid: 9d85394a44f49b84187ca03808fa4653, type: 3}
       propertyPath: m_ConnectedRigidBody
       value: 
       objectReference: {fileID: 9011565216291474000}
+    - target: {fileID: 4462510308791087485, guid: 9d85394a44f49b84187ca03808fa4653, type: 3}
+      propertyPath: _zruz1
+      value: 
+      objectReference: {fileID: 6391785953018202437}
     - target: {fileID: 7720528935815343196, guid: 9d85394a44f49b84187ca03808fa4653, type: 3}
       propertyPath: m_ConnectedAnchor.y
-      value: 1.1466662
+      value: 1.0733334
       objectReference: {fileID: 0}
     - target: {fileID: 8720477585968753996, guid: 9d85394a44f49b84187ca03808fa4653, type: 3}
       propertyPath: m_ConnectedAnchor.y
@@ -183,6 +191,11 @@ PrefabInstance:
 --- !u!4 &5124596764579983101 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3220298721126241064, guid: 2d0b3b8464123e9489a5ba4238ee03a7, type: 3}
+  m_PrefabInstance: {fileID: 7759408609137016277}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6391785953018202437 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3682495825793217680, guid: 2d0b3b8464123e9489a5ba4238ee03a7, type: 3}
   m_PrefabInstance: {fileID: 7759408609137016277}
   m_PrefabAsset: {fileID: 0}
 --- !u!50 &9011565216291474000 stripped
