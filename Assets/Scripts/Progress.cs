@@ -35,6 +35,16 @@ public class Date
     public float chuvstvitelnost_gyro_base = 0.5f;
     public float chuvstvitelnost_gyro_max = 2.0f;
 
+    //исключительно для достижений
+    public int ispolzovano_usilenij_minigun;
+    public int ispolzovano_usilenij_art;
+    public int ispolzovano_usilenij_schit;
+    public int ispolzovano_usilenij_samoroska;
+    public int sbito_gruza_na_nitke;
+    public int sbito_scharikov_za_5_sek;
+    public int pokupok;
+    public int popadanij_v_zentr;
+
 
     // public bool _PERVUI_ZAPUSK; //--------------ПЕРЕПРОВЕРИТЬ-------------------
 
@@ -61,6 +71,14 @@ public class Date
         copy.chuvstvitelnost_gyro_base = this.chuvstvitelnost_gyro_base;
         copy.chuvstvitelnost_gyro_max = this.chuvstvitelnost_gyro_max;
 
+        copy.ispolzovano_usilenij_minigun = this.ispolzovano_usilenij_minigun;
+        copy.ispolzovano_usilenij_art = this.ispolzovano_usilenij_art;
+        copy.ispolzovano_usilenij_schit = this.ispolzovano_usilenij_schit;
+        copy.ispolzovano_usilenij_samoroska = this.ispolzovano_usilenij_samoroska;
+        copy.sbito_gruza_na_nitke = this.sbito_gruza_na_nitke;
+        copy.sbito_scharikov_za_5_sek = this.sbito_scharikov_za_5_sek;
+        copy.pokupok = this.pokupok;
+        copy.popadanij_v_zentr = this.popadanij_v_zentr;
 
         // Копируем массив отдельно, чтобы не делить ссылку
         if (this.progress_lvl != null)
@@ -109,6 +127,14 @@ namespace YG
         public float chuvstvitelnost_gyro_base;
         public float chuvstvitelnost_gyro_max;
 
+        public int ispolzovano_usilenij_minigun;
+        public int ispolzovano_usilenij_art;
+        public int ispolzovano_usilenij_schit;
+        public int ispolzovano_usilenij_samoroska;
+        public int sbito_gruza_na_nitke;
+        public int sbito_scharikov_za_5_sek;
+        public int pokupok;
+        public int popadanij_v_zentr;
 
     }
 }
@@ -264,7 +290,7 @@ public class Progress : MonoBehaviour
 
         if (_save_yandex)
         {
-            Save_Yandex();
+            YandexPluginSaveDate();
         }
         else
         {
@@ -309,6 +335,15 @@ public class Progress : MonoBehaviour
         PlayerPrefs.SetInt("inversija_x", date.inversija_x);
         PlayerPrefs.SetFloat("chuvstvitelnost_gyro_max", date.chuvstvitelnost_gyro_max);
         PlayerPrefs.SetFloat("chuvstvitelnost_gyro_base", date.chuvstvitelnost_gyro_base);
+
+        PlayerPrefs.SetInt("ispolzovano_usilenij_minigun", date.ispolzovano_usilenij_minigun);
+        PlayerPrefs.SetInt("ispolzovano_usilenij_art", date.ispolzovano_usilenij_art);
+        PlayerPrefs.SetInt("ispolzovano_usilenij_schit", date.ispolzovano_usilenij_schit);
+        PlayerPrefs.SetInt("ispolzovano_usilenij_samoroska", date.ispolzovano_usilenij_samoroska);
+        PlayerPrefs.SetInt("sbito_gruza_na_nitke", date.sbito_gruza_na_nitke);
+        PlayerPrefs.SetInt("sbito_scharikov_za_5_sek", date.sbito_scharikov_za_5_sek);
+        PlayerPrefs.SetInt("pokupok", date.pokupok);
+        PlayerPrefs.SetInt("popadanij_v_zentr", date.popadanij_v_zentr);
 
 
         if (date.razblokirovan_lvl2 == false)
@@ -370,7 +405,32 @@ public class Progress : MonoBehaviour
             date.chuvstvitelnost_gyro_base = YG2.saves.chuvstvitelnost_gyro_base;
             date.chuvstvitelnost_gyro_max = YG2.saves.chuvstvitelnost_gyro_max;
 
-}
+            date.ispolzovano_usilenij_minigun = YG2.saves.ispolzovano_usilenij_minigun;
+            date.ispolzovano_usilenij_art = YG2.saves.ispolzovano_usilenij_art;
+            date.ispolzovano_usilenij_schit = YG2.saves.ispolzovano_usilenij_schit;
+            date.ispolzovano_usilenij_samoroska = YG2.saves.ispolzovano_usilenij_samoroska;
+            date.sbito_gruza_na_nitke = YG2.saves.sbito_gruza_na_nitke;
+            date.sbito_scharikov_za_5_sek = YG2.saves.sbito_scharikov_za_5_sek;
+            date.pokupok = YG2.saves.pokupok;
+            date.popadanij_v_zentr = YG2.saves.popadanij_v_zentr;
+
+
+
+    int pojavilas_novaja_peremennaja = 0;
+            if (date.tip_upravlenija == 0)
+            { date.tip_upravlenija = date_default_dlja_sbrosa.tip_upravlenija; pojavilas_novaja_peremennaja++; }
+            if (date.inversija_y == 0)
+            { date.inversija_y = date_default_dlja_sbrosa.inversija_y; pojavilas_novaja_peremennaja++; }
+            if (date.inversija_x == 0)
+            { date.inversija_x = date_default_dlja_sbrosa.inversija_x; pojavilas_novaja_peremennaja++; }
+            if (date.chuvstvitelnost_gyro_base == 0)
+            { date.chuvstvitelnost_gyro_base = date_default_dlja_sbrosa.chuvstvitelnost_gyro_base; pojavilas_novaja_peremennaja++; }
+            if (date.chuvstvitelnost_gyro_max == 0)
+            { date.chuvstvitelnost_gyro_max = date_default_dlja_sbrosa.chuvstvitelnost_gyro_max; pojavilas_novaja_peremennaja++; }
+
+            if (pojavilas_novaja_peremennaja > 0)
+                YandexPluginSaveDate();
+        }
     }
 
     public void Load_PlayerPrefs()
@@ -400,10 +460,21 @@ public class Progress : MonoBehaviour
             date.inversija_x = PlayerPrefs.GetInt("inversija_x", date_default_dlja_sbrosa.inversija_x);
             date.chuvstvitelnost_gyro_base = PlayerPrefs.GetFloat("chuvstvitelnost_gyro_base", date_default_dlja_sbrosa.chuvstvitelnost_gyro_base);
             date.chuvstvitelnost_gyro_max = PlayerPrefs.GetFloat("chuvstvitelnost_gyro_max", date_default_dlja_sbrosa.chuvstvitelnost_gyro_max);
-           
 
 
-            date.language = PlayerPrefs.GetString("language");
+            date.ispolzovano_usilenij_minigun = PlayerPrefs.GetInt("ispolzovano_usilenij_minigun", date_default_dlja_sbrosa.ispolzovano_usilenij_minigun);
+            date.ispolzovano_usilenij_art = PlayerPrefs.GetInt("ispolzovano_usilenij_art", date_default_dlja_sbrosa.ispolzovano_usilenij_art);
+            date.ispolzovano_usilenij_schit = PlayerPrefs.GetInt("ispolzovano_usilenij_schit", date_default_dlja_sbrosa.ispolzovano_usilenij_schit);
+            date.ispolzovano_usilenij_samoroska = PlayerPrefs.GetInt("ispolzovano_usilenij_samoroska", date_default_dlja_sbrosa.ispolzovano_usilenij_samoroska);
+            date.sbito_gruza_na_nitke = PlayerPrefs.GetInt("sbito_gruza_na_nitke", date_default_dlja_sbrosa.sbito_gruza_na_nitke);
+            date.sbito_scharikov_za_5_sek = PlayerPrefs.GetInt("sbito_scharikov_za_5_sek", date_default_dlja_sbrosa.sbito_scharikov_za_5_sek);
+            date.pokupok = PlayerPrefs.GetInt("pokupok", date_default_dlja_sbrosa.pokupok);
+            date.popadanij_v_zentr = PlayerPrefs.GetInt("tip_upravlenija", date_default_dlja_sbrosa.popadanij_v_zentr);
+
+
+
+
+    date.language = PlayerPrefs.GetString("language");
 
             if (PlayerPrefs.GetInt("razblokirovan_lvl2") == 0)
             {
@@ -475,8 +546,20 @@ public class Progress : MonoBehaviour
             YG2.saves.chuvstvitelnost_gyro_base = date.chuvstvitelnost_gyro_base;
             YG2.saves.chuvstvitelnost_gyro_max = date.chuvstvitelnost_gyro_max;
 
+            YG2.saves.ispolzovano_usilenij_minigun = date.ispolzovano_usilenij_minigun;
+            YG2.saves.ispolzovano_usilenij_art = date.ispolzovano_usilenij_art;
+            YG2.saves.ispolzovano_usilenij_schit = date.ispolzovano_usilenij_schit;
+            YG2.saves.ispolzovano_usilenij_samoroska = date.ispolzovano_usilenij_samoroska;
+            YG2.saves.sbito_gruza_na_nitke = date.sbito_gruza_na_nitke;
+            YG2.saves.sbito_scharikov_za_5_sek = date.sbito_scharikov_za_5_sek;
+            YG2.saves.pokupok = date.pokupok;
+            YG2.saves.popadanij_v_zentr = date.popadanij_v_zentr;
 
-            YG2.saves.language = YG2.envir.language;
+
+
+
+
+    YG2.saves.language = YG2.envir.language;
 
             Debug.Log("Язык запрошен " + YG2.saves.language);
             //Я сделал язык заглавным в своей локализации
@@ -499,7 +582,7 @@ public class Progress : MonoBehaviour
 
             date.language = YG2.saves.language;
             Save_Yandex();
-            Debug.Log("СБРОС ПРОГРЕССА НА ЯНДЕКСЕ");
+            Debug.Log("СОХРАНЕНИЕ ПРОГРЕССА НА ЯНДЕКСЕ");
         }
     }
 
@@ -541,6 +624,9 @@ public class Progress : MonoBehaviour
                 date.usilenie4_schit += _purch.purch_usilenie4_schit[razmer]; YG2.SetState("usilenie4_schit", date.usilenie4_schit);
             }
         }
+        date.pokupok++;
+        Save();
+        Debug.Log("Покупка №" + date.pokupok);
     }
 
 
@@ -551,22 +637,26 @@ public class Progress : MonoBehaviour
         if (nomer == 1)
         {
             date.usilenie1_minigun--;
-            YG2.SetState("usilenie1_minigun", date.usilenie1_minigun);
+            date.ispolzovano_usilenij_minigun++;
+    YG2.SetState("usilenie1_minigun", date.usilenie1_minigun);
         }
         else if (nomer == 2)
         {
             date.usilenie2_arta--;
-            YG2.SetState("usilenie2_arta", date.usilenie2_arta);
+            date.ispolzovano_usilenij_art++;
+    YG2.SetState("usilenie2_arta", date.usilenie2_arta);
         }
         else if (nomer == 3)
         {
             date.usilenie3_zamarozka--;
-            YG2.SetState("usilenie3_zamarozka", date.usilenie3_zamarozka);
+    date.ispolzovano_usilenij_samoroska++;
+    YG2.SetState("usilenie3_zamarozka", date.usilenie3_zamarozka);
         }
         else if (nomer == 4)
         {
             date.usilenie4_schit--;
-            YG2.SetState("usilenie4_schit", date.usilenie4_schit);
+    date.ispolzovano_usilenij_schit++;
+    YG2.SetState("usilenie4_schit", date.usilenie4_schit);
         }
         else if (nomer == 5)
         {
@@ -634,6 +724,9 @@ public class Progress : MonoBehaviour
         date.language = _language;
         YG2.saves.language = _language;
         Save();
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+       
     }
 
     public void Set_prizel_contur(int a)
@@ -683,6 +776,17 @@ public class Progress : MonoBehaviour
     {
         date.inversija_y = a;
         Save();
+    }
+    
+    public void popadanij_v_zentr()
+    {
+        date.popadanij_v_zentr++;
+        Debug.Log("Попаданий в яблочко: " + date.popadanij_v_zentr);
+    }
+    public void sbito_gruza_na_nitke()
+    {
+        date.sbito_gruza_na_nitke++;
+        Debug.Log("Сбито груза на нитке: " + date.sbito_gruza_na_nitke);
     }
 
 }

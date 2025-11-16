@@ -79,7 +79,6 @@ public class CsLocalization : MonoBehaviour
 
        // YG2.saves.language = a;
        // Progress.GameInstance.SaveCoin(0);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     public string GetLanguage()
     {

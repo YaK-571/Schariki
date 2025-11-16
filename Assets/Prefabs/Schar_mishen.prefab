@@ -84,8 +84,16 @@ PrefabInstance:
       propertyPath: m_ConnectedRigidBody
       value: 
       objectReference: {fileID: 9011565216291474000}
+    - target: {fileID: 3716208302305220435, guid: 9d85394a44f49b84187ca03808fa4653, type: 3}
+      propertyPath: _gruz
+      value: 
+      objectReference: {fileID: 6391785953018202437}
     - target: {fileID: 4462510308791087485, guid: 9d85394a44f49b84187ca03808fa4653, type: 3}
       propertyPath: _zruz1
+      value: 
+      objectReference: {fileID: 6391785953018202437}
+    - target: {fileID: 6224020905674109362, guid: 9d85394a44f49b84187ca03808fa4653, type: 3}
+      propertyPath: _gruz
       value: 
       objectReference: {fileID: 6391785953018202437}
     - target: {fileID: 7720528935815343196, guid: 9d85394a44f49b84187ca03808fa4653, type: 3}

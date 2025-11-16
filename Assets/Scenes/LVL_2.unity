@@ -479,7 +479,7 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: b4e03b819912ca746b68c6610bd537b3, type: 3}
     - target: {fileID: 9143682640315751737, guid: d515827ab5ccef34a925f78eb2c05d67, type: 3}
       propertyPath: skorost
-      value: 2
+      value: 1.4
       objectReference: {fileID: 0}
     - target: {fileID: 9143682640315751737, guid: d515827ab5ccef34a925f78eb2c05d67, type: 3}
       propertyPath: prefab.Array.data[0]
@@ -495,7 +495,7 @@ PrefabInstance:
       objectReference: {fileID: 3890721202182439196, guid: 9af0f22c64dceed4ea8dca1c87a7e99b, type: 3}
     - target: {fileID: 9143682640315751737, guid: d515827ab5ccef34a925f78eb2c05d67, type: 3}
       propertyPath: kolichestvo_start.Array.data[0]
-      value: 20
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 9143682640315751737, guid: d515827ab5ccef34a925f78eb2c05d67, type: 3}
       propertyPath: kolichestvo_start.Array.data[1]

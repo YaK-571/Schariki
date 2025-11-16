@@ -32,6 +32,10 @@ PrefabInstance:
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 8300000, guid: 800ba8ba40f6e1542800f50a22959772, type: 3}
+    - target: {fileID: 1941731938236703928, guid: a7661d1c81b16b9408f6bed920c556dd, type: 3}
+      propertyPath: _gruz
+      value: 
+      objectReference: {fileID: 3958686765055327194}
     - target: {fileID: 2164172869520113059, guid: a7661d1c81b16b9408f6bed920c556dd, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.605177
@@ -100,6 +104,10 @@ PrefabInstance:
       propertyPath: m_ConnectedAnchor.y
       value: 0.91561705
       objectReference: {fileID: 0}
+    - target: {fileID: 6610303525806166739, guid: a7661d1c81b16b9408f6bed920c556dd, type: 3}
+      propertyPath: _gruz
+      value: 
+      objectReference: {fileID: 3958686765055327194}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 6639320327548830304, guid: a7661d1c81b16b9408f6bed920c556dd, type: 3}

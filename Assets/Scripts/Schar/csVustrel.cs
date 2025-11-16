@@ -79,6 +79,11 @@ public class csVustrel : MonoBehaviour
             //2 обычный коллайдер
             //из-за этого очки начисляются два раза, до уничтожения шара
 
+            if (hit[i].collider.gameObject.GetComponent<CsNitka>())
+            {
+                if (hit[i].collider.gameObject.GetComponent<CsNitka>().sbiv_gruza())
+                { Progress.GameInstance.sbito_gruza_na_nitke(); }
+            }
 
             //При попадании в мишень увеличивай коэфф баллов (на центре мишени такая же)
             if (hit[i].collider.gameObject.GetComponent<csMischen>())
@@ -86,7 +91,7 @@ public class csVustrel : MonoBehaviour
                 _mischen = hit[i].collider.gameObject.GetComponent<csMischen>();
                 coef_coin++;
 
-                if (_VFX_ballu_spawn) { }
+                if (_VFX_ballu_spawn) { Progress.GameInstance.popadanij_v_zentr(); }
                 else
                 {
                     _VFX_ballu_spawn = Instantiate(_VFX_ballu);
@@ -136,6 +141,7 @@ public class csVustrel : MonoBehaviour
                 _vsruv.Vsruv();
 
             }
+            
 
             if (hit[i].collider.gameObject.GetComponent<CsDirigible>())
             {

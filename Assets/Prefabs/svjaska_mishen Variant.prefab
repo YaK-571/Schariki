@@ -96,6 +96,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 889991665016135292, guid: c21990632072d264db4ae7a51cfa6080, type: 3}
+      propertyPath: _gruz
+      value: 
+      objectReference: {fileID: 2332200796215609810}
     - target: {fileID: 2284824660558956298, guid: c21990632072d264db4ae7a51cfa6080, type: 3}
       propertyPath: m_ConnectedAnchor.x
       value: -0.13188799
@@ -112,6 +116,10 @@ PrefabInstance:
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 8300000, guid: 1d74880bed4586644a16a79a2d9dc8af, type: 3}
+    - target: {fileID: 2752458434602215493, guid: c21990632072d264db4ae7a51cfa6080, type: 3}
+      propertyPath: _gruz
+      value: 
+      objectReference: {fileID: 2332200796215609810}
     - target: {fileID: 2953311531319463626, guid: c21990632072d264db4ae7a51cfa6080, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.6396167
@@ -152,8 +160,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3991899580431303952, guid: c21990632072d264db4ae7a51cfa6080, type: 3}
+      propertyPath: _gruz
+      value: 
+      objectReference: {fileID: 2332200796215609810}
     - target: {fileID: 4078558816055949949, guid: c21990632072d264db4ae7a51cfa6080, type: 3}
       propertyPath: _zruz1
+      value: 
+      objectReference: {fileID: 2332200796215609810}
+    - target: {fileID: 4089026469389241600, guid: c21990632072d264db4ae7a51cfa6080, type: 3}
+      propertyPath: _gruz
       value: 
       objectReference: {fileID: 2332200796215609810}
     - target: {fileID: 4200119425736690869, guid: c21990632072d264db4ae7a51cfa6080, type: 3}
@@ -172,6 +188,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: svjaska_mishen Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 5383729130032119167, guid: c21990632072d264db4ae7a51cfa6080, type: 3}
+      propertyPath: _gruz
+      value: 
+      objectReference: {fileID: 2332200796215609810}
     - target: {fileID: 5459343150183551338, guid: c21990632072d264db4ae7a51cfa6080, type: 3}
       propertyPath: m_ConnectedAnchor.x
       value: 0
@@ -184,6 +204,10 @@ PrefabInstance:
       propertyPath: m_ConnectedRigidBody
       value: 
       objectReference: {fileID: 425038075362151111}
+    - target: {fileID: 7999908365578028053, guid: c21990632072d264db4ae7a51cfa6080, type: 3}
+      propertyPath: _gruz
+      value: 
+      objectReference: {fileID: 2332200796215609810}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 7793375402034360206, guid: c21990632072d264db4ae7a51cfa6080, type: 3}

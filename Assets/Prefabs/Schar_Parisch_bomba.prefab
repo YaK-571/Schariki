@@ -68,6 +68,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3185615084570343523, guid: 07f121956fbb10d46b484c2d3558515e, type: 3}
+      propertyPath: _gruz
+      value: 
+      objectReference: {fileID: 1613674925326183668}
     - target: {fileID: 4083330766888015311, guid: 07f121956fbb10d46b484c2d3558515e, type: 3}
       propertyPath: _zruz1
       value: 
@@ -92,6 +96,10 @@ PrefabInstance:
       propertyPath: m_ConnectedAnchor.x
       value: 0.023365416
       objectReference: {fileID: 0}
+    - target: {fileID: 7889034320938110472, guid: 07f121956fbb10d46b484c2d3558515e, type: 3}
+      propertyPath: _gruz
+      value: 
+      objectReference: {fileID: 1613674925326183668}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 3958686765055327194, guid: 07f121956fbb10d46b484c2d3558515e, type: 3}
