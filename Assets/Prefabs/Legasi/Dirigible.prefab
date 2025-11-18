@@ -101,6 +101,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _HP: 100
   _ProgressBar: {fileID: 9180965978019865805}
+  ballu: 100
+  _spawner: {fileID: 0}
+  skorost_perezahjadki_zalpa: 30
+  skorost_spawna: 0.1
+  kolichestvo_scharov0: 
+  kolichestvo_scharov1: 
+  kolichestvo_scharov2: 
+  kolichestvo_scharov3: 
+  kolichestvo_scharov4: 
 --- !u!60 &6767931607194855058
 PolygonCollider2D:
   m_ObjectHideFlags: 0
