@@ -19,7 +19,7 @@ public class csVustrel : MonoBehaviour
     [SerializeField] GameObject _vspuschka_prefab;
     [SerializeField] GameObject _VFX_ballu;
 
-    [SerializeField] GameObject _vfx_vzruw_prefab;
+
 
     [SerializeField] AudioSource _zvuk_vustrela;
 
@@ -108,8 +108,7 @@ public class csVustrel : MonoBehaviour
             if (hit[i].collider.gameObject.GetComponent<csBomba>())
             {
                 _bomba = hit[i].collider.gameObject.GetComponent<csBomba>();
-                GameObject vfx_vzrus_spawn = Instantiate(_vfx_vzruw_prefab);
-                vfx_vzrus_spawn.transform.position = transform.position;
+                _bomba._vzruv();
                 if (_glavnoe_menu) { }
                 else
                 {

@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 21300000, guid: 233f98e483f80e94e9b1a6c699ce96ae, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 53e9a0f7b6b4de84f814f615db74ef38, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -255,7 +255,7 @@ SpriteRenderer:
   m_SortingLayerID: 408192863
   m_SortingLayer: 1
   m_SortingOrder: 10
-  m_Sprite: {fileID: 21300000, guid: 4be20510e3929c74d8c9a3fa18b934ed, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2b095bf383c323f44b728cb4a8abaa46, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -370,7 +370,6 @@ MonoBehaviour:
   _gameManager: {fileID: 8874790470379118358}
   _vspuschka_prefab: {fileID: 1791879558110378832, guid: 50b65b83d355356419ea2b8588703336, type: 3}
   _VFX_ballu: {fileID: 8938773432384772489, guid: 0420cfa2ce4670f4e819b67d31e29643, type: 3}
-  _vfx_vzruw_prefab: {fileID: 6085800047789145069, guid: 92347a0c547dac7468d43a1daa512fa1, type: 3}
   _zvuk_vustrela: {fileID: 1198600289101613468}
 --- !u!114 &6300299426183982347
 MonoBehaviour:
@@ -557,17 +556,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _contur: {fileID: 1354582371649887084}
   _mushka: {fileID: 7726567652204964500}
+  _contur_menu: {fileID: 0}
+  _mushka_menu: {fileID: 0}
   _prizel_contur:
-  - {fileID: 21300000, guid: 4be20510e3929c74d8c9a3fa18b934ed, type: 3}
-  - {fileID: 21300000, guid: c936aa7b528a86f499ff2a489c9ca5a5, type: 3}
+  - {fileID: 21300000, guid: 2b095bf383c323f44b728cb4a8abaa46, type: 3}
+  - {fileID: 21300000, guid: 93939bf24fbc4d7478f7c02021ea309e, type: 3}
+  - {fileID: 21300000, guid: d82bc46e09c35dc47968241afd3ca33c, type: 3}
+  - {fileID: 21300000, guid: 6635f00f17d19924f9373bda9da0b7dd, type: 3}
   - {fileID: 21300000, guid: acb9190621e21bc4fb3ffece940945db, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: 16aaf4a61bb674a4d888f97808ba0717, type: 3}
+  - {fileID: 21300000, guid: 222fc54ed37bec144a9b27b7072b238b, type: 3}
+  - {fileID: 21300000, guid: fa3ba94e8b39950409a4386a6ab53a6c, type: 3}
+  - {fileID: 21300000, guid: 03f61c6659245f6418ede2ca03cd29ea, type: 3}
+  - {fileID: 21300000, guid: b2a39032e017c554192e8f3f33db4945, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -579,16 +580,16 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   _prizel_mushka:
-  - {fileID: 21300000, guid: 233f98e483f80e94e9b1a6c699ce96ae, type: 3}
-  - {fileID: 21300000, guid: 89c7eba9f0c6a7441909cd247c6e1579, type: 3}
+  - {fileID: 21300000, guid: 53e9a0f7b6b4de84f814f615db74ef38, type: 3}
+  - {fileID: 21300000, guid: 25a8f85cd1cceed4a81be0649190eca0, type: 3}
+  - {fileID: 21300000, guid: 410c064ff9d5ef84d92e7b7e0eb07387, type: 3}
   - {fileID: 21300000, guid: cc9049f36c419d14aaa85ef26afed43b, type: 3}
-  - {fileID: 21300000, guid: ea004449a0965ad4caa247b48630e8f1, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: 09af0b9a92b781047985b63e34f09147, type: 3}
+  - {fileID: 21300000, guid: d161cd43ce29f2d45a8768fbe6081fe9, type: 3}
+  - {fileID: 21300000, guid: 435c1c69485b6484cb68c33fb0d8e849, type: 3}
+  - {fileID: 21300000, guid: 3eac7835b94a0b84aada14f563ed7e26, type: 3}
+  - {fileID: 21300000, guid: 598a1e32163fb4c48b2dfacd63d5d965, type: 3}
+  - {fileID: 21300000, guid: 405ed99cc2c575640979c76c8f88a5dd, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}

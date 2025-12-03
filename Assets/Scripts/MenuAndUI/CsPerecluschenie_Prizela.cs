@@ -6,10 +6,17 @@ using UnityEngine.UI;
 
 public class CsPerecluschenie_Prizela : MonoBehaviour
 {
+    public static event System.Action<CsPerecluschenie_Prizela, bool> Event_GalkaVukl;
+    //в <> - аргументы, которые можно передать через подписку
+    //в моЄм данном случае совпадают с _galka_Vukl
+
     [SerializeField] bool _muschka = false;
     [SerializeField] int tip_prizela;
     [SerializeField] int nomer_dostischenija;
     [SerializeField] Image _ProgressBar;
+
+    [SerializeField] Image _zamok;
+    [SerializeField] Image _galka;
 
     bool razblokirovka = false;
     private void Start()
@@ -20,7 +27,7 @@ public class CsPerecluschenie_Prizela : MonoBehaviour
                     MyGameInstance.date.ispolzovano_usilenij_art +
                     MyGameInstance.date.ispolzovano_usilenij_schit +
                     MyGameInstance.date.ispolzovano_usilenij_samoroska;
-        Debug.Log("»спользовано усилений: " + ispolzovano_usilenij);
+    //    Debug.Log("»спользовано усилений: " + ispolzovano_usilenij);
 
         int ispolzovano_raznuh_usilenij = 0;
 
@@ -127,16 +134,54 @@ public class CsPerecluschenie_Prizela : MonoBehaviour
                 { _ProgressBar.fillAmount = 1; razblokirovka = true; }
                 else { _ProgressBar.fillAmount = MyGameInstance.date.sbito_scharikov_za_5_sek / 1f; }
                 break;
+            case 19:
+                if (MyGameInstance.date.Coin >= 250000)
+                { _ProgressBar.fillAmount = 1; razblokirovka = true; }
+                else { _ProgressBar.fillAmount = MyGameInstance.date.Coin / 250000f; }
+                break;
+            case 20:
+                if (MyGameInstance.date.Coin >= 750000)
+                { _ProgressBar.fillAmount = 1; razblokirovka = true; }
+                else { _ProgressBar.fillAmount = MyGameInstance.date.Coin / 750000f; }
+                break;
             default:
                 // код если ни один case не подошел
                 break;
         }
+        if(razblokirovka)
+        {
+            _zamok.gameObject.SetActive(false);
+        }
+
+        if(_muschka) {
+            if (Progress.GameInstance.date._prizel_mushka == tip_prizela) 
+            { _galka.gameObject.SetActive(true); }
+            else { _galka.gameObject.SetActive(false); }
+        }
+        else
+        {
+            if (Progress.GameInstance.date._prizel_contur == tip_prizela)
+            { _galka.gameObject.SetActive(true); }
+            else { _galka.gameObject.SetActive(false); }
+        }
+
+        Event_GalkaVukl += _galka_Vukl; //подписка на событие.
+                                        // огда в этой кнопке вызовитс€ этот метод, то в других таких же кнопках - вызовитс€ он же
+
     }
+    private void OnDestroy()
+    {
+        // 3. ќ“ѕ»—џ¬ј≈ћ—я от событий (¬ј∆Ќќ!)
+        Event_GalkaVukl -= _galka_Vukl;
+    }
+
 
     public void smena_prizela()
     {
         if (razblokirovka)
         {
+            
+
             if (_muschka)
             {
                 Progress.GameInstance.Set_prizel_mushka(tip_prizela);
@@ -145,6 +190,20 @@ public class CsPerecluschenie_Prizela : MonoBehaviour
             {
                 Progress.GameInstance.Set_prizel_contur(tip_prizela);
             }
+
+            Event_GalkaVukl?.Invoke(this, _muschka);//вызов методов
+            
+            _galka_Vkl();
         }
+    }
+
+    public void _galka_Vukl(CsPerecluschenie_Prizela _Cnopka_CsPerecluschenie_Prizela, bool muschka)
+    {
+        if (_Cnopka_CsPerecluschenie_Prizela != this && muschka==_muschka)
+            _galka.gameObject.SetActive(false );
+    }
+    public void _galka_Vkl()
+    {
+        _galka.gameObject.SetActive(true);
     }
 }

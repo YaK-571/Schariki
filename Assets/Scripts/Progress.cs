@@ -469,7 +469,7 @@ public class Progress : MonoBehaviour
             date.sbito_gruza_na_nitke = PlayerPrefs.GetInt("sbito_gruza_na_nitke", date_default_dlja_sbrosa.sbito_gruza_na_nitke);
             date.sbito_scharikov_za_5_sek = PlayerPrefs.GetInt("sbito_scharikov_za_5_sek", date_default_dlja_sbrosa.sbito_scharikov_za_5_sek);
             date.pokupok = PlayerPrefs.GetInt("pokupok", date_default_dlja_sbrosa.pokupok);
-            date.popadanij_v_zentr = PlayerPrefs.GetInt("tip_upravlenija", date_default_dlja_sbrosa.popadanij_v_zentr);
+            date.popadanij_v_zentr = PlayerPrefs.GetInt("popadanij_v_zentr", date_default_dlja_sbrosa.popadanij_v_zentr);
 
 
 

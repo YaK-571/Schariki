@@ -10161,9 +10161,29 @@ PrefabInstance:
       propertyPath: _hp
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 1316262671243762914, guid: d515827ab5ccef34a925f78eb2c05d67, type: 3}
+      propertyPath: m_Size.x
+      value: 5.34
+      objectReference: {fileID: 0}
+    - target: {fileID: 1316262671243762914, guid: d515827ab5ccef34a925f78eb2c05d67, type: 3}
+      propertyPath: m_Size.y
+      value: 5.34
+      objectReference: {fileID: 0}
+    - target: {fileID: 1316262671243762914, guid: d515827ab5ccef34a925f78eb2c05d67, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 405ed99cc2c575640979c76c8f88a5dd, type: 3}
+    - target: {fileID: 1316262671243762914, guid: d515827ab5ccef34a925f78eb2c05d67, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1462983762489394913, guid: d515827ab5ccef34a925f78eb2c05d67, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.29
+      value: -1.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 1462983762489394913, guid: d515827ab5ccef34a925f78eb2c05d67, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.61
       objectReference: {fileID: 0}
     - target: {fileID: 3740169329574019953, guid: d515827ab5ccef34a925f78eb2c05d67, type: 3}
       propertyPath: m_Name
@@ -10212,6 +10232,22 @@ PrefabInstance:
     - target: {fileID: 6808281215848122362, guid: d515827ab5ccef34a925f78eb2c05d67, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7760393502690028826, guid: d515827ab5ccef34a925f78eb2c05d67, type: 3}
+      propertyPath: m_Size.x
+      value: 5.34
+      objectReference: {fileID: 0}
+    - target: {fileID: 7760393502690028826, guid: d515827ab5ccef34a925f78eb2c05d67, type: 3}
+      propertyPath: m_Size.y
+      value: 5.34
+      objectReference: {fileID: 0}
+    - target: {fileID: 7760393502690028826, guid: d515827ab5ccef34a925f78eb2c05d67, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b2a39032e017c554192e8f3f33db4945, type: 3}
+    - target: {fileID: 7760393502690028826, guid: d515827ab5ccef34a925f78eb2c05d67, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9143682640315751737, guid: d515827ab5ccef34a925f78eb2c05d67, type: 3}
       propertyPath: prefab.Array.data[7]

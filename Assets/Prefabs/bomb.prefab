@@ -129,6 +129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61ca82e2f5ad8bb4994b3c63c1405a34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _vfx_vzruw_prefab: {fileID: 6085800047789145069, guid: 92347a0c547dac7468d43a1daa512fa1, type: 3}
 --- !u!58 &4253201879807327285
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -212,6 +213,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _zvuk_lopanie: {fileID: 0}
+  _schar: 0
 --- !u!114 &5802222293407521480
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -225,3 +227,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prioritet_udalenija: 2
+  _roditel: {fileID: 0}
+  _svjaska: {fileID: 0}
+  _deti1: {fileID: 0}
+  _deti2: {fileID: 0}
+  _deti3: {fileID: 0}
+  _zruz1: {fileID: 0}

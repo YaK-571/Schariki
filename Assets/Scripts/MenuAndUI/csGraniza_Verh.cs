@@ -12,6 +12,11 @@ public class csGraniza_Verh : MonoBehaviour
         if (collision.GetComponent<csBomba>())
 
         {
+            if(collision.GetComponent<CsVsruv_new>())
+            { collision.GetComponent<CsVsruv_new>().Vsruv(); }//тут звук
+            
+            collision.GetComponent<csBomba>()._vzruv();
+             Destroy(collision.GetComponent<csBomba>().gameObject);
             _gameManager.HP(-1);
         }
     }

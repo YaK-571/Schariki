@@ -625,6 +625,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 584436531879529273, guid: 9d85394a44f49b84187ca03808fa4653, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 55386c0a801e6144b9ba018de0d2d70b, type: 3}
     - target: {fileID: 1227431625660705461, guid: 9d85394a44f49b84187ca03808fa4653, type: 3}
       propertyPath: m_Name
       value: Schar_Parisch
@@ -681,6 +685,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3619a3e8f61524b4f9f85673ef20a28c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!82 &1447513199084765629 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 584436531879529273, guid: 9d85394a44f49b84187ca03808fa4653, type: 3}
+  m_PrefabInstance: {fileID: 2020652199458359940}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2164172869520113059 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 144787788596475687, guid: 9d85394a44f49b84187ca03808fa4653, type: 3}
@@ -698,6 +707,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: korsina
       objectReference: {fileID: 0}
+    - target: {fileID: 3512869103674008947, guid: e907c195247d28545a59c04f6b8fb1ea, type: 3}
+      propertyPath: _zvuk_lopanie
+      value: 
+      objectReference: {fileID: 1447513199084765629}
     - target: {fileID: 5212489172508152268, guid: e907c195247d28545a59c04f6b8fb1ea, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
