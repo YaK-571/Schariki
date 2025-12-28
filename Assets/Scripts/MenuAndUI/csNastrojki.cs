@@ -101,4 +101,9 @@ public class csNastrojki : MonoBehaviour
     {
         Progress.GameInstance.set_chuvstvitelnost_gyro_max(_slider.value);
     }
+
+    public void Save()
+    {
+        Progress.GameInstance.Save();
+    }
 }

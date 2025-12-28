@@ -6,12 +6,14 @@ using UnityEngine;
 public class csVustrel : MonoBehaviour
 {
     [SerializeField] bool _glavnoe_menu;
+    [SerializeField] bool _obuchenie;
 
     [SerializeField] csBomba _bomba;
     [SerializeField] CsVsruv_new _vsruv;
     [SerializeField] csMischen _mischen;
     [SerializeField] CsDirigible dirigible;
     [SerializeField] CsBallu ballu;
+    [SerializeField] GameObject _vfx_vzruw_prefab;
 
     // [SerializeField] GameObject _canvas_game_over;
     [SerializeField] GameManager _gameManager;
@@ -68,6 +70,8 @@ public class csVustrel : MonoBehaviour
         // _zvuk_vustrela.Play();
 
         GameObject _VFX_ballu_spawn = null;
+        bool _VFX_vspuschka = false;
+
         //проверка попалили мы в шар или бомбу
         for (int i = 0; i < hit.Length; i++)
         {
@@ -105,11 +109,17 @@ public class csVustrel : MonoBehaviour
 
             }
 
+            if (hit[i].collider.gameObject.GetComponent<Cs_VFX>())
+            {
+                hit[i].collider.gameObject.GetComponent<Cs_VFX>().f_VFX();
+                _VFX_vspuschka = true;
+            }
+
             if (hit[i].collider.gameObject.GetComponent<csBomba>())
             {
                 _bomba = hit[i].collider.gameObject.GetComponent<csBomba>();
                 _bomba._vzruv();
-                if (_glavnoe_menu) { }
+                if (_glavnoe_menu || _obuchenie) { }
                 else
                 {
                     _gameManager.HP(-1);
@@ -149,5 +159,10 @@ public class csVustrel : MonoBehaviour
             }
 
         }
+        //если не попали в шарик - заспавнь обычный эффект попадания
+        if (_VFX_vspuschka) { } else
+        {
+            GameObject vfx_vzrus_spawn = Instantiate(_vfx_vzruw_prefab);
+            vfx_vzrus_spawn.transform.position = transform.position; }
     }
 }

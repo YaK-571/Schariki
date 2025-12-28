@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 133566228547824998}
   - component: {fileID: 5177744178546502608}
   - component: {fileID: 1278232985485902508}
+  - component: {fileID: 2384596186683750053}
   m_Layer: 7
   m_Name: korsina
   m_TagString: Untagged
@@ -101,6 +102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _zvuk_lopanie: {fileID: 0}
+  _schar: 0
 --- !u!50 &133566228547824998
 Rigidbody2D:
   serializedVersion: 4
@@ -284,3 +286,16 @@ PolygonCollider2D:
       - {x: 1.275, y: -1.18}
       - {x: 1.3349999, y: -1.06}
   m_UseDelaunayMesh: 0
+--- !u!114 &2384596186683750053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1804874398454849970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9124ab2d6acfd504c86518d4902970a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _vfx_vzruw_prefab: {fileID: 2720444207061661692, guid: 4d905a57d03d1824b98dae803c5a4da1, type: 3}

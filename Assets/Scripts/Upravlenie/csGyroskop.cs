@@ -33,6 +33,13 @@ public class csGyroskop : MonoBehaviour
     void Start()
     {
         Input.gyro.enabled = true; //включение гироскопа
+        F_CalibrateNextFrame();
+
+
+    }
+
+    public void F_CalibrateNextFrame()
+    {
         StartCoroutine(CalibrateNextFrame());
         //гироскоп при старте ещё не передаёт корректные данные
         //поэтому калибруем в следующем кадре

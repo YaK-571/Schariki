@@ -48,10 +48,6 @@ MonoBehaviour:
   _csYandex: {fileID: 0}
   nomer_lvl: 0
   nomer_missii: 1
-  inversija_x: 1
-  inversija_y: 1
-  chuvstvitelnost_gyro_base: 0.5
-  chuvstvitelnost_gyro_max: 2
   sohranenyja_v_editore: 1
   date:
     Coin: 333
@@ -65,6 +61,21 @@ MonoBehaviour:
     razblokirovan_lvl2: 1
     razblokirovan_lvl3: 1
     language: 
+    _prizel_contur: 0
+    _prizel_mushka: 0
+    tip_upravlenija: 1
+    inversija_x: 1
+    inversija_y: 1
+    chuvstvitelnost_gyro_base: 0.7
+    chuvstvitelnost_gyro_max: 2.2
+    ispolzovano_usilenij_minigun: 0
+    ispolzovano_usilenij_art: 0
+    ispolzovano_usilenij_schit: 0
+    ispolzovano_usilenij_samoroska: 0
+    sbito_gruza_na_nitke: 0
+    sbito_scharikov_za_5_sek: 0
+    pokupok: 0
+    popadanij_v_zentr: 0
   date_default_dlja_sbrosa:
     Coin: 1
     usilenie1_minigun: 5
@@ -77,6 +88,21 @@ MonoBehaviour:
     razblokirovan_lvl2: 1
     razblokirovan_lvl3: 1
     language: 
+    _prizel_contur: 0
+    _prizel_mushka: 0
+    tip_upravlenija: 1
+    inversija_x: 1
+    inversija_y: 1
+    chuvstvitelnost_gyro_base: 0.7
+    chuvstvitelnost_gyro_max: 2.2
+    ispolzovano_usilenij_minigun: 0
+    ispolzovano_usilenij_art: 0
+    ispolzovano_usilenij_schit: 0
+    ispolzovano_usilenij_samoroska: 0
+    sbito_gruza_na_nitke: 0
+    sbito_scharikov_za_5_sek: 0
+    pokupok: 0
+    popadanij_v_zentr: 0
   _purch:
     purch_aptetschka: 050000000b00000023000000
     purch_usilenie1_minigun: 020000000b00000023000000

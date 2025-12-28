@@ -10,6 +10,7 @@ public class csUI_HP : MonoBehaviour
 
     public void Awake() //эта хуита в Start вызывалась после Update_HP, пришлось перенести в Awake
     {
+
         hp = new Transform[10];
         foreach (Transform Serdechko in gameObject.transform)
         {

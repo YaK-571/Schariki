@@ -54,6 +54,7 @@ GameObject:
   - component: {fileID: 2937290634245128373}
   - component: {fileID: 5665760853715741426}
   - component: {fileID: 6241072559660456742}
+  - component: {fileID: 6316274099495476390}
   m_Layer: 7
   m_Name: schar
   m_TagString: Untagged
@@ -494,6 +495,19 @@ MonoBehaviour:
   _deti2: {fileID: 0}
   _deti3: {fileID: 0}
   _zruz1: {fileID: 0}
+--- !u!114 &6316274099495476390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1441972085148224369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9124ab2d6acfd504c86518d4902970a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _vfx_vzruw_prefab: {fileID: 4361463952036208515, guid: cfaa2e240e218b44c8822b2ad9fb210b, type: 3}
 --- !u!1 &2752327453964771500
 GameObject:
   m_ObjectHideFlags: 0

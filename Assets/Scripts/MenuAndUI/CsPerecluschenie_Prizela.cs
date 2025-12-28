@@ -85,19 +85,19 @@ public class CsPerecluschenie_Prizela : MonoBehaviour
                 else { _ProgressBar.fillAmount = ispolzovano_usilenij / 100f; }
                 break;
             case 9:
-                if (MyGameInstance.date.Coin_record[0] >= 10000)
+                if (MyGameInstance.date.Coin_record[0] >= 1000)
                 { _ProgressBar.fillAmount = 1; razblokirovka = true; }
-                else { _ProgressBar.fillAmount = MyGameInstance.date.Coin_record[0] / 10000f; }
+                else { _ProgressBar.fillAmount = MyGameInstance.date.Coin_record[0] / 1000f; }
                 break;
             case 10:
-                if (MyGameInstance.date.Coin_record[1] >= 10000)
+                if (MyGameInstance.date.Coin_record[1] >= 1000)
                 { _ProgressBar.fillAmount = 1; razblokirovka = true; }
-                else { _ProgressBar.fillAmount = MyGameInstance.date.Coin_record[1] / 10000f; }
+                else { _ProgressBar.fillAmount = MyGameInstance.date.Coin_record[1] / 1000f; }
                 break;
             case 11:
-                if (MyGameInstance.date.Coin_record[2] >= 10000)
+                if (MyGameInstance.date.Coin_record[2] >= 1000)
                 { _ProgressBar.fillAmount = 1; razblokirovka = true; }
-                else { _ProgressBar.fillAmount = MyGameInstance.date.Coin_record[2] / 10000f; }
+                else { _ProgressBar.fillAmount = MyGameInstance.date.Coin_record[2] / 1000f; }
                 break;
             case 12:
                 if (MyGameInstance.date.Coin >= 1000)

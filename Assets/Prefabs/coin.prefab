@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 6136946296158064034}
   - component: {fileID: 4354821621212050007}
   - component: {fileID: 6669955256880448120}
+  - component: {fileID: 7115931623381579275}
   m_Layer: 7
   m_Name: coin
   m_TagString: Untagged
@@ -130,6 +131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _zvuk_lopanie: {fileID: 0}
+  _schar: 0
 --- !u!60 &2737193263013962858
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -302,3 +304,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prioritet_udalenija: 2
+  _roditel: {fileID: 0}
+  _svjaska: {fileID: 0}
+  _deti1: {fileID: 0}
+  _deti2: {fileID: 0}
+  _deti3: {fileID: 0}
+  _zruz1: {fileID: 0}
+--- !u!114 &7115931623381579275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3503883131048853235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9124ab2d6acfd504c86518d4902970a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _vfx_vzruw_prefab: {fileID: 2720444207061661692, guid: 4d905a57d03d1824b98dae803c5a4da1, type: 3}

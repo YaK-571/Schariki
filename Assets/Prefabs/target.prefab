@@ -367,6 +367,7 @@ MonoBehaviour:
   _mischen: {fileID: 0}
   dirigible: {fileID: 0}
   ballu: {fileID: 0}
+  _vfx_vzruw_prefab: {fileID: 4644643087244297947, guid: ffc43c737c708014899a67e6577adfcf, type: 3}
   _gameManager: {fileID: 8874790470379118358}
   _vspuschka_prefab: {fileID: 1791879558110378832, guid: 50b65b83d355356419ea2b8588703336, type: 3}
   _VFX_ballu: {fileID: 8938773432384772489, guid: 0420cfa2ce4670f4e819b67d31e29643, type: 3}
@@ -383,7 +384,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08457a9095530144a8f5945f9f6cc2e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 7
+  _speed: 8
   _telo: {fileID: 8321541721888922695}
 --- !u!114 &6269043844526854648
 MonoBehaviour:
@@ -568,8 +569,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 222fc54ed37bec144a9b27b7072b238b, type: 3}
   - {fileID: 21300000, guid: fa3ba94e8b39950409a4386a6ab53a6c, type: 3}
   - {fileID: 21300000, guid: 03f61c6659245f6418ede2ca03cd29ea, type: 3}
+  - {fileID: 21300000, guid: 22bf5937bfac058459181e354c4d6095, type: 3}
   - {fileID: 21300000, guid: b2a39032e017c554192e8f3f33db4945, type: 3}
-  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -589,8 +590,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 435c1c69485b6484cb68c33fb0d8e849, type: 3}
   - {fileID: 21300000, guid: 3eac7835b94a0b84aada14f563ed7e26, type: 3}
   - {fileID: 21300000, guid: 598a1e32163fb4c48b2dfacd63d5d965, type: 3}
+  - {fileID: 21300000, guid: 849b0d7643b6d6e4c9b39dfaae1207d8, type: 3}
   - {fileID: 21300000, guid: 405ed99cc2c575640979c76c8f88a5dd, type: 3}
-  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}

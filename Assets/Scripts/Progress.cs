@@ -755,27 +755,22 @@ public class Progress : MonoBehaviour
     public void set_tip_upravlenija(int a)
     {
         date.tip_upravlenija=a;
-        Save();
     }
     public void set_chuvstvitelnost_gyro_base(float a)
     {
         date.chuvstvitelnost_gyro_base = a;
-        Save();
     }
     public void set_chuvstvitelnost_gyro_max(float a)
     {
         date.chuvstvitelnost_gyro_max = a;
-        Save();
     }
     public void set_inversija_x(int a)
     {
         date.inversija_x = a;
-        Save();
     }
     public void set_inversija_y(int a)
     {
         date.inversija_y = a;
-        Save();
     }
     
     public void popadanij_v_zentr()
