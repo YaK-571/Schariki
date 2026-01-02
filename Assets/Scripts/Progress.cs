@@ -23,11 +23,12 @@ public class Date
     public bool razblokirovan_lvl2;
     public bool razblokirovan_lvl3;
     public string language;
+    public int ruchnoj_vubor_jazuka;
 
     //настройки
     public int _prizel_contur;
     public int _prizel_mushka;
-    public int tip_upravlenija=1;
+    public int tip_upravlenija = 1;
 
     public int inversija_x = 1;
     public int inversija_y = 1;
@@ -62,6 +63,7 @@ public class Date
         copy.razblokirovan_lvl2 = this.razblokirovan_lvl2;
         copy.razblokirovan_lvl3 = this.razblokirovan_lvl3;
         copy.language = this.language;
+        copy.ruchnoj_vubor_jazuka = this.ruchnoj_vubor_jazuka;
 
         copy._prizel_contur = this._prizel_contur;
         copy._prizel_mushka = this._prizel_mushka;
@@ -87,7 +89,7 @@ public class Date
             Array.Copy(this.progress_lvl, copy.progress_lvl, this.progress_lvl.Length);
         }
         else
-        {copy.progress_lvl = null;}
+        { copy.progress_lvl = null; }
 
         //  опируем массив отдельно, чтобы не делить ссылку
         if (this.Coin_record != null)
@@ -118,6 +120,7 @@ namespace YG
         public bool razblokirovan_lvl2;
         public bool razblokirovan_lvl3;
         public string language;
+        public int ruchnoj_vubor_jazuka;
 
         public int _prizel_contur;
         public int _prizel_mushka;
@@ -147,7 +150,7 @@ public class Purch
     public int[] purch_usilenie2_arta = new int[3];
     public int[] purch_usilenie3_zamarozka = new int[3];
     public int[] purch_usilenie4_schit = new int[3];
-  //  public int[] purch_bundl = new int[3];
+    //  public int[] purch_bundl = new int[3];
 }
 
 
@@ -164,7 +167,7 @@ public class Progress : MonoBehaviour
     bool web_telefon = false;
 
 
-    
+
 
     [SerializeField] bool sohranenyja_v_editore = false;
 
@@ -262,8 +265,8 @@ public class Progress : MonoBehaviour
         //то есть он прогружает покупки которые были оплачены, но которые не прошли сразу по какой-то причине
         //например пользователь оплатил и закрыл игру, не вернувшись в неЄ
 #endif
-        if(CsLocalization.Local)
-        CsLocalization.Local.SetLanguage(date.language);
+        if (CsLocalization.Local)
+            CsLocalization.Local.SetLanguage(date.language);
         // Sbros_progressa();
     }
 
@@ -326,6 +329,8 @@ public class Progress : MonoBehaviour
         PlayerPrefs.SetInt("Coin_record_1", date.Coin_record[1]);
         PlayerPrefs.SetInt("Coin_record_2", date.Coin_record[2]);
         PlayerPrefs.SetString("language", date.language);
+        PlayerPrefs.SetInt("ruchnoj_vubor_jazuka", date.ruchnoj_vubor_jazuka);
+
         //прицел
         PlayerPrefs.SetInt("_prizel_contur", date._prizel_contur);
         PlayerPrefs.SetInt("_prizel_mushka", date._prizel_mushka);
@@ -388,11 +393,18 @@ public class Progress : MonoBehaviour
             date.Coin_record[1] = YG2.saves.Coin_record[1];
             date.Coin_record[2] = YG2.saves.Coin_record[2];
 
-            date.language = YG2.saves.language;
-            if (YG2.saves.language == "" || YG2.saves.language == null)
+            
+            date.ruchnoj_vubor_jazuka = YG2.saves.ruchnoj_vubor_jazuka;
+
+            if (date.ruchnoj_vubor_jazuka == 1) {
+                date.language = YG2.saves.language;
+                Debug.Log("язык выбранный игроком вручную:" + date.language); }
+            else
             {
-                date.language = YG2.envir.language;
+                date.language = Load_Yandex_Language();
+                Debug.Log("јвтоматический €зык через SDK:" + date.language);
             }
+
             date.razblokirovan_lvl2 = YG2.saves.razblokirovan_lvl2;
             date.razblokirovan_lvl3 = YG2.saves.razblokirovan_lvl3;
 
@@ -416,7 +428,7 @@ public class Progress : MonoBehaviour
 
 
 
-    int pojavilas_novaja_peremennaja = 0;
+            int pojavilas_novaja_peremennaja = 0;
             if (date.tip_upravlenija == 0)
             { date.tip_upravlenija = date_default_dlja_sbrosa.tip_upravlenija; pojavilas_novaja_peremennaja++; }
             if (date.inversija_y == 0)
@@ -471,10 +483,10 @@ public class Progress : MonoBehaviour
             date.pokupok = PlayerPrefs.GetInt("pokupok", date_default_dlja_sbrosa.pokupok);
             date.popadanij_v_zentr = PlayerPrefs.GetInt("popadanij_v_zentr", date_default_dlja_sbrosa.popadanij_v_zentr);
 
+            date.ruchnoj_vubor_jazuka = PlayerPrefs.GetInt("ruchnoj_vubor_jazuka", date_default_dlja_sbrosa.ruchnoj_vubor_jazuka);
 
 
-
-    date.language = PlayerPrefs.GetString("language");
+            date.language = PlayerPrefs.GetString("language");
 
             if (PlayerPrefs.GetInt("razblokirovan_lvl2") == 0)
             {
@@ -494,6 +506,7 @@ public class Progress : MonoBehaviour
     private void PERVOE_SOHRANENIE()
     {
         date = date_default_dlja_sbrosa.Clone();
+        date.language=Load_Yandex_Language();
 
         Debug.Log("8 ѕ–ќ√–≈—— создание метки дл€ первого сохранени€");
         //  PlayerPrefs.SetInt("PERVUI_ZAPUSK", 0);
@@ -555,35 +568,37 @@ public class Progress : MonoBehaviour
             YG2.saves.pokupok = date.pokupok;
             YG2.saves.popadanij_v_zentr = date.popadanij_v_zentr;
 
+            YG2.saves.ruchnoj_vubor_jazuka = date.ruchnoj_vubor_jazuka;
+            YG2.saves.language = date.language;
 
-
-
-
-    YG2.saves.language = YG2.envir.language;
-
-            Debug.Log("язык запрошен " + YG2.saves.language);
-            //я сделал €зык заглавным в своей локализации
-            //потом узнал, что €ндекс возвращает его маленькими
-            //переписывать его во всех местах - влом
-            if (YG2.saves.language == "ru") YG2.saves.language = "RU";
-            else if (YG2.saves.language == "es") YG2.saves.language = "ES";
-            else if (YG2.saves.language == "it") YG2.saves.language = "IT";
-            else if (YG2.saves.language == "ja") YG2.saves.language = "JP";
-            else if (YG2.saves.language == "pl") YG2.saves.language = "PL";
-            else if (YG2.saves.language == "tr") YG2.saves.language = "TR";
-            else if (YG2.saves.language == "zh") YG2.saves.language = "CN";
-            else if (YG2.saves.language == "de") YG2.saves.language = "DE";
-            else if (YG2.saves.language == "fr") YG2.saves.language = "FR";
-            else if (YG2.saves.language == "en") YG2.saves.language = "EN";
-
-            //резервные €зыки
-            else if (YG2.saves.language == "be" || YG2.saves.language == "kk" || YG2.saves.language == "uk" || YG2.saves.language == "uz") YG2.saves.language = "RU";
-            else YG2.saves.language = "EN";
-
-            date.language = YG2.saves.language;
             Save_Yandex();
             Debug.Log("—ќ’–јЌ≈Ќ»≈ ѕ–ќ√–≈——ј Ќј яЌƒ≈ —≈");
         }
+    }
+
+    public string Load_Yandex_Language ()
+    {
+        YG2.saves.language = YG2.envir.language;
+
+        Debug.Log("язык запрошен " + YG2.saves.language);
+        //я сделал €зык заглавным в своей локализации
+        //потом узнал, что €ндекс возвращает его маленькими
+        //переписывать его во всех местах - влом
+        if (YG2.saves.language == "ru") YG2.saves.language = "RU";
+        else if (YG2.saves.language == "es") YG2.saves.language = "ES";
+        else if (YG2.saves.language == "it") YG2.saves.language = "IT";
+        else if (YG2.saves.language == "ja") YG2.saves.language = "JP";
+        else if (YG2.saves.language == "pl") YG2.saves.language = "PL";
+        else if (YG2.saves.language == "tr") YG2.saves.language = "TR";
+        else if (YG2.saves.language == "zh") YG2.saves.language = "CN";
+        else if (YG2.saves.language == "de") YG2.saves.language = "DE";
+        else if (YG2.saves.language == "fr") YG2.saves.language = "FR";
+        else if (YG2.saves.language == "en") YG2.saves.language = "EN";
+
+        //резервные €зыки
+        else if (YG2.saves.language == "be" || YG2.saves.language == "kk" || YG2.saves.language == "uk" || YG2.saves.language == "uz") YG2.saves.language = "RU";
+        else YG2.saves.language = "EN";
+        return YG2.saves.language;
     }
 
     //--------------------------ѕќ ”ѕ » ћ» –ќ“–јЌ«ј ÷»»--------------------------------------
@@ -608,9 +623,9 @@ public class Progress : MonoBehaviour
 
     private void OnPurchaseSuccess(string id)
     {
-        for (int razmer = 0; razmer <=2; razmer++)
+        for (int razmer = 0; razmer <= 2; razmer++)
         {
-            if (id == "a"+(razmer+1)) { date.aptetschka += _purch.purch_aptetschka[razmer]; YG2.SetState("aptetschka", date.aptetschka); }
+            if (id == "a" + (razmer + 1)) { date.aptetschka += _purch.purch_aptetschka[razmer]; YG2.SetState("aptetschka", date.aptetschka); }
             else if (id == "m" + (razmer + 1)) { date.usilenie1_minigun += _purch.purch_usilenie1_minigun[razmer]; YG2.SetState("usilenie1_minigun", date.usilenie1_minigun); }
             else if (id == "art" + (razmer + 1)) { date.usilenie2_arta += _purch.purch_usilenie2_arta[razmer]; YG2.SetState("usilenie2_arta", date.usilenie2_arta); }
             else if (id == "z" + (razmer + 1)) { date.usilenie3_zamarozka += _purch.purch_usilenie3_zamarozka[razmer]; YG2.SetState("usilenie3_zamarozka", date.usilenie3_zamarozka); }
@@ -638,25 +653,25 @@ public class Progress : MonoBehaviour
         {
             date.usilenie1_minigun--;
             date.ispolzovano_usilenij_minigun++;
-    YG2.SetState("usilenie1_minigun", date.usilenie1_minigun);
+            YG2.SetState("usilenie1_minigun", date.usilenie1_minigun);
         }
         else if (nomer == 2)
         {
             date.usilenie2_arta--;
             date.ispolzovano_usilenij_art++;
-    YG2.SetState("usilenie2_arta", date.usilenie2_arta);
+            YG2.SetState("usilenie2_arta", date.usilenie2_arta);
         }
         else if (nomer == 3)
         {
             date.usilenie3_zamarozka--;
-    date.ispolzovano_usilenij_samoroska++;
-    YG2.SetState("usilenie3_zamarozka", date.usilenie3_zamarozka);
+            date.ispolzovano_usilenij_samoroska++;
+            YG2.SetState("usilenie3_zamarozka", date.usilenie3_zamarozka);
         }
         else if (nomer == 4)
         {
             date.usilenie4_schit--;
-    date.ispolzovano_usilenij_schit++;
-    YG2.SetState("usilenie4_schit", date.usilenie4_schit);
+            date.ispolzovano_usilenij_schit++;
+            YG2.SetState("usilenie4_schit", date.usilenie4_schit);
         }
         else if (nomer == 5)
         {
@@ -726,7 +741,7 @@ public class Progress : MonoBehaviour
         Save();
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-       
+
     }
 
     public void Set_prizel_contur(int a)
@@ -741,11 +756,11 @@ public class Progress : MonoBehaviour
     }
     public int Get_prizel_contur()
     {
-       return date._prizel_contur;
+        return date._prizel_contur;
     }
     public int Get_prizel_mushka()
     {
-       return date._prizel_mushka;
+        return date._prizel_mushka;
     }
 
     public int get_tip_upravlenija()
@@ -754,7 +769,7 @@ public class Progress : MonoBehaviour
     }
     public void set_tip_upravlenija(int a)
     {
-        date.tip_upravlenija=a;
+        date.tip_upravlenija = a;
     }
     public void set_chuvstvitelnost_gyro_base(float a)
     {
@@ -772,7 +787,7 @@ public class Progress : MonoBehaviour
     {
         date.inversija_y = a;
     }
-    
+
     public void popadanij_v_zentr()
     {
         date.popadanij_v_zentr++;

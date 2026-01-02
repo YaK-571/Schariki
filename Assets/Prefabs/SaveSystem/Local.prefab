@@ -47,6 +47,6 @@ MonoBehaviour:
   csvFile: {fileID: 0}
   language: 
   _fontAssetRu: {fileID: 11400000, guid: 068b8d833564b56448b810a845384c30, type: 2}
-  _fontAssetCn: {fileID: 11400000, guid: 55363d7007205af40a514e5b23317dc9, type: 2}
+  _fontAssetCn: {fileID: 11400000, guid: 13eb0b547f916384d912cac62a05cf59, type: 2}
   _fontAssetKr: {fileID: 11400000, guid: 1aaad75852978df4ca507ac3313ac87c, type: 2}
   _fontAssetJp: {fileID: 11400000, guid: 4530c8e0fd6e287488f5c2921411f23e, type: 2}

@@ -33,6 +33,9 @@ public class csUI_usilenie : MonoBehaviour
     [SerializeField] GameObject _artobstrel;
     [SerializeField] csSpawn_Vspuschek _spawn_vspuschek;
     [SerializeField] csGraniza_nischnjaja _graniza_niz;
+    [SerializeField] GameObject _magazin;
+    [SerializeField] GameObject _pauza;
+    
 
     //[SerializeField] csGraniza_nischnjaja _zamerzanie_graniza;
 
@@ -115,6 +118,7 @@ public class csUI_usilenie : MonoBehaviour
             vuvod_tschislo_usilenij();
             Pokaz_usileniy();
         }
+        else { Activ_Magazin(); }
 
     }
     public void Artobstrel()
@@ -128,6 +132,7 @@ public class csUI_usilenie : MonoBehaviour
             vuvod_tschislo_usilenij();
             Pokaz_usileniy();
         }
+        else { Activ_Magazin(); }
     }
     public void Zamerzanie()
     {
@@ -138,6 +143,7 @@ public class csUI_usilenie : MonoBehaviour
             vuvod_tschislo_usilenij();
             Pokaz_usileniy();
         }
+        else { Activ_Magazin(); }
     }
     public void Schit()
     {
@@ -148,6 +154,13 @@ public class csUI_usilenie : MonoBehaviour
             vuvod_tschislo_usilenij();
             Pokaz_usileniy();
         }
+        else { Activ_Magazin(); }
+    }
+
+    public void Activ_Magazin()
+    {
+        _pauza.SetActive(true);
+        _magazin.SetActive(true);
     }
 
 }
